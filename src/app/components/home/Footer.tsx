@@ -39,11 +39,11 @@ const Footer = () => {
         </div>
         <div className="w-[25%] text-primary_1 font-archivo ">
           <p className="text-lg    pt-1">Contact US</p>
-          <div className="flex space-x-8 items-center text-primary_8 mt-10">
+          <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineMailOpen size={25} />
             <p className="font-archivo pt-1">Admin@decenterai.com</p>
           </div>
-          <div className="flex space-x-8 items-center text-primary_8 mt-10">
+          <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineLocationMarker size={50} className="text-primary_8" />
             <p className="font-archivo pt-1">
               Address: SURECRYPTO PTY LTD, 58 Kerwin circle Herbersham, 2770,
