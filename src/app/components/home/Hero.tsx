@@ -7,7 +7,7 @@ const Hero = () => {
     <section className="min-h-[80vh] flex justify-end relative">
       <Spiral />
       <div className="absolute inset-0 bg-primary_13 bg-opacity-50 z-10">
-        <div className="w-[80%] h-[10%] m-auto mt-[2%] rounded-full bg-primary_13   border-primary_8 text-white flex justify-between">
+        <div className="w-[80%] h-[10%] m-auto mt-[2%] rounded-full bg-primary_13 bg-opacity-80  border-primary_8 text-white flex justify-between">
           <div className="w-[10%] relative">
             <Image
               src="/logo.png"
