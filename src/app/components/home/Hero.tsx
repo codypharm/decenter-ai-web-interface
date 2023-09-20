@@ -1,5 +1,6 @@
 import Spiral from "@/svg/spiral";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -35,9 +36,11 @@ const Hero = () => {
           </div>
 
           <div className="w-[20%] h-full flex items-center">
-            <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
-              Try Demo
-            </button>
+            <Link href="/demo">
+              <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
+                Try Demo
+              </button>
+            </Link>
           </div>
         </div>
         <div className="h-[85%] w-[80%] m-auto flex flex-col justify-center ">
@@ -49,11 +52,13 @@ const Hero = () => {
             Train ML/DL/ ANN/LLM models with ease.
           </p>
           <div className="flex space-x-16 mt-10">
-            <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-3xl">
-              Try Demo
-            </button>
+            <Link href="/demo">
+              <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-3xl">
+                Try Demo
+              </button>
+            </Link>
             <button className="border border-primary_8 text-primary_8 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-3xl">
-              Try Demo
+              DCEN
             </button>
           </div>
         </div>
