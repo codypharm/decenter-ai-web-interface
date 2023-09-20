@@ -13,8 +13,9 @@ interface IFile {
 
 const Demo = () => {
   const [fileList, setFileList] = useState<IFile[]>([]);
+  const [noteBookList, setNoteBookList] = useState<IFile[]>([]);
   const [modelName, setModelName] = useState<string>("");
-  const [noteBook, setNoteBook] = useState<{}>();
+  const [selectedNoteBook, setSelectedNoteBook] = useState<{}>();
 
   //extract zip file
   const extractFile = async (e: React.FormEvent<HTMLInputElement>) => {
@@ -27,13 +28,21 @@ const Demo = () => {
     extractedFiles.forEach(async (relativePath, file) => {
       const content = await file.async("string");
 
-      //skip directories and non notebook files
-      if (!file.dir && relativePath.match(regex)?.[0] === "ipynb") {
-        //set note booke lost
+      //skip directories
+      if (!file.dir) {
+        //set file list
         setFileList((fileList) => [
           ...fileList,
           { file: file, path: relativePath },
         ]);
+
+        //set note book list
+        if (relativePath.match(regex)?.[0] === "ipynb") {
+          setNoteBookList((noteBookList) => [
+            ...noteBookList,
+            { file: file, path: relativePath },
+          ]);
+        }
       }
     });
   };
@@ -41,12 +50,14 @@ const Demo = () => {
   const selectNoteBook = (e: React.FormEvent<HTMLSelectElement>) => {
     const fileName = e.currentTarget.value;
     //fillter matching note book file
-    fileList.forEach((item) => {
+    noteBookList.forEach((item) => {
       if (item.file.name.toUpperCase() === fileName.toUpperCase())
         //select the matching notebook
-        setNoteBook(item.file);
+        setSelectedNoteBook(item.file);
     });
   };
+
+  console.log(fileList, noteBookList, selectedNoteBook);
 
   return (
     <main className="bg-primary_13 h-screen flex items-center">
@@ -94,7 +105,7 @@ const Demo = () => {
             className="rounded-md bg-primary_8 text-primary_1 p-4 cursor-pointer w-full border-none focus:ring-0 focus:border-none outline-none"
           >
             <option value="">Select </option>
-            {fileList.map((item, idx) => (
+            {noteBookList.map((item, idx) => (
               <option value={item.file.name} key={idx}>
                 {item.file.name}
               </option>
