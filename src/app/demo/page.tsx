@@ -1,7 +1,53 @@
-import React from "react";
+"use client";
+import JSZip from "jszip";
+import React, { useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
+import { AiOutlineCloudDownload } from "react-icons/ai";
+
+interface IFile {
+  file: {
+    name: string;
+  };
+  path: string;
+}
 
 const Demo = () => {
+  const [fileList, setFileList] = useState<IFile[]>([]);
+  const [modelName, setModelName] = useState<string>("");
+  const [noteBook, setNoteBook] = useState<{}>();
+
+  //extract zip file
+  const extractFile = async (e: React.FormEvent<HTMLInputElement>) => {
+    const file = e.currentTarget.files ? e.currentTarget.files[0] : [];
+    const zip = new JSZip();
+    const extractedFiles = await zip.loadAsync(file);
+    const regex = new RegExp("[^.]+$");
+
+    //loop through extracted files
+    extractedFiles.forEach(async (relativePath, file) => {
+      const content = await file.async("string");
+
+      //skip directories and non notebook files
+      if (!file.dir && relativePath.match(regex)?.[0] === "ipynb") {
+        //set note booke lost
+        setFileList((fileList) => [
+          ...fileList,
+          { file: file, path: relativePath },
+        ]);
+      }
+    });
+  };
+
+  const selectNoteBook = (e: React.FormEvent<HTMLSelectElement>) => {
+    const fileName = e.currentTarget.value;
+    //fillter matching note book file
+    fileList.forEach((item) => {
+      if (item.file.name.toUpperCase() === fileName.toUpperCase())
+        //select the matching notebook
+        setNoteBook(item.file);
+    });
+  };
+
   return (
     <main className="bg-primary_13 h-screen flex items-center">
       <div className="w-[50%] m-auto ">
@@ -32,6 +78,7 @@ const Demo = () => {
               <input
                 type="file"
                 accept=".zip"
+                onChange={(e) => extractFile(e)}
                 className=" text-primary_1 rounded-xl mt-4 bg-primary_13  border border-primary_8 py-4 px-2"
               />
             </div>
@@ -42,8 +89,16 @@ const Demo = () => {
           </div>
 
           <p className="text-primary_1 mt-4">Select a notebook</p>
-          <select className="rounded-md bg-primary_8 text-primary_1 p-4 cursor-pointer w-full border-none focus:ring-0 focus:border-none outline-none">
+          <select
+            onChange={(e) => selectNoteBook(e)}
+            className="rounded-md bg-primary_8 text-primary_1 p-4 cursor-pointer w-full border-none focus:ring-0 focus:border-none outline-none"
+          >
             <option value="">Select </option>
+            {fileList.map((item, idx) => (
+              <option value={item.file.name} key={idx}>
+                {item.file.name}
+              </option>
+            ))}
           </select>
 
           <button
@@ -51,6 +106,13 @@ const Demo = () => {
             className=" text-primary_1 rounded-xl mt-4 bg-primary_13  border border-primary_8 py-4 px-6"
           >
             Execute
+          </button>
+
+          <button
+            type="submit"
+            className=" text-primary_1 rounded-xl mt-4 bg-primary_13  flex justify-between items-center border border-primary_8 py-4 w-52 px-4"
+          >
+            Download Model <AiOutlineCloudDownload size={30} />
           </button>
         </form>
       </div>
