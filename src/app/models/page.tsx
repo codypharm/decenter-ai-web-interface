@@ -16,9 +16,14 @@ const Models = () => {
               <div className="h-auto w-[70%] flex items-center py-3 font-archivo leading-relaxed">
                 jnidfnknfdjioj9ojflksdjjsdiupokodsk
               </div>
-              <div className="h-auto w-[30%] flex items-center justify-center py-3  font-archivo leading-relaxed">
+              <div className="h-auto w-[15%] flex items-center justify-center py-3  font-archivo leading-relaxed">
                 <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
                   Download
+                </button>
+              </div>
+              <div className="h-auto w-[15%] flex items-center justify-center py-3  font-archivo leading-relaxed">
+                <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
+                  Backup
                 </button>
               </div>
             </div>
