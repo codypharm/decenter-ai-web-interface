@@ -3,7 +3,7 @@ import JSZip from "jszip";
 import React, { useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { AiOutlineCloudDownload } from "react-icons/ai";
-
+import { ConnectButton } from '@rainbow-me/rainbowkit';
 interface IFile {
   file: {
     name: string;
@@ -62,6 +62,7 @@ const Demo = () => {
   return (
     <main className="bg-primary_13 h-screen flex items-center">
       <div className="w-[50%] m-auto ">
+        <ConnectButton showBalance={false} />
         <h1 className="font-logirentBold text-center text-3xl text-primary_1">
           AI Infrastructure For Model Training
         </h1>
