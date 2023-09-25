@@ -3,7 +3,9 @@ import JSZip from "jszip";
 import React, { useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { AiOutlineCloudDownload } from "react-icons/ai";
-import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { ConnectButton } from "@rainbow-me/rainbowkit";
+import UploadFile from "../components/fvm/UploadFile";
+
 interface IFile {
   file: {
     name: string;
@@ -16,6 +18,10 @@ const Demo = () => {
   const [noteBookList, setNoteBookList] = useState<IFile[]>([]);
   const [modelName, setModelName] = useState<string>("");
   const [selectedNoteBook, setSelectedNoteBook] = useState<{}>();
+
+  const parentCallback = (hash: string) => {
+    console.log(hash);
+  };
 
   //extract zip file
   const extractFile = async (e: React.FormEvent<HTMLInputElement>) => {
@@ -60,9 +66,11 @@ const Demo = () => {
   console.log(fileList, noteBookList, selectedNoteBook);
 
   return (
-    <main className="bg-primary_13 h-screen flex items-center">
-      <div className="w-[50%] m-auto ">
+    <main className="bg-primary_13 h-screen flex flex-col justify-center items-center">
+      <div className="w-full flex justify-end pt-10 pr-3">
         <ConnectButton showBalance={false} />
+      </div>
+      <div className="w-[50%] m-auto ">
         <h1 className="font-logirentBold text-center text-3xl text-primary_1">
           AI Infrastructure For Model Training
         </h1>
@@ -87,11 +95,16 @@ const Demo = () => {
             </div>
 
             <div className="w-[50%] h-full flex justify-end items-center text-primary_1">
-              <input
+              {/* <input
                 type="file"
                 accept=".zip"
                 onChange={(e) => extractFile(e)}
                 className=" text-primary_1 rounded-xl mt-4 bg-primary_13  border border-primary_8 py-4 px-2"
+              /> */}
+
+              <UploadFile
+                parentCallback={parentCallback}
+                extractFile={extractFile}
               />
             </div>
           </div>
