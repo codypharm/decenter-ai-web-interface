@@ -1,747 +1,794 @@
 export const dealClient = {
-  address: '0x410f07249C991B6B948714e98f4BE84Fe3eb0D8F',
+  address: '0x650B740f7451BFEbD18a1dE705C8BBfa64d53C7A',
   abi: [
     {
-      inputs: [],
-      stateMutability: 'nonpayable',
-      type: 'constructor'
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'int256',
-          name: 'errorCode',
-          type: 'int256'
+          "internalType": "int256",
+          "name": "errorCode",
+          "type": "int256"
         }
       ],
-      name: 'ActorError',
-      type: 'error'
+      "name": "ActorError",
+      "type": "error"
     },
     {
-      inputs: [],
-      name: 'FailToCallActor',
-      type: 'error'
+      "inputs": [],
+      "name": "ActorNotFound",
+      "type": "error"
     },
     {
-      inputs: [
+      "inputs": [],
+      "name": "FailToCallActor",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "InvalidAddress",
+      "type": "error"
+    },
+    {
+      "inputs": [
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         }
       ],
-      name: 'InvalidCodec',
-      type: 'error'
+      "name": "InvalidCodec",
+      "type": "error"
     },
     {
-      inputs: [],
-      name: 'InvalidResponseLength',
-      type: 'error'
+      "inputs": [],
+      "name": "InvalidResponseLength",
+      "type": "error"
     },
     {
-      inputs: [
-        {
-          internalType: 'uint256',
-          name: 'balance',
-          type: 'uint256'
-        },
-        {
-          internalType: 'uint256',
-          name: 'value',
-          type: 'uint256'
-        }
-      ],
-      name: 'NotEnoughBalance',
-      type: 'error'
+      "inputs": [],
+      "name": "NegativeValueNotAllowed",
+      "type": "error"
     },
     {
-      anonymous: false,
-      inputs: [
+      "inputs": [
         {
-          indexed: true,
-          internalType: 'bytes32',
-          name: 'id',
-          type: 'bytes32'
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
         },
         {
-          indexed: false,
-          internalType: 'uint64',
-          name: 'size',
-          type: 'uint64'
-        },
-        {
-          indexed: true,
-          internalType: 'bool',
-          name: 'verified',
-          type: 'bool'
-        },
-        {
-          indexed: false,
-          internalType: 'uint256',
-          name: 'price',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      name: 'DealProposalCreate',
-      type: 'event'
+      "name": "NotEnoughBalance",
+      "type": "error"
     },
     {
-      anonymous: false,
-      inputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          indexed: false,
-          internalType: 'string',
-          name: 'received',
-          type: 'string'
+          "indexed": true,
+          "internalType": "bytes32",
+          "name": "id",
+          "type": "bytes32"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint64",
+          "name": "size",
+          "type": "uint64"
+        },
+        {
+          "indexed": true,
+          "internalType": "bool",
+          "name": "verified",
+          "type": "bool"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
         }
       ],
-      name: 'ReceivedDataCap',
-      type: 'event'
+      "name": "DealProposalCreate",
+      "type": "event"
     },
     {
-      inputs: [],
-      name: 'AUTHENTICATE_MESSAGE_METHOD_NUM',
-      outputs: [
+      "anonymous": false,
+      "inputs": [
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "indexed": false,
+          "internalType": "string",
+          "name": "received",
+          "type": "string"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "name": "ReceivedDataCap",
+      "type": "event"
     },
     {
-      inputs: [],
-      name: 'DATACAP_RECEIVER_HOOK_METHOD_NUM',
-      outputs: [
+      "inputs": [],
+      "name": "AUTHENTICATE_MESSAGE_METHOD_NUM",
+      "outputs": [
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: 'MARKET_ACTOR_ETH_ADDRESS',
-      outputs: [
+      "inputs": [],
+      "name": "DATACAP_ACTOR_ETH_ADDRESS",
+      "outputs": [
         {
-          internalType: 'address',
-          name: '',
-          type: 'address'
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: 'MARKET_NOTIFY_DEAL_METHOD_NUM',
-      outputs: [
+      "inputs": [],
+      "name": "DATACAP_RECEIVER_HOOK_METHOD_NUM",
+      "outputs": [
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: 'VERIFREG_ACTOR_ETH_ADDRESS',
-      outputs: [
+      "inputs": [],
+      "name": "MARKET_ACTOR_ETH_ADDRESS",
+      "outputs": [
         {
-          internalType: 'address',
-          name: '',
-          type: 'address'
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [],
+      "name": "MARKET_NOTIFY_DEAL_METHOD_NUM",
+      "outputs": [
         {
-          internalType: 'uint256',
-          name: 'value',
-          type: 'uint256'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         }
       ],
-      name: 'addBalance',
-      outputs: [],
-      stateMutability: 'nonpayable',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes32',
-          name: '',
-          type: 'bytes32'
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      name: 'dealProposals',
-      outputs: [
-        {
-          internalType: 'uint256',
-          name: 'idx',
-          type: 'uint256'
-        },
-        {
-          internalType: 'bool',
-          name: 'valid',
-          type: 'bool'
-        }
-      ],
-      stateMutability: 'view',
-      type: 'function'
+      "name": "addBalance",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256'
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
         }
       ],
-      name: 'deals',
-      outputs: [
+      "name": "dealRequestIdx",
+      "outputs": [
         {
-          internalType: 'bytes',
-          name: 'piece_cid',
-          type: 'bytes'
+          "internalType": "uint256",
+          "name": "idx",
+          "type": "uint256"
         },
         {
-          internalType: 'uint64',
-          name: 'piece_size',
-          type: 'uint64'
+          "internalType": "bool",
+          "name": "valid",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "dealRequests",
+      "outputs": [
+        {
+          "internalType": "bytes",
+          "name": "piece_cid",
+          "type": "bytes"
         },
         {
-          internalType: 'bool',
-          name: 'verified_deal',
-          type: 'bool'
+          "internalType": "uint64",
+          "name": "piece_size",
+          "type": "uint64"
         },
         {
-          internalType: 'string',
-          name: 'label',
-          type: 'string'
+          "internalType": "bool",
+          "name": "verified_deal",
+          "type": "bool"
         },
         {
-          internalType: 'int64',
-          name: 'start_epoch',
-          type: 'int64'
+          "internalType": "string",
+          "name": "label",
+          "type": "string"
         },
         {
-          internalType: 'int64',
-          name: 'end_epoch',
-          type: 'int64'
+          "internalType": "int64",
+          "name": "start_epoch",
+          "type": "int64"
         },
         {
-          internalType: 'uint256',
-          name: 'storage_price_per_epoch',
-          type: 'uint256'
+          "internalType": "int64",
+          "name": "end_epoch",
+          "type": "int64"
         },
         {
-          internalType: 'uint256',
-          name: 'provider_collateral',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "storage_price_per_epoch",
+          "type": "uint256"
         },
         {
-          internalType: 'uint256',
-          name: 'client_collateral',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "provider_collateral",
+          "type": "uint256"
         },
         {
-          internalType: 'uint64',
-          name: 'extra_params_version',
-          type: 'uint64'
+          "internalType": "uint256",
+          "name": "client_collateral",
+          "type": "uint256"
         },
         {
-          components: [
+          "internalType": "uint64",
+          "name": "extra_params_version",
+          "type": "uint64"
+        },
+        {
+          "components": [
             {
-              internalType: 'string',
-              name: 'location_ref',
-              type: 'string'
+              "internalType": "string",
+              "name": "location_ref",
+              "type": "string"
             },
             {
-              internalType: 'uint64',
-              name: 'car_size',
-              type: 'uint64'
+              "internalType": "uint64",
+              "name": "car_size",
+              "type": "uint64"
             },
             {
-              internalType: 'bool',
-              name: 'skip_ipni_announce',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "skip_ipni_announce",
+              "type": "bool"
             },
             {
-              internalType: 'bool',
-              name: 'remove_unsealed_copy',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "remove_unsealed_copy",
+              "type": "bool"
             }
           ],
-          internalType: 'struct ExtraParamsV1',
-          name: 'extra_params',
-          type: 'tuple'
+          "internalType": "struct ExtraParamsV1",
+          "name": "extra_params",
+          "type": "tuple"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: 'dealsLength',
-      outputs: [
+      "inputs": [],
+      "name": "dealsLength",
+      "outputs": [
         {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'uint256',
-          name: 'index',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "index",
+          "type": "uint256"
         }
       ],
-      name: 'getDealByIndex',
-      outputs: [
+      "name": "getDealByIndex",
+      "outputs": [
         {
-          components: [
+          "components": [
             {
-              internalType: 'bytes',
-              name: 'piece_cid',
-              type: 'bytes'
+              "internalType": "bytes",
+              "name": "piece_cid",
+              "type": "bytes"
             },
             {
-              internalType: 'uint64',
-              name: 'piece_size',
-              type: 'uint64'
+              "internalType": "uint64",
+              "name": "piece_size",
+              "type": "uint64"
             },
             {
-              internalType: 'bool',
-              name: 'verified_deal',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "verified_deal",
+              "type": "bool"
             },
             {
-              internalType: 'string',
-              name: 'label',
-              type: 'string'
+              "internalType": "string",
+              "name": "label",
+              "type": "string"
             },
             {
-              internalType: 'int64',
-              name: 'start_epoch',
-              type: 'int64'
+              "internalType": "int64",
+              "name": "start_epoch",
+              "type": "int64"
             },
             {
-              internalType: 'int64',
-              name: 'end_epoch',
-              type: 'int64'
+              "internalType": "int64",
+              "name": "end_epoch",
+              "type": "int64"
             },
             {
-              internalType: 'uint256',
-              name: 'storage_price_per_epoch',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "storage_price_per_epoch",
+              "type": "uint256"
             },
             {
-              internalType: 'uint256',
-              name: 'provider_collateral',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "provider_collateral",
+              "type": "uint256"
             },
             {
-              internalType: 'uint256',
-              name: 'client_collateral',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "client_collateral",
+              "type": "uint256"
             },
             {
-              internalType: 'uint64',
-              name: 'extra_params_version',
-              type: 'uint64'
+              "internalType": "uint64",
+              "name": "extra_params_version",
+              "type": "uint64"
             },
             {
-              components: [
+              "components": [
                 {
-                  internalType: 'string',
-                  name: 'location_ref',
-                  type: 'string'
+                  "internalType": "string",
+                  "name": "location_ref",
+                  "type": "string"
                 },
                 {
-                  internalType: 'uint64',
-                  name: 'car_size',
-                  type: 'uint64'
+                  "internalType": "uint64",
+                  "name": "car_size",
+                  "type": "uint64"
                 },
                 {
-                  internalType: 'bool',
-                  name: 'skip_ipni_announce',
-                  type: 'bool'
+                  "internalType": "bool",
+                  "name": "skip_ipni_announce",
+                  "type": "bool"
                 },
                 {
-                  internalType: 'bool',
-                  name: 'remove_unsealed_copy',
-                  type: 'bool'
+                  "internalType": "bool",
+                  "name": "remove_unsealed_copy",
+                  "type": "bool"
                 }
               ],
-              internalType: 'struct ExtraParamsV1',
-              name: 'extra_params',
-              type: 'tuple'
+              "internalType": "struct ExtraParamsV1",
+              "name": "extra_params",
+              "type": "tuple"
             }
           ],
-          internalType: 'struct DealRequest',
-          name: '',
-          type: 'tuple'
+          "internalType": "struct DealRequest",
+          "name": "",
+          "type": "tuple"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes32',
-          name: 'proposalId',
-          type: 'bytes32'
+          "internalType": "bytes32",
+          "name": "proposalId",
+          "type": "bytes32"
         }
       ],
-      name: 'getDealProposal',
-      outputs: [
+      "name": "getDealProposal",
+      "outputs": [
         {
-          internalType: 'bytes',
-          name: '',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes32',
-          name: 'proposalId',
-          type: 'bytes32'
+          "internalType": "bytes32",
+          "name": "proposalId",
+          "type": "bytes32"
         }
       ],
-      name: 'getExtraParams',
-      outputs: [
+      "name": "getExtraParams",
+      "outputs": [
         {
-          internalType: 'bytes',
-          name: 'extra_params',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "extra_params",
+          "type": "bytes"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes',
-          name: 'cid',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "cid",
+          "type": "bytes"
         }
       ],
-      name: 'getProposalIdSet',
-      outputs: [
+      "name": "getProposalIdSet",
+      "outputs": [
         {
-          components: [
+          "components": [
             {
-              internalType: 'bytes32',
-              name: 'proposalId',
-              type: 'bytes32'
+              "internalType": "bytes32",
+              "name": "requestId",
+              "type": "bytes32"
             },
             {
-              internalType: 'bool',
-              name: 'valid',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "valid",
+              "type": "bool"
             }
           ],
-          internalType: 'struct ProposalIdSet',
-          name: '',
-          type: 'tuple'
+          "internalType": "struct RequestId",
+          "name": "",
+          "type": "tuple"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes',
-          name: 'cid',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "cid",
+          "type": "bytes"
         }
       ],
-      name: 'getProviderSet',
-      outputs: [
+      "name": "getProviderSet",
+      "outputs": [
         {
-          components: [
+          "components": [
             {
-              internalType: 'bytes',
-              name: 'provider',
-              type: 'bytes'
+              "internalType": "bytes",
+              "name": "provider",
+              "type": "bytes"
             },
             {
-              internalType: 'bool',
-              name: 'valid',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "valid",
+              "type": "bool"
             }
           ],
-          internalType: 'struct ProviderSet',
-          name: '',
-          type: 'tuple'
+          "internalType": "struct ProviderSet",
+          "name": "",
+          "type": "tuple"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'uint64',
-          name: 'method',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "method",
+          "type": "uint64"
         },
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         },
         {
-          internalType: 'bytes',
-          name: 'params',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "params",
+          "type": "bytes"
         }
       ],
-      name: 'handle_filecoin_method',
-      outputs: [
+      "name": "handle_filecoin_method",
+      "outputs": [
         {
-          internalType: 'uint32',
-          name: '',
-          type: 'uint32'
+          "internalType": "uint32",
+          "name": "",
+          "type": "uint32"
         },
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         },
         {
-          internalType: 'bytes',
-          name: '',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      stateMutability: 'nonpayable',
-      type: 'function'
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          components: [
+          "components": [
             {
-              internalType: 'bytes',
-              name: 'piece_cid',
-              type: 'bytes'
+              "internalType": "bytes",
+              "name": "piece_cid",
+              "type": "bytes"
             },
             {
-              internalType: 'uint64',
-              name: 'piece_size',
-              type: 'uint64'
+              "internalType": "uint64",
+              "name": "piece_size",
+              "type": "uint64"
             },
             {
-              internalType: 'bool',
-              name: 'verified_deal',
-              type: 'bool'
+              "internalType": "bool",
+              "name": "verified_deal",
+              "type": "bool"
             },
             {
-              internalType: 'string',
-              name: 'label',
-              type: 'string'
+              "internalType": "string",
+              "name": "label",
+              "type": "string"
             },
             {
-              internalType: 'int64',
-              name: 'start_epoch',
-              type: 'int64'
+              "internalType": "int64",
+              "name": "start_epoch",
+              "type": "int64"
             },
             {
-              internalType: 'int64',
-              name: 'end_epoch',
-              type: 'int64'
+              "internalType": "int64",
+              "name": "end_epoch",
+              "type": "int64"
             },
             {
-              internalType: 'uint256',
-              name: 'storage_price_per_epoch',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "storage_price_per_epoch",
+              "type": "uint256"
             },
             {
-              internalType: 'uint256',
-              name: 'provider_collateral',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "provider_collateral",
+              "type": "uint256"
             },
             {
-              internalType: 'uint256',
-              name: 'client_collateral',
-              type: 'uint256'
+              "internalType": "uint256",
+              "name": "client_collateral",
+              "type": "uint256"
             },
             {
-              internalType: 'uint64',
-              name: 'extra_params_version',
-              type: 'uint64'
+              "internalType": "uint64",
+              "name": "extra_params_version",
+              "type": "uint64"
             },
             {
-              components: [
+              "components": [
                 {
-                  internalType: 'string',
-                  name: 'location_ref',
-                  type: 'string'
+                  "internalType": "string",
+                  "name": "location_ref",
+                  "type": "string"
                 },
                 {
-                  internalType: 'uint64',
-                  name: 'car_size',
-                  type: 'uint64'
+                  "internalType": "uint64",
+                  "name": "car_size",
+                  "type": "uint64"
                 },
                 {
-                  internalType: 'bool',
-                  name: 'skip_ipni_announce',
-                  type: 'bool'
+                  "internalType": "bool",
+                  "name": "skip_ipni_announce",
+                  "type": "bool"
                 },
                 {
-                  internalType: 'bool',
-                  name: 'remove_unsealed_copy',
-                  type: 'bool'
+                  "internalType": "bool",
+                  "name": "remove_unsealed_copy",
+                  "type": "bool"
                 }
               ],
-              internalType: 'struct ExtraParamsV1',
-              name: 'extra_params',
-              type: 'tuple'
+              "internalType": "struct ExtraParamsV1",
+              "name": "extra_params",
+              "type": "tuple"
             }
           ],
-          internalType: 'struct DealRequest',
-          name: 'deal',
-          type: 'tuple'
+          "internalType": "struct DealRequest",
+          "name": "deal",
+          "type": "tuple"
         }
       ],
-      name: 'makeDealProposal',
-      outputs: [
+      "name": "makeDealProposal",
+      "outputs": [
         {
-          internalType: 'bytes32',
-          name: '',
-          type: 'bytes32'
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
         }
       ],
-      stateMutability: 'nonpayable',
-      type: 'function'
+      "stateMutability": "nonpayable",
+      "type": "function"
     },
     {
-      inputs: [],
-      name: 'owner',
-      outputs: [
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
         {
-          internalType: 'address',
-          name: '',
-          type: 'address'
+          "internalType": "address",
+          "name": "",
+          "type": "address"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes',
-          name: '',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      name: 'pieceDeals',
-      outputs: [
+      "name": "pieceDeals",
+      "outputs": [
         {
-          internalType: 'uint64',
-          name: '',
-          type: 'uint64'
+          "internalType": "uint64",
+          "name": "",
+          "type": "uint64"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes',
-          name: '',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      name: 'pieceProviders',
-      outputs: [
+      "name": "pieceProviders",
+      "outputs": [
         {
-          internalType: 'bytes',
-          name: 'provider',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "provider",
+          "type": "bytes"
         },
         {
-          internalType: 'bool',
-          name: 'valid',
-          type: 'bool'
+          "internalType": "bool",
+          "name": "valid",
+          "type": "bool"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'bytes',
-          name: '',
-          type: 'bytes'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
         }
       ],
-      name: 'pieceToProposal',
-      outputs: [
+      "name": "pieceRequests",
+      "outputs": [
         {
-          internalType: 'bytes32',
-          name: 'proposalId',
-          type: 'bytes32'
+          "internalType": "bytes32",
+          "name": "requestId",
+          "type": "bytes32"
         },
         {
-          internalType: 'bool',
-          name: 'valid',
-          type: 'bool'
+          "internalType": "bool",
+          "name": "valid",
+          "type": "bool"
         }
       ],
-      stateMutability: 'view',
-      type: 'function'
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      inputs: [
+      "inputs": [
         {
-          internalType: 'address',
-          name: 'client',
-          type: 'address'
+          "internalType": "bytes",
+          "name": "",
+          "type": "bytes"
+        }
+      ],
+      "name": "pieceStatus",
+      "outputs": [
+        {
+          "internalType": "enum DealClient.Status",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes",
+          "name": "pieceCid",
+          "type": "bytes"
+        }
+      ],
+      "name": "updateActivationStatus",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "client",
+          "type": "address"
         },
         {
-          internalType: 'uint256',
-          name: 'value',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "value",
+          "type": "uint256"
         }
       ],
-      name: 'withdrawBalance',
-      outputs: [
+      "name": "withdrawBalance",
+      "outputs": [
         {
-          internalType: 'uint256',
-          name: '',
-          type: 'uint256'
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
         }
       ],
-      stateMutability: 'nonpayable',
-      type: 'function'
+      "stateMutability": "nonpayable",
+      "type": "function"
     }
   ],
   bytecode: {
