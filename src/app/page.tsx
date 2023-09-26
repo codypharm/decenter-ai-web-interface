@@ -16,7 +16,7 @@ export default function Home() {
       <Demo />
       <Features />
       <Token />
-      <Team />
+      {/* <Team /> */}
       <Action />
       <Footer />
     </main>

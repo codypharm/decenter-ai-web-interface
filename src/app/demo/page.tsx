@@ -1,10 +1,18 @@
 "use client";
 import JSZip from "jszip";
+import { parseEther } from "viem";
 import React, { useState } from "react";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import UploadFile from "../components/fvm/UploadFile";
+import {
+  useContractWrite,
+  useAccount,
+  useWaitForTransaction,
+  useContractRead,
+} from "wagmi";
+import SDXL from "@/abi/SDXLCaller_metadata.json";
 
 interface IFile {
   file: {
@@ -18,6 +26,66 @@ const Demo = () => {
   const [noteBookList, setNoteBookList] = useState<IFile[]>([]);
   const [modelName, setModelName] = useState<string>("");
   const [selectedNoteBook, setSelectedNoteBook] = useState<{}>();
+  const { address, isConnected } = useAccount();
+
+  const { write, data } = useContractWrite({
+    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+    abi: SDXL.output.abi,
+    chainId: 1337,
+    functionName: "runSDXL",
+  });
+
+  const {
+    data: jobIdData,
+    isError,
+    isLoading,
+  } = useContractRead({
+    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+    abi: SDXL.output.abi,
+    chainId: 1337,
+    functionName: "userJobId",
+    args: [address],
+    watch: true,
+
+    onSuccess(data) {
+      console.log("Success", data);
+      console.log(jobIdData);
+    },
+  });
+
+  const {
+    data: cidData,
+    isError: cidError,
+    isLoading: cidLoading,
+  } = useContractRead({
+    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+    abi: SDXL.output.abi,
+    chainId: 1337,
+    functionName: "cidRecord",
+    args: [jobIdData],
+    watch: true,
+
+    onSuccess(data) {
+      console.log("Success", data);
+    },
+  });
+
+  const waitForTransaction = useWaitForTransaction({
+    chainId: 1337,
+    hash: data?.hash,
+    onSuccess(data) {
+      console.log(data);
+    },
+  });
+
+  const execute = () => {
+    write({
+      args: ["green dog"],
+      //@ts-ignore
+      from: address,
+      value: parseEther("4"),
+    });
+  };
 
   const parentCallback = (hash: string) => {
     console.log(hash);
@@ -127,7 +195,8 @@ const Demo = () => {
           </select>
 
           <button
-            type="submit"
+            type="button"
+            onClick={execute}
             className=" text-primary_1 rounded-xl mt-4 bg-primary_13  border border-primary_8 py-4 px-6"
           >
             Execute
