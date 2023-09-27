@@ -6,6 +6,10 @@ import { AiOutlineCloudUpload } from "react-icons/ai";
 import { AiOutlineCloudDownload } from "react-icons/ai";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import UploadFile from "../components/fvm/UploadFile";
+import { switchNetwork } from "@wagmi/core";
+import { useNetwork } from "wagmi";
+import { readContracts } from "@wagmi/core";
+
 import {
   useContractWrite,
   useAccount,
@@ -13,6 +17,7 @@ import {
   useContractRead,
 } from "wagmi";
 import SDXL from "@/abi/SDXLCaller_metadata.json";
+import DatasetNFT from "@/abi/DatasetNFT_metadata.json";
 
 interface IFile {
   file: {
@@ -26,8 +31,12 @@ const Demo = () => {
   const [noteBookList, setNoteBookList] = useState<IFile[]>([]);
   const [modelName, setModelName] = useState<string>("");
   const [selectedNoteBook, setSelectedNoteBook] = useState<{}>();
+  const [jobIdData, setJobIdData] = useState<number | unknown>(0);
+  const [genCid, setGenCid] = useState<string>("");
   const { address, isConnected } = useAccount();
+  const { chain, chains } = useNetwork();
 
+  //write to lily pad
   const { write, data } = useContractWrite({
     address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
     abi: SDXL.output.abi,
@@ -35,24 +44,41 @@ const Demo = () => {
     functionName: "runSDXL",
   });
 
-  const {
-    data: jobIdData,
-    isError,
-    isLoading,
-  } = useContractRead({
-    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
-    abi: SDXL.output.abi,
-    chainId: 1337,
-    functionName: "userJobId",
-    args: [address],
-    watch: true,
-
-    onSuccess(data) {
-      console.log("Success", data);
-      console.log(jobIdData);
-    },
+  //mint NFT
+  const { write: mintNFT, data: mintedNFT } = useContractWrite({
+    address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+    abi: DatasetNFT.output.abi,
+    chainId: chain?.id,
+    functionName: "mintNFT",
   });
 
+  // const {
+  //   data: jobIdData,
+  //   isError,
+  //   isLoading,
+  // } = useContractRead({
+  //   address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+  //   abi: SDXL.output.abi,
+  //   chainId: 1337,
+  //   functionName: "userJobId",
+  //   args: [address],
+  //   watch: true,
+
+  //   onSuccess(data) {
+  //     console.log("Success", data);
+  //     console.log(jobIdData);
+  //   },
+  // });
+
+  //switch to file coin
+  const switchToFil = async () => {
+    if (chain?.id != 314159)
+      await switchNetwork({
+        chainId: 314159,
+      });
+  };
+
+  //Get matching CID for a job id
   const {
     data: cidData,
     isError: cidError,
@@ -67,20 +93,111 @@ const Demo = () => {
 
     onSuccess(data) {
       console.log("Success", data);
+      if (data) {
+        switchToFil();
+        setGenCid(data.toString());
+      }
     },
   });
 
+  //wait of nft minting
+  const waitForNFTTransaction = useWaitForTransaction({
+    chainId: chain?.id,
+    hash: mintedNFT?.hash,
+    onSuccess(data) {
+      console.log(data, "nft minted");
+    },
+  });
+
+  //mint nft
+  const proceedToMint = () => {
+    mintNFT({
+      args: [`${genCid}`],
+      //@ts-ignore
+      from: address,
+    });
+  };
+
+  //get users nfts
+  const {
+    data: nftData,
+    isError,
+    isLoading,
+  } = useContractRead({
+    address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+    abi: DatasetNFT.output.abi,
+    chainId: chain?.id,
+    functionName: "getNFTS",
+    args: [address],
+
+    onSuccess(data) {
+      console.log("Success", data);
+      //@ts-ignore
+      let match = data.filter(
+        //@ts-ignore
+        (item) => item.uri.toUpperCase() === genCid.toUpperCase()
+      );
+
+      //@ts-ignore
+      if (match.length == 0 && genCid) proceedToMint();
+    },
+  });
+
+  //get job ID for a user
+  const fetchData = async () => {
+    const data = await readContracts({
+      contracts: [
+        {
+          address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+          abi: [
+            {
+              inputs: [
+                {
+                  internalType: "address",
+                  name: "",
+                  type: "address",
+                },
+              ],
+              name: "userJobId",
+              outputs: [
+                {
+                  internalType: "uint256",
+                  name: "",
+                  type: "uint256",
+                },
+              ],
+              stateMutability: "view",
+              type: "function",
+            },
+          ],
+          functionName: "userJobId",
+          args: [`${address}`],
+        },
+      ],
+    });
+
+    setJobIdData(data[0].result);
+  };
+
+  //wait for job Id generation
   const waitForTransaction = useWaitForTransaction({
     chainId: 1337,
     hash: data?.hash,
     onSuccess(data) {
       console.log(data);
+
+      fetchData();
     },
   });
 
-  const execute = () => {
+  const execute = async () => {
+    if (chain?.id != 1337)
+      await switchNetwork({
+        chainId: 1337,
+      });
+
     write({
-      args: ["green dog"],
+      args: ["white horse"],
       //@ts-ignore
       from: address,
       value: parseEther("4"),
@@ -130,8 +247,6 @@ const Demo = () => {
         setSelectedNoteBook(item.file);
     });
   };
-
-  console.log(fileList, noteBookList, selectedNoteBook);
 
   return (
     <main className="bg-primary_13 h-screen flex flex-col justify-center items-center">
