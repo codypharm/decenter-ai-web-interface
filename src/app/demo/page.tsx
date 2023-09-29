@@ -43,229 +43,312 @@ const Demo = () => {
   const { chain, chains } = useNetwork();
 
   //write to lily pad
-  const { write, data } = useContractWrite({
-    //@ts-ignore
-    address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
-    abi: DECENTERPAD.output.abi,
-    chainId: chain?.id,
-    functionName: "StableDiffusion",
-  });
-
-  //mint NFT
-  // const { write: mintNFT, data: mintedNFT } = useContractWrite({
-  //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
-  //   abi: DatasetNFT.output.abi,
+  // const { write, data } = useContractWrite({
+  //   //@ts-ignore
+  //   address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
+  //   abi: DECENTERPAD.output.abi,
   //   chainId: chain?.id,
-  //   functionName: "mintNFT",
+  //   functionName: "StableDiffusion",
+  //   // onSuccess(data) {
+  //   //   fetchData()
+  //   // }
   // });
 
+  // //mint NFT
+  // // const { write: mintNFT, data: mintedNFT } = useContractWrite({
+  // //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+  // //   abi: DatasetNFT.output.abi,
+  // //   chainId: chain?.id,
+  // //   functionName: "mintNFT",
+  // // });
+
+  // // const {
+  // //   data: jobIdData,
+  // //   isError,
+  // //   isLoading,
+  // // } = useContractRead({
+  // //   address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+  // //   abi: SDXL.output.abi,
+  // //   chainId: 1337,
+  // //   functionName: "userJobId",
+  // //   args: [address],
+  // //   watch: true,
+
+  // //   onSuccess(data) {
+  // //     console.log("Success", data);
+  // //     console.log(jobIdData);
+  // //   },
+  // // });
+
+  // //switch to file coin
+  // const switchToFil = async () => {
+  //   if (chain?.id != 314159)
+  //     await switchNetwork({
+  //       chainId: 314159,
+  //     });
+  // };
+
+
+  // const retrieve = async (cid: string) => {
+  //   console.log(cid, jobIdData)
+  //   const client = new Web3Storage({ token: `${process.env.NEXT_PUBLIC_WEB_TOKEN}` })
+  //   const res = await client.get(cid);
+
+  //   let files;
+  //   if (files = await res.files()) {
+
+  //     console.log(files);
+  //     let zip = new JSZip()
+  //     zip.file("exitCode", files[0])
+  //     let folder = zip.folder("output")
+  //     folder?.file("image0.png", files[1])
+  //     zip.file("stderr", files[2])
+  //     zip.file("stdout", files[3])
+
+  //     // zip.generateAsync({ type: "blob" })
+  //     //   .then((content) => {
+  //     //     console.log(content)
+  //     //     //saveAs(content, "model.zip")
+  //     //   })
+
+
+  //     //set id into list of uploaded ids
+  //     let uploadedData = window.localStorage.getItem("uploadedData")
+  //     let prevData = [];
+  //     if (uploadedData) {
+  //       prevData = JSON.parse(uploadedData)
+  //     }
+  //     let data = JSON.stringify([...prevData, jobIdData])
+  //     window.localStorage.setItem("uploadedData", data)
+  //   }
+  //   if (!res.ok) {
+
+  //     //set id into list of uploaded ids
+  //     let uploadedData = window.localStorage.getItem("uploadedData")
+  //     let prevData = [];
+  //     if (uploadedData) {
+  //       prevData = JSON.parse(uploadedData)
+  //     }
+  //     let data = JSON.stringify([...prevData, jobIdData])
+  //     window.localStorage.setItem("uploadedData", data)
+  //     throw new Error(`failed to get ${cid}`)
+
+  //   }
+
+  //   // request succeeded! do something with the response object here...
+  // }
+
+
+
+  // //decode CID to right format
+  // const decodeCid = (data: string) => {
+
+  //   const cid = new CID(data.toString())
+
+  //   const decodedCid = cid.toV1().toBaseEncodedString("base32");
+
+  //   setDecodedCid(decodedCid)
+
+  //   //download the folder
+  //   retrieve(`${decodedCid}`)
+  // }
+
+  // //Get users reports
   // const {
-  //   data: jobIdData,
-  //   isError,
-  //   isLoading,
+  //   data: cidData,
+  //   isError: cidError,
+  //   isLoading: cidLoading,
   // } = useContractRead({
-  //   address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
-  //   abi: SDXL.output.abi,
-  //   chainId: 1337,
-  //   functionName: "userJobId",
+  //   //@ts-ignore
+  //   address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
+  //   abi: DECENTERPAD.output.abi,
+  //   chainId: chain?.id,
+  //   functionName: "getUserReports",
   //   args: [address],
   //   watch: true,
 
   //   onSuccess(data) {
   //     console.log("Success", data);
-  //     console.log(jobIdData);
-  //   },
-  // });
-
-  //switch to file coin
-  const switchToFil = async () => {
-    if (chain?.id != 314159)
-      await switchNetwork({
-        chainId: 314159,
-      });
-  };
-
-
-  const retrieve = async (cid: string) => {
-    console.log(cid)
-    const client = new Web3Storage({ token: `${process.env.NEXT_PUBLIC_WEB_TOKEN}` })
-    const res = await client.get(cid);
-    const files = await res.files();
-    console.log(files);
-    let zip = new JSZip()
-    zip.file("exitCode", files[0])
-    let folder = zip.folder("output")
-    folder?.file("image0.png", files[1])
-    zip.file("stderr", files[2])
-    zip.file("stdout", files[3])
-
-    zip.generateAsync({ type: "blob" })
-      .then((content) => {
-        console.log(content)
-        //saveAs(content, "model.zip")
-      })
-
-    if (!res.ok) {
-      throw new Error(`failed to get ${cid}`)
-    }
-
-    // request succeeded! do something with the response object here...
-  }
-
-
-
-  //decode CID to right format
-  const decodeCid = (data: string) => {
-
-    const cid = new CID(data.toString())
-
-    const decodedCid = cid.toV1().toBaseEncodedString("base32");
-
-    setDecodedCid(decodedCid)
-
-    //download the folder
-    retrieve(`${decodedCid}`)
-  }
-
-  //Get users reports
-  const {
-    data: cidData,
-    isError: cidError,
-    isLoading: cidLoading,
-  } = useContractRead({
-    //@ts-ignore
-    address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
-    abi: DECENTERPAD.output.abi,
-    chainId: chain?.id,
-    functionName: "getUserReports",
-    args: [address],
-    watch: true,
-
-    onSuccess(data) {
-      console.log("Success", data);
-      //loop through data and get CID for matching job id
-      //@ts-ignore
-      data?.forEach((item: {
-        jobId: number,
-        errorMsg: string,
-        cid: string,
-        status: Boolean
-      }) => {
-        console.log(Number(item.jobId))
-        //set cid
-        if (Number(item.jobId) === jobIdData && jobIdData != 0) {
-          setGenCid(item.cid)
-          decodeCid(item.cid)
-        }
-
-      });
-    },
-  });
-
-  //wait of nft minting
-  // const waitForNFTTransaction = useWaitForTransaction({
-  //   chainId: chain?.id,
-  //   hash: mintedNFT?.hash,
-  //   onSuccess(data) {
-  //     console.log(data, "nft minted");
-  //   },
-  // });
-
-  //mint nft
-  // const proceedToMint = () => {
-  //   mintNFT({
-  //     args: [`${genCid}`],
+  //     //loop through data and get CID for matching job id
+  //     let uploadedIds = window.localStorage.getItem("uploadedData")
+  //     let uploadedIdArray: any = []
+  //     if (uploadedIds) {
+  //       uploadedIdArray = JSON.parse(uploadedIds)
+  //     }
+  //     // console.log(typeof uploadedIdArray[0])
   //     //@ts-ignore
-  //     from: address,
-  //   });
-  // };
+  //     data?.forEach((item: {
+  //       jobId: number,
+  //       errorMsg: string,
+  //       cid: string,
+  //       status: Boolean
+  //     }) => {
 
-  //get users nfts
+
+  //       //check if cid has been uploaded before then set
+  //       if (Number(item.jobId) === jobIdData && jobIdData != 0 && !uploadedIdArray?.includes(Number(item.jobId))) {
+  //         setGenCid(item.cid)
+  //         decodeCid(item.cid)
+  //       }
+
+  //     });
+  //   },
+  // });
+
+  // //wait of nft minting
+  // // const waitForNFTTransaction = useWaitForTransaction({
+  // //   chainId: chain?.id,
+  // //   hash: mintedNFT?.hash,
+  // //   onSuccess(data) {
+  // //     console.log(data, "nft minted");
+  // //   },
+  // // });
+
+  // //mint nft
+  // // const proceedToMint = () => {
+  // //   mintNFT({
+  // //     args: [`${genCid}`],
+  // //     //@ts-ignore
+  // //     from: address,
+  // //   });
+  // // };
+
+  // //get users nfts
+  // // const {
+  // //   data: nftData,
+  // //   isError,
+  // //   isLoading,
+  // // } = useContractRead({
+  // //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+  // //   abi: DatasetNFT.output.abi,
+  // //   chainId: chain?.id,
+  // //   functionName: "getNFTS",
+  // //   args: [address],
+
+  // //   onSuccess(data) {
+  // //     console.log("Success", data);
+  // //     //@ts-ignore
+  // //     let match = data.filter(
+  // //       //@ts-ignore
+  // //       (item) => item.uri.toUpperCase() === genCid.toUpperCase()
+  // //     );
+
+  // //     //@ts-ignore
+  // //     if (match.length == 0 && genCid) proceedToMint();
+  // //   },
+  // // });
+
+  // //get latetst job ID for a user
+  // // const fetchData = async () => {
+  // //   const data = await readContracts({
+  // //     contracts: [
+  // //       {
+  // //         //@ts-ignore
+  // //         address: `${process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS}`,
+  // //         abi: [
+  // //           {
+  // //             "inputs": [
+  // //               {
+  // //                 "internalType": "address",
+  // //                 "name": "_owner",
+  // //                 "type": "address"
+  // //               }
+  // //             ],
+  // //             "name": "getUserLatestId",
+  // //             "outputs": [
+  // //               {
+  // //                 "internalType": "uint256",
+  // //                 "name": "",
+  // //                 "type": "uint256"
+  // //               }
+  // //             ],
+  // //             "stateMutability": "view",
+  // //             "type": "function"
+  // //           },
+  // //         ],
+  // //         functionName: "getUserLatestId",
+  // //         args: [`${address}`],
+  // //       },
+  // //     ],
+  // //   });
+  // //   console.log(data)
+  // //   setJobIdData(data[0].result);
+  // // };
+
+  // //get users latest jobID
   // const {
-  //   data: nftData,
+  //   data: jobData,
   //   isError,
   //   isLoading,
   // } = useContractRead({
-  //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
-  //   abi: DatasetNFT.output.abi,
+  //   //@ts-ignore
+  //   address: `${process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS}`,
+  //   abi: [
+  //     {
+  //       "inputs": [
+  //         {
+  //           "internalType": "address",
+  //           "name": "_owner",
+  //           "type": "address"
+  //         }
+  //       ],
+  //       "name": "getUserLatestId",
+  //       "outputs": [
+  //         {
+  //           "internalType": "uint256",
+  //           "name": "",
+  //           "type": "uint256"
+  //         }
+  //       ],
+  //       "stateMutability": "view",
+  //       "type": "function"
+  //     },
+  //   ],
   //   chainId: chain?.id,
-  //   functionName: "getNFTS",
-  //   args: [address],
+  //   functionName: "getUserLatestId",
+  //   args: [`${address}`],
+  //   watch: true,
 
   //   onSuccess(data) {
   //     console.log("Success", data);
+  //     console.log(Number(data))
+  //     setJobIdData(Number(data))
   //     //@ts-ignore
-  //     let match = data.filter(
-  //       //@ts-ignore
-  //       (item) => item.uri.toUpperCase() === genCid.toUpperCase()
-  //     );
+  //     // let match = data.filter(
+  //     //   //@ts-ignore
+  //     //   (item) => item.uri.toUpperCase() === genCid.toUpperCase()
+  //     // );
 
-  //     //@ts-ignore
-  //     if (match.length == 0 && genCid) proceedToMint();
+  //     // //@ts-ignore
+  //     // if (match.length == 0 && genCid) proceedToMint();
   //   },
   // });
 
-  //get latetst job ID for a user
-  const fetchData = async () => {
-    const data = await readContracts({
-      contracts: [
-        {
-          //@ts-ignore
-          address: `${process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS}`,
-          abi: [
-            {
-              "inputs": [
-                {
-                  "internalType": "address",
-                  "name": "_owner",
-                  "type": "address"
-                }
-              ],
-              "name": "getUserLatestId",
-              "outputs": [
-                {
-                  "internalType": "uint256",
-                  "name": "",
-                  "type": "uint256"
-                }
-              ],
-              "stateMutability": "view",
-              "type": "function"
-            },
-          ],
-          functionName: "getUserLatestId",
-          args: [`${address}`],
-        },
-      ],
-    });
-    console.log(data)
-    setJobIdData(data[0].result);
-  };
+  // //wait for job Id generation
+  // // const waitForTransaction = useWaitForTransaction({
+  // //   chainId: chain?.id,
+  // //   hash: data?.hash,
+  // //   onSuccess(data) {
+  // //     console.log(data);
 
-  //wait for job Id generation
-  const waitForTransaction = useWaitForTransaction({
-    chainId: chain?.id,
-    hash: data?.hash,
-    onSuccess(data) {
-      console.log(data);
+  // //     fetchData();
+  // //   },
+  // // });
 
-      fetchData();
-    },
-  });
+  // const execute = async () => {
+  //   if (chain?.id != 314159)
+  //     await switchNetwork({
+  //       chainId: 314159,
+  //     });
 
-  const execute = async () => {
-    if (chain?.id != 314159)
-      await switchNetwork({
-        chainId: 314159,
-      });
+  //   write({
+  //     args: ["white horse"],
+  //     //@ts-ignore
+  //     from: address,
+  //     value: parseEther("4"),
 
-    write({
-      args: ["white horse"],
-      //@ts-ignore
-      from: address,
-      value: parseEther("4"),
-    });
-  };
+  //   });
+  // };
 
   const parentCallback = (hash: string) => {
     console.log(hash);
@@ -374,7 +457,7 @@ const Demo = () => {
 
           <button
             type="button"
-            onClick={execute}
+            // onClick={execute}
             className=" text-primary_1 rounded-xl mt-4 bg-primary_13  border border-primary_8 py-4 px-6"
           >
             Execute
