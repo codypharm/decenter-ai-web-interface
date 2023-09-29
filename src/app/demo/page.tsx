@@ -9,6 +9,10 @@ import UploadFile from "../components/fvm/UploadFile";
 import { switchNetwork } from "@wagmi/core";
 import { useNetwork } from "wagmi";
 import { readContracts } from "@wagmi/core";
+import CID from "cids";
+import { saveAs } from 'file-saver';
+import { Web3Storage } from "web3.storage"
+
 
 import {
   useContractWrite,
@@ -17,6 +21,7 @@ import {
   useContractRead,
 } from "wagmi";
 import SDXL from "@/abi/SDXLCaller_metadata.json";
+import DECENTERPAD from "@/abi/DecenterPad_metadata.json"
 import DatasetNFT from "@/abi/DatasetNFT_metadata.json";
 
 interface IFile {
@@ -31,26 +36,28 @@ const Demo = () => {
   const [noteBookList, setNoteBookList] = useState<IFile[]>([]);
   const [modelName, setModelName] = useState<string>("");
   const [selectedNoteBook, setSelectedNoteBook] = useState<{}>();
-  const [jobIdData, setJobIdData] = useState<number | unknown>(0);
+  const [jobIdData, setJobIdData] = useState<number | unknown>(260);
   const [genCid, setGenCid] = useState<string>("");
+  const [decodedCid, setDecodedCid] = useState<string>("");
   const { address, isConnected } = useAccount();
   const { chain, chains } = useNetwork();
 
   //write to lily pad
   const { write, data } = useContractWrite({
-    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
-    abi: SDXL.output.abi,
-    chainId: 1337,
-    functionName: "runSDXL",
+    //@ts-ignore
+    address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
+    abi: DECENTERPAD.output.abi,
+    chainId: chain?.id,
+    functionName: "StableDiffusion",
   });
 
   //mint NFT
-  const { write: mintNFT, data: mintedNFT } = useContractWrite({
-    address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
-    abi: DatasetNFT.output.abi,
-    chainId: chain?.id,
-    functionName: "mintNFT",
-  });
+  // const { write: mintNFT, data: mintedNFT } = useContractWrite({
+  //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+  //   abi: DatasetNFT.output.abi,
+  //   chainId: chain?.id,
+  //   functionName: "mintNFT",
+  // });
 
   // const {
   //   data: jobIdData,
@@ -78,110 +85,166 @@ const Demo = () => {
       });
   };
 
-  //Get matching CID for a job id
+
+  const retrieve = async (cid: string) => {
+    console.log(cid)
+    const client = new Web3Storage({ token: `${process.env.NEXT_PUBLIC_WEB_TOKEN}` })
+    const res = await client.get(cid);
+    const files = await res.files();
+    console.log(files);
+    let zip = new JSZip()
+    zip.file("exitCode", files[0])
+    let folder = zip.folder("output")
+    folder?.file("image0.png", files[1])
+    zip.file("stderr", files[2])
+    zip.file("stdout", files[3])
+
+    zip.generateAsync({ type: "blob" })
+      .then((content) => {
+        console.log(content)
+        //saveAs(content, "model.zip")
+      })
+
+    if (!res.ok) {
+      throw new Error(`failed to get ${cid}`)
+    }
+
+    // request succeeded! do something with the response object here...
+  }
+
+
+
+  //decode CID to right format
+  const decodeCid = (data: string) => {
+
+    const cid = new CID(data.toString())
+
+    const decodedCid = cid.toV1().toBaseEncodedString("base32");
+
+    setDecodedCid(decodedCid)
+
+    //download the folder
+    retrieve(`${decodedCid}`)
+  }
+
+  //Get users reports
   const {
     data: cidData,
     isError: cidError,
     isLoading: cidLoading,
   } = useContractRead({
-    address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
-    abi: SDXL.output.abi,
-    chainId: 1337,
-    functionName: "cidRecord",
-    args: [jobIdData],
+    //@ts-ignore
+    address: process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS,
+    abi: DECENTERPAD.output.abi,
+    chainId: chain?.id,
+    functionName: "getUserReports",
+    args: [address],
     watch: true,
 
     onSuccess(data) {
       console.log("Success", data);
-      if (data) {
-        switchToFil();
-        setGenCid(data.toString());
-      }
+      //loop through data and get CID for matching job id
+      //@ts-ignore
+      data?.forEach((item: {
+        jobId: number,
+        errorMsg: string,
+        cid: string,
+        status: Boolean
+      }) => {
+        console.log(Number(item.jobId))
+        //set cid
+        if (Number(item.jobId) === jobIdData && jobIdData != 0) {
+          setGenCid(item.cid)
+          decodeCid(item.cid)
+        }
+
+      });
     },
   });
 
   //wait of nft minting
-  const waitForNFTTransaction = useWaitForTransaction({
-    chainId: chain?.id,
-    hash: mintedNFT?.hash,
-    onSuccess(data) {
-      console.log(data, "nft minted");
-    },
-  });
+  // const waitForNFTTransaction = useWaitForTransaction({
+  //   chainId: chain?.id,
+  //   hash: mintedNFT?.hash,
+  //   onSuccess(data) {
+  //     console.log(data, "nft minted");
+  //   },
+  // });
 
   //mint nft
-  const proceedToMint = () => {
-    mintNFT({
-      args: [`${genCid}`],
-      //@ts-ignore
-      from: address,
-    });
-  };
+  // const proceedToMint = () => {
+  //   mintNFT({
+  //     args: [`${genCid}`],
+  //     //@ts-ignore
+  //     from: address,
+  //   });
+  // };
 
   //get users nfts
-  const {
-    data: nftData,
-    isError,
-    isLoading,
-  } = useContractRead({
-    address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
-    abi: DatasetNFT.output.abi,
-    chainId: chain?.id,
-    functionName: "getNFTS",
-    args: [address],
+  // const {
+  //   data: nftData,
+  //   isError,
+  //   isLoading,
+  // } = useContractRead({
+  //   address: "0x6c902D133A6C6c2CbC3Ec4Ff9fD7113cF2816965",
+  //   abi: DatasetNFT.output.abi,
+  //   chainId: chain?.id,
+  //   functionName: "getNFTS",
+  //   args: [address],
 
-    onSuccess(data) {
-      console.log("Success", data);
-      //@ts-ignore
-      let match = data.filter(
-        //@ts-ignore
-        (item) => item.uri.toUpperCase() === genCid.toUpperCase()
-      );
+  //   onSuccess(data) {
+  //     console.log("Success", data);
+  //     //@ts-ignore
+  //     let match = data.filter(
+  //       //@ts-ignore
+  //       (item) => item.uri.toUpperCase() === genCid.toUpperCase()
+  //     );
 
-      //@ts-ignore
-      if (match.length == 0 && genCid) proceedToMint();
-    },
-  });
+  //     //@ts-ignore
+  //     if (match.length == 0 && genCid) proceedToMint();
+  //   },
+  // });
 
-  //get job ID for a user
+  //get latetst job ID for a user
   const fetchData = async () => {
     const data = await readContracts({
       contracts: [
         {
-          address: "0xedfe10A0C699Cb5D9070a070e3654a05007C4b38",
+          //@ts-ignore
+          address: `${process.env.NEXT_PUBLIC_DECENTERPAD_ADDRESS}`,
           abi: [
             {
-              inputs: [
+              "inputs": [
                 {
-                  internalType: "address",
-                  name: "",
-                  type: "address",
-                },
+                  "internalType": "address",
+                  "name": "_owner",
+                  "type": "address"
+                }
               ],
-              name: "userJobId",
-              outputs: [
+              "name": "getUserLatestId",
+              "outputs": [
                 {
-                  internalType: "uint256",
-                  name: "",
-                  type: "uint256",
-                },
+                  "internalType": "uint256",
+                  "name": "",
+                  "type": "uint256"
+                }
               ],
-              stateMutability: "view",
-              type: "function",
+              "stateMutability": "view",
+              "type": "function"
             },
           ],
-          functionName: "userJobId",
+          functionName: "getUserLatestId",
           args: [`${address}`],
         },
       ],
     });
-
+    console.log(data)
     setJobIdData(data[0].result);
   };
 
   //wait for job Id generation
   const waitForTransaction = useWaitForTransaction({
-    chainId: 1337,
+    chainId: chain?.id,
     hash: data?.hash,
     onSuccess(data) {
       console.log(data);
@@ -191,9 +254,9 @@ const Demo = () => {
   });
 
   const execute = async () => {
-    if (chain?.id != 1337)
+    if (chain?.id != 314159)
       await switchNetwork({
-        chainId: 1337,
+        chainId: 314159,
       });
 
     write({
@@ -317,12 +380,12 @@ const Demo = () => {
             Execute
           </button>
 
-          <button
+          {/* <button
             type="submit"
             className=" text-primary_1 rounded-xl mt-4 bg-primary_13  flex justify-between items-center border border-primary_8 py-4 w-52 px-4"
           >
             Download Model <AiOutlineCloudDownload size={30} />
-          </button>
+          </button> */}
         </form>
       </div>
     </main>
