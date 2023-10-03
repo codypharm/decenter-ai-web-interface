@@ -374,12 +374,12 @@ const Demo = () => {
         ]);
 
         //set note book list
-        if (relativePath.match(regex)?.[0] === "ipynb") {
-          setNoteBookList((noteBookList) => [
-            ...noteBookList,
-            { file: file, path: relativePath },
-          ]);
-        }
+        // if (relativePath.match(regex)?.[0] === "ipynb" || ) {
+        setNoteBookList((noteBookList) => [
+          ...noteBookList,
+          { file: file, path: relativePath },
+        ]);
+        // }
       }
     });
   };
