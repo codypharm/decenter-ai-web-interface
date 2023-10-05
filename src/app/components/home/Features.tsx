@@ -160,13 +160,13 @@ const Features = () => {
           className="absolute inset-0  w-[80%]  m-auto text-primary_1"
         >
           <h2 className="font-logirentBold text-center text-3xl mt-[15%]">
-            The Future of AI Model Training is Here
+            The Future of AI Model Training Is Here
           </h2>
 
           <div className="h-[70%] flex items-center  ">
             <div className="w-[50%] ">
               <h2 className="font-logirentBold text-3xl leading-loose">
-                DECENTER TEAMS
+                Decenter Teams
               </h2>
 
               <p className="font-archivo text-xl">
@@ -216,7 +216,7 @@ const Features = () => {
             <div className="w-[50%]  flex flex-col items-center">
               <div className="w-fit">
                 <h2 className="font-logirentBold text-3xl leading-loose">
-                  DECENTERALISED AUTOTRAIN
+                  DecentralIsed AutotraIn
                 </h2>
                 <p className="font-archivo text-xl">
                   AI Tool for Quicker and More Efficient Model Training
@@ -247,7 +247,7 @@ const Features = () => {
                 ref={vRef3}
                 className="font-logirentBold text-3xl leading-loose"
               >
-                DECENTER REPOSITORY
+                Decenter reposItory
               </h2>
 
               <p className="font-archivo text-xl">
@@ -308,7 +308,7 @@ const Features = () => {
                 ref={vRef4}
                 className="font-logirentBold text-3xl leading-loose"
               >
-                DECENTER INCENTIVES
+                Decenter IncentIves
               </h2>
 
               <p className="font-archivo text-xl">
@@ -338,7 +338,7 @@ const Features = () => {
                 ref={vRef5}
                 className="font-logirentBold text-3xl leading-loose"
               >
-                TESTING AND ANALYTICS
+                TestIng And AnalytIcs
               </h2>
 
               <p className="font-archivo text-xl">

@@ -25,7 +25,7 @@ const Action = () => {
 
       <div className="absolute inset-0  flex flex-col  justify-center  items-center">
         <h2 className="text-primary_1 font-logirentBold text-3xl">
-          Get Started with our model Try Demo
+          Get Started wIth our model Try Demo
         </h2>
         <Link href="/demo">
           <button className="bg-primary_11 mt-8 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-2xl">

@@ -14,7 +14,7 @@ export const DashLayout = ({
     children: React.ReactNode;
 }) => {
     return (
-        <div className='w-screen h-screen flex  bg-primary_12'>
+        <div className='w-screen h-screen flex  bg-primary_12 relative'>
             <aside className='h-full w-[10%] border-r border-primary_8'>
                 <Link href="/">
                     <div className='w-full h-[10%] flex items-center justify-center'>

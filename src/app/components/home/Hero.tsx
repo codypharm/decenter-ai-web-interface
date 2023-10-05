@@ -45,8 +45,8 @@ const Hero = () => {
         </div>
         <div className="h-[85%] w-[80%] m-auto flex flex-col justify-center ">
           <h1 className="font-logirentBold text-5xl text-primary_1 leading-normal">
-            Decentralized and Democratized AI <br />
-            Model Training Infrastructure
+            DecentralIzed and DemocratIzed AI <br />
+            Model TraInIng Infrastructure
           </h1>
           <p className="font-archivo text-sm text-primary_6 ">
             Train ML/DL/ ANN/LLM models with ease.
