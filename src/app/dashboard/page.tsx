@@ -7,7 +7,7 @@ const page = () => {
     const pathname = usePathname();
     return (
         <DashLayout >
-            <div className='text-white'>Hello</div>
+            <div className='h-full w-full px-10 py-6 text-white'>Hello</div>
         </DashLayout>
     );
 }
