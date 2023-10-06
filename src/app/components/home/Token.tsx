@@ -12,7 +12,7 @@ const Token = () => {
       <div className="w-[80%]  h-[10%] m-auto flex justify-between items-center">
         <div className="w-fit text-primary_1">
           <h2 className="font-logirentBold text-3xl leading-loose">
-            DCEN TOKENS
+            Dcen tokens
           </h2>
 
           <div className="mt-20 font-archivo text-lg">
