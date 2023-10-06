@@ -39,7 +39,7 @@ const TransactionAuthorization = () => {
                 </div>
                 <div className='h-[10%] flex justify-end gap-6'>
                     <button className="border border-primary_11 text-primary_1 font-semibold font-primaryArchivo text-sm h-full w-[30%] cursor-pointer rounded-full">
-                        Proceed
+                        Cancel
                     </button>
                     <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo text-sm h-full w-[30%] cursor-pointer rounded-full">
                         Proceed
