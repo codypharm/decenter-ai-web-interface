@@ -119,6 +119,7 @@ async function main(){
         {train_script: 'headbrain.ipynb', input_archive:'/app/samples/kaggle/inputs/headbrain.zip'},
         {train_script: 'multiple-linear-regression.ipynb', input_archive:'/app/samples/kaggle/inputs/multiple-linear-regression.zip'},
         {train_script: 'simple-linear-regression.ipynb', input_archive:'/app/samples/kaggle/inputs/simple-linear-regression.zip'},
+        // {train_script: 'boston-housing-price-prediction.ipynb', input_archive:'/app/samples/kaggle/inputs/boston-housing-price-prediction.zip'},
     ]
 
     for (let {train_script, input_archive} of samples){
