@@ -89,7 +89,11 @@ export async function computeDemo(train_script:string,input_archive:string): Pro
         "PublisherSpec": {
             "Type": "IPFS"
         },
-        'Resources': {'CPU': '1', 'GPU': '1', 'MEMORY': '1Gb'},
+        "Resources": {
+            "CPU": "2",
+            "Memory": "1gb",
+            "GPU": "1"
+        },
     }
 
     const res = await axios.post(BACALHAU_API, dto)
@@ -130,7 +134,7 @@ async function main(){
 
 
 
-main()
+// main()
 
 /*
 axios.post('http://dashboard.bacalhau.org:1000/api/v1/run', data)
