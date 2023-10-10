@@ -14,7 +14,6 @@ import TransactionProcessing from './modals/TransactionProcessing';
 import TransactionCompleted from './modals/TransactionCompleted';
 
 const page = () => {
-    const pathname = usePathname();
     return (
         <DashLayout >
             <div className='w-full h-full flex items-center justify-center px-10 gap-10'>

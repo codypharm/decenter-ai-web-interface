@@ -5,12 +5,12 @@ import { AiOutlineEye } from "react-icons/ai"
 import { PiEyeClosedLight, PiGoogleLogoBold } from "react-icons/pi"
 import { SiWalletconnect } from "react-icons/si"
 
-const page = () => {
+const Page = () => {
     const [view, setView] = useState<boolean>(false)
     return (
         <div className='bg-primary_13 h-screen flex flex-col gap-4 '>
             <div className='h-[10%] flex pl-10'>
-                <div className="w-[10%] relative">
+                <div className="w-[20%] lg:w-[10% relative">
                     <Image
                         src="/logo.png"
                         alt="logo image"
@@ -22,7 +22,7 @@ const page = () => {
                 </div>
             </div>
             <div className='h-[90%] w-full flex  justify-center items-center'>
-                <div className='w-[30%] h-[80%] '>
+                <div className='w-[80%] lg:w-[30%] h-[80%] '>
                     <div className='h-[10%] '>
                         <h1 className='font-logirentBold text-primary_1 text-center font-bold text-4xl'> SIgn up</h1>
                     </div>
@@ -72,4 +72,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page
