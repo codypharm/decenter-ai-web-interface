@@ -117,7 +117,7 @@ const About = () => {
           <Star5 />
         </motion.div>
       </div>
-      <div className="absolute inset-0 flex flex-col md:flex-row md:space-x-8  items-center justify-center w-[80%]  m-auto">
+      <div className="absolute inset-0 flex flex-col md:flex-row md:space-x-8 gap-y-20  items-center justify-center w-[80%]  m-auto">
         <div className="w-full md:w-[40%] py-20 px-10 bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
           <h3 className="font-logirentBold text-xl md:text-3xl">Web 3</h3>
           <ul className="font-archivo text-sm font-normal mt-6 list-disc pl-6">
