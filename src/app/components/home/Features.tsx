@@ -159,17 +159,17 @@ const Features = () => {
           ref={vRef}
           className="absolute inset-0  w-[80%]  m-auto text-primary_1"
         >
-          <h2 className="font-logirentBold text-center text-3xl mt-[15%]">
+          <h2 className="font-logirentBold font-bold  text-xl md:text-3xl mt-[15%]">
             The Future of AI Model Training Is Here
           </h2>
 
-          <div className="h-[70%] flex items-center  ">
-            <div className="w-[50%] ">
-              <h2 className="font-logirentBold text-3xl leading-loose">
+          <div className="h-[70%] flex flex-col md:flex-row items-center  mt-20 md:mt-0 ">
+            <div className="w-full  md:w-[50%] ">
+              <h2 className="font-logirentBold    text-xl md:text-3xl md:text-left leading-loose">
                 Decenter Teams
               </h2>
 
-              <p className="font-archivo text-xl">
+              <p className="font-archivo  text-lg md:text-xl md:text-left">
                 Collaboratively Train, Run, and Maintain AI Models
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
@@ -181,7 +181,7 @@ const Features = () => {
                 </li>
               </ul>
             </div>
-            <motion.div animate={bot1} className="w-[50%] flex justify-center">
+            <motion.div animate={bot1} className="w-full md:w-[50%] hidden md:flex justify-center">
               <Image
                 src="/bot1.png"
                 alt="decenter image"
@@ -197,10 +197,10 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-center">
+      <section className="min-h-[60vh]  relative flex justify-center ">
         <div className="absolute inset-0 h-full  w-[80%]  m-auto text-primary_1">
-          <div ref={vRef2} className="h-[70%] flex items-center  ">
-            <motion.div animate={bot2} className="w-[50%] flex justify-center">
+          <div ref={vRef2} className="h-[70%] flex flex-col md:flex-row items-center  ">
+            <motion.div animate={bot2} className="w-full md:w-[50%] flex justify-center">
               <Image
                 src="/bot2.png"
                 alt="decenter image"
@@ -213,12 +213,12 @@ const Features = () => {
               />
             </motion.div>
 
-            <div className="w-[50%]  flex flex-col items-center">
+            <div className="w-full md:w-[50%]  flex flex-col items-center">
               <div className="w-fit">
-                <h2 className="font-logirentBold text-3xl leading-loose">
+                <h2 className="font-logirentBold  text-xl  md:text-3xl md:text-left leading-loose">
                   DecentralIsed AutotraIn
                 </h2>
-                <p className="font-archivo text-xl">
+                <p className="font-archivo text-lg  md:text-xl md:text-left">
                   AI Tool for Quicker and More Efficient Model Training
                 </p>
                 <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
@@ -236,23 +236,35 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end">
+      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0">
         <div className="absolute -top-64">
           <Globe2 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
-          <div className="h-[100%] flex items-center  ">
-            <div className="w-[50%] ">
+          <div className="h-[100%] flex flex-col md:flex-row items-center  ">
+            <motion.div animate={bot3} className="w-full md:w-[50%] flex justify-center md:hidden">
+              <Image
+                src="/bot3.png"
+                alt="decenter image"
+                className="grayscale"
+                width={400}
+                height={400}
+                style={{
+                  objectFit: "contain",
+                }}
+              />
+            </motion.div>
+            <div className="w-full md:w-[50%] ">
               <h2
                 ref={vRef3}
-                className="font-logirentBold text-3xl leading-loose"
+                className="font-logirentBold  text-xl md:text-left nd:text-3xl leading-loose"
               >
                 Decenter reposItory
               </h2>
 
-              <p className="font-archivo text-xl">
+              <p className="font-archivo  text-lg  md:text-xl md:text-left">
                 DeCenter Repository Access a Robust Library of AI Models,
-                <br />
+
                 Datasets and Tools
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
@@ -265,7 +277,7 @@ const Features = () => {
                 </li>
               </ul>
             </div>
-            <motion.div animate={bot3} className="w-[50%] flex justify-center">
+            <motion.div animate={bot3} className="w-full md:w-[50%] hidden md:flex justify-center ">
               <Image
                 src="/bot3.png"
                 alt="decenter image"
@@ -281,8 +293,8 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-between">
-        <div className="absolute top-3/4 left-96">
+      <section className="min-h-[60vh]  relative flex justify-between mt-52 md:mt-0">
+        <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
         <div className="absolute top-60 right-96">
@@ -290,8 +302,8 @@ const Features = () => {
         </div>
 
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
-          <div className="h-[100%] flex items-center  ">
-            <motion.div animate={bot4} className="w-[50%] flex justify-center">
+          <div className="h-[100%] flex flex-col md:flex-row items-center  ">
+            <motion.div animate={bot4} className="w-full md:w-[50%] flex justify-center">
               <Image
                 src="/bot4.png"
                 alt="decenter image"
@@ -303,17 +315,17 @@ const Features = () => {
                 }}
               />
             </motion.div>
-            <div className="w-[50%] ">
+            <div className="w-full md:w-[50%]  ">
               <h2
                 ref={vRef4}
-                className="font-logirentBold text-3xl leading-loose"
+                className="font-logirentBold  text-xl md:text-3xl md:text-left leading-loose"
               >
                 Decenter IncentIves
               </h2>
 
-              <p className="font-archivo text-xl">
+              <p className="font-archivo  text-lg md:text-xl md:text-left ">
                 DIncentivization Systems Powered by the DCEN
-                <br />
+
                 token
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
@@ -327,23 +339,23 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end">
+      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0">
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
-          <div className="h-[100%] flex items-center  ">
-            <div className="w-[50%] ">
+          <div className="h-[100%] flex flex-col md:flex-row items-center  ">
+            <div className="w-full md:w-[50%] ">
               <h2
                 ref={vRef5}
-                className="font-logirentBold text-3xl leading-loose"
+                className="font-logirentBold  text-xl md:text-3xl md:text-left leading-loose"
               >
                 TestIng And AnalytIcs
               </h2>
 
-              <p className="font-archivo text-xl">
+              <p className="font-archivo text-md  md:text-3xl md:text-left ">
                 AI Tool to Test Models and Generate Analysis
-                <br />
+
                 Report
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
@@ -357,7 +369,7 @@ const Features = () => {
                 </li>
               </ul>
             </div>
-            <motion.div animate={bot5} className="w-[50%] flex justify-center">
+            <motion.div animate={bot5} className="w-full md:w-[50%] flex justify-center">
               <Image
                 src="/bot5.png"
                 alt="decenter image"

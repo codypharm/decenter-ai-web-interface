@@ -3,8 +3,7 @@ import React from "react";
 export const El2 = () => {
   return (
     <svg
-      width="704"
-      height="503"
+      className="h-[80%] w-[100%]"
       viewBox="0 0 704 503"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

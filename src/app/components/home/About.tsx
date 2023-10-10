@@ -67,7 +67,7 @@ const About = () => {
       //   scale: scaleProgress,
       //   opacity: opacityProgress,
       // }}
-      className="min-h-[80vh]  relative"
+      className=" min-h-[80vh]  relative"
     >
       <motion.div animate={star} className=" w-[80%] m-auto h-[10%] ">
         <Star1 />
@@ -81,11 +81,16 @@ const About = () => {
           <Star3 />
         </motion.div>
         <div className=" w-[80%] h-full">
-          <div className=" flex justify-center relative">
-            <El1 />
+          <div className=" flex justify-center relative ">
+            <div className="h-full w-[80vw] hidden 2xl:flex justify-center items-center m-auto">
+              <El1 />
+            </div>
 
             <div className="absolute inset-0 flex items-center justify-center">
-              <El2 />
+
+              <div className="h-full w-[80vw] hidden  2xl:flex justify-center  items-center">
+                <El2 />
+              </div>
               <motion.div
                 animate={star}
                 className="absolute bottom-20 right-28 flex items-center justify-center"
@@ -98,7 +103,7 @@ const About = () => {
                 // }}
                 animate={globe}
                 ref={vRef}
-                className="absolute inset-0 flex items-center justify-center"
+                className="absolute inset-0  h-[90vh] hidden 2xl:flex items-center justify-center"
               >
                 <Globe />
               </motion.div>
@@ -112,17 +117,17 @@ const About = () => {
           <Star5 />
         </motion.div>
       </div>
-      <div className="absolute inset-0 flex space-x-8 items-center justify-center w-[80%]  m-auto">
-        <div className="w-[40%] py-20 px-10 bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
-          <h3 className="font-logirentBold text-3xl">Web 3</h3>
+      <div className="absolute inset-0 flex flex-col md:flex-row md:space-x-8 gap-y-20  items-center justify-center w-[80%]  m-auto">
+        <div className="w-full md:w-[40%] py-20 px-10 bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
+          <h3 className="font-logirentBold text-xl md:text-3xl">Web 3</h3>
           <ul className="font-archivo text-sm font-normal mt-6 list-disc pl-6">
             <li>Distributed compute networks </li>
             <li>Decentralized storage networks </li>
             <li>Incentivisation, tokenization and Data DAO</li>
           </ul>
         </div>
-        <div className="w-[40%] py-20 px-10 bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
-          <h3 className="font-logirentBold text-3xl">AI</h3>
+        <div className="w-full md:w-[40%] py-20 px-10 bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
+          <h3 className="font-logirentBold text-xl md:text-3xl">AI</h3>
           <ul className="font-archivo text-sm font-normal mt-6 list-disc pl-6">
             <li>Training process optimization</li>
             <li> Auto testing and predictive analysis</li>
