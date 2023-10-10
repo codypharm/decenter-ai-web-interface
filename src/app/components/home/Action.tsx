@@ -10,7 +10,7 @@ const Action = () => {
         <RocketStar />
       </div>
 
-      <div className="absolute w-[50%]  h-[100%] right-36 top-10 ">
+      <div className="absolute w-full h-full  md:w-[50%]  md:h-[100%] right-100 md:right-36 top-10 ">
         <Image
           src="/rocket.png"
           alt="decenter image"
@@ -24,7 +24,7 @@ const Action = () => {
       </div>
 
       <div className="absolute inset-0  flex flex-col  justify-center  items-center">
-        <h2 className="text-primary_1 font-logirentBold text-3xl">
+        <h2 className="text-primary_1 font-logirentBold text-center text-xl md:text-3xl">
           Get Started wIth our model Try Demo
         </h2>
         <Link href="/demo">
