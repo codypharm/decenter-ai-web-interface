@@ -3,7 +3,7 @@ import React from 'react'
 import { usePathname } from 'next/navigation';
 import { DashLayout } from './dashLayout';
 
-const page = () => {
+export default function Page () {
     const pathname = usePathname();
     return (
         <DashLayout >
@@ -12,4 +12,3 @@ const page = () => {
     );
 }
 
-export default page

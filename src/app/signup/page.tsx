@@ -5,7 +5,7 @@ import { AiOutlineEye } from "react-icons/ai"
 import { PiEyeClosedLight, PiGoogleLogoBold } from "react-icons/pi"
 import { SiWalletconnect } from "react-icons/si"
 
-const page = () => {
+export default function Page () {
     const [view, setView] = useState<boolean>(false)
     return (
         <div className='bg-primary_13 h-screen flex flex-col gap-4 '>
@@ -71,5 +71,3 @@ const page = () => {
         </div>
     )
 }
-
-export default page
