@@ -46,7 +46,7 @@ const Hero = () => {
               </ul>
             </div>
             <div className="h-[20%] text-center">
-              <Link href="/demo">
+              <Link href="https://app.decenterai.com/signup">
                 <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
                   Try Demo
                 </button>
@@ -103,7 +103,7 @@ const Hero = () => {
             Train ML/DL/ ANN/LLM models with ease.
           </p>
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
-            <Link href="/demo">
+            <Link href="https://app.decenterai.com/signup">
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
                 Try Demo
               </button>
