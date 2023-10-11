@@ -9,7 +9,7 @@ import { RxHamburgerMenu } from "react-icons/rx"
 const Hero = () => {
   const [menu, setMenu] = useState<boolean>(false)
   return (
-    <section className="min-h-[50vh] md:min-h-[80vh flex justify-end relative z-10">
+    <section className="min-h-[70vh] md:min-h-[80vh flex justify-end relative z-10">
       {menu && (
         <div className="absolute top-0 w-full  z-50">
           <div className=" w-[90%] h-[70vh] z-50  bg-primary_12  m-auto mt-2 border border-primary_8  rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-6 px-4 text-primary_1">

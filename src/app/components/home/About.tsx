@@ -67,7 +67,7 @@ const About = () => {
       //   scale: scaleProgress,
       //   opacity: opacityProgress,
       // }}
-      className=" h-[40vh] md:h-[80vh]  relative"
+      className=" h-[60vh] md:h-[80vh]  relative"
     >
 
 

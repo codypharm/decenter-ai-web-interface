@@ -153,7 +153,7 @@ const Features = () => {
 
   return (
     <>
-      <section className="min-h-[30vh] md:min-h-[80vh]  relative flex justify-center">
+      <section className="min-h-[80vh]  relative flex justify-center">
         <Globe1 />
         <div
           ref={vRef}
@@ -197,7 +197,7 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-center ">
+      <section className="min-h-[60vh]  relative flex justify-center md:mt-0 ">
         <div className="absolute inset-0 h-full  w-[80%]  m-auto text-primary_1">
           <div ref={vRef2} className="h-[70%] flex flex-col md:flex-row items-center  ">
             <motion.div animate={bot2} className="w-full md:w-[50%] flex justify-center">
@@ -236,7 +236,7 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end ">
+      <section className="min-h-[60vh]  relative flex justify-end  mt-52 md:mt-0">
         <div className="absolute -top-64">
           <Globe2 />
         </div>
@@ -293,7 +293,7 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-between  md:mt-0">
+      <section className="min-h-[60vh]  relative flex justify-between mt-64 md:mt-0 ">
         <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
@@ -339,7 +339,7 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end  md:mt-0">
+      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0  ">
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
