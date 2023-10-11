@@ -153,14 +153,14 @@ const Features = () => {
 
   return (
     <>
-      <section className="min-h-[90vh]  relative flex justify-center">
+      <section className="min-h-[30vh] md:min-h-[80vh]  relative flex justify-center">
         <Globe1 />
         <div
           ref={vRef}
           className="absolute inset-0  w-[80%]  m-auto text-primary_1"
         >
           <h2 className="font-logirentBold font-bold  text-xl md:text-3xl mt-[15%]">
-            The Future of AI Model Training Is Here
+            The Future of AI Model TraInIng Is Here
           </h2>
 
           <div className="h-[70%] flex flex-col md:flex-row items-center  mt-20 md:mt-0 ">
@@ -236,7 +236,7 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0">
+      <section className="min-h-[60vh]  relative flex justify-end ">
         <div className="absolute -top-64">
           <Globe2 />
         </div>
@@ -293,7 +293,7 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-between mt-52 md:mt-0">
+      <section className="min-h-[60vh]  relative flex justify-between  md:mt-0">
         <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
@@ -339,12 +339,24 @@ const Features = () => {
           </div>
         </div>
       </section>
-      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0">
+      <section className="min-h-[60vh]  relative flex justify-end  md:mt-0">
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
-          <div className="h-[100%] flex flex-col md:flex-row items-center  ">
+          <div className="h-[100%] flex flex-col md:flex-row items-center md:hidden  ">
+            <motion.div animate={bot5} className="w-full md:w-[50%] flex justify-center">
+              <Image
+                src="/bot5.png"
+                alt="decenter image"
+                className="grayscale"
+                width={400}
+                height={400}
+                style={{
+                  objectFit: "contain",
+                }}
+              />
+            </motion.div>
             <div className="w-full md:w-[50%] ">
               <h2
                 ref={vRef5}
@@ -369,7 +381,7 @@ const Features = () => {
                 </li>
               </ul>
             </div>
-            <motion.div animate={bot5} className="w-full md:w-[50%] flex justify-center">
+            <motion.div animate={bot5} className="w-full md:w-[50%] hidden md:flex justify-center">
               <Image
                 src="/bot5.png"
                 alt="decenter image"

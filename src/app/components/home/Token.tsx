@@ -5,7 +5,7 @@ import React from "react";
 
 const Token = () => {
   return (
-    <section className="min-h-[60vh]  relative ">
+    <section className="h-[60vh]   relative ">
       <div className="h-[10%] w-[80%] m-auto flex justify-end">
         <TokenMinor />
       </div>

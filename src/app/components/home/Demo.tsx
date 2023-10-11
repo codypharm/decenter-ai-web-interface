@@ -4,7 +4,7 @@ import React from "react";
 
 const Demo = () => {
   return (
-    <section className="min-h-[80vh]  relative flex justify-end">
+    <section className="h-[50vh] md:min-h-[80vh]  relative flex justify-end">
       <Rain />
 
       <div className="absolute inset-0 flex items-center justify-center">
