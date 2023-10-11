@@ -5,11 +5,11 @@ import React from "react";
 
 const Token = () => {
   return (
-    <section className="min-h-[60vh]  relative ">
+    <section className="min-h-[80vh] mt-52 md:mt-0  relative ">
       <div className="h-[10%] w-[80%] m-auto flex justify-end">
         <TokenMinor />
       </div>
-      <div className="w-[80%]  h-[10%] m-auto flex justify-between items-center">
+      <div className="w-[80%]  h-[10%] m-auto flex flex-col md:flex-row justify-between items-center">
         <div className="w-fit text-primary_1">
           <h2 className="font-logirentBold text-3xl leading-loose">
             Dcen tokens
@@ -40,7 +40,9 @@ const Token = () => {
             </div>
           </div>
         </div>
-        <Rings />
+        <div className="w-full md:w-[50vw] h-full flex justify-center">
+          <Rings />
+        </div>
       </div>
       <div className="h-[10%] -mt-96 flex justify-end">
         <TokenStar />

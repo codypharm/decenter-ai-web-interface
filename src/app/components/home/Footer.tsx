@@ -9,8 +9,8 @@ import { GrLocation } from "react-icons/gr";
 const Footer = () => {
   return (
     <section className="min-h-[40vh]  relative  py-8 ">
-      <div className="w-[80%] h-[80%] flex m-auto">
-        <div className="w-[30%] relative">
+      <div className="w-[80%] h-[80%] flex gap-y-10 md:gap-y-0 flex-col md:flex-row m-auto">
+        <div className="w-full md:w-[30%] relative">
           <div className=" w-full ">
             <Image
               src="/logo.png"
@@ -24,21 +24,21 @@ const Footer = () => {
               }}
             />
           </div>
-          <div className="flex space-x-8 text-primary_8 absolute bottom-0">
+          <div className=" hidden md:flex space-x-8 text-primary_8 absolute bottom-0">
             <PiDiscordLogoBold size={25} />
             <AiOutlineLinkedin size={25} />
             <LiaTelegramPlane size={25} />
             <PiTwitterLogo size={25} />
           </div>
         </div>
-        <div className="w-[20%] text-primary_1 font-archivo ">
-          <p className="text-lg text-center pt-1">AboutUs</p>
+        <div className="w-full md:w-[20%] text-primary_7 font-archivo ">
+          <p className="text-sm md:text-lg text-left md:text-center  pt-1">AboutUs</p>
         </div>
-        <div className="w-[25%] text-primary_1 font-archivo ">
-          <p className="text-lg text-center pt-1">Team</p>
+        <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
+          <p className="text-sm md:text-lg text-left md:text-center pt-1">Team</p>
         </div>
-        <div className="w-[25%] text-primary_1 font-archivo ">
-          <p className="text-lg    pt-1">Contact US</p>
+        <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
+          <p className="text-sm md:text-lg    pt-1">Contact US</p>
           <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineMailOpen size={25} />
             <p className="font-archivo pt-1">Admin@decenterai.com</p>
@@ -48,15 +48,25 @@ const Footer = () => {
             <p className="font-archivo pt-1">
               Address: SURECRYPTO PTY LTD, 58 Kerwin circle Herbersham, 2770,
               Sydney, Australia
+
+
             </p>
+          </div>
+          <div className="flex space-x-8 text-primary_8  py-10 md:hidden">
+            <PiDiscordLogoBold size={25} />
+            <AiOutlineLinkedin size={25} />
+            <LiaTelegramPlane size={25} />
+            <PiTwitterLogo size={25} />
           </div>
         </div>
       </div>
-      <div className="w-[80%] h-[20%] border-t border-primary_8 flex m-auto mt-10">
-        <div className="font-archivo font-semibold mt-6 text-primary_8 w-[50%]">
+
+
+      <div className="w-[80%] h-[20%] border-t border-primary_8 flex flex-col md:flex-row m-auto mt-10">
+        <div className="font-archivo font-semibold mt-6 text-primary_8 w-full md:w-[50%]">
           DECENTER AI 2023. All right reserved.
         </div>
-        <div className="font-archivo font-semibold flex space-x-8 justify-end mt-6 text-primary_8 w-[50%]">
+        <div className="font-archivo font-semibold flex space-x-8 justify-end mt-6 text-primary_8 w-full m:w-[50%]">
           <p>Privacy</p>
           <p>Policy</p>
           <p>TermsandCondition</p>

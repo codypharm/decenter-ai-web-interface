@@ -3,8 +3,7 @@ import React from "react";
 export const Rings = () => {
   return (
     <svg
-      width="754"
-      height="627"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 754 627"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
