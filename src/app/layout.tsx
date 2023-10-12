@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "DecenterAI",
-  description: "DecenterAI: Decentralized Infra for AI Model Training",
+  description: "Decentralized Infra for AI Model Training",
 };
 
 export default function RootLayout({
