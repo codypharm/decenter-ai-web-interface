@@ -4,6 +4,7 @@ export const El2 = () => {
   return (
     <svg
       className="h-[80%] w-[80%]"
+
       viewBox="0 0 704 503"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

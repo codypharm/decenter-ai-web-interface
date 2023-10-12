@@ -160,8 +160,10 @@ const Features = () => {
           className="absolute inset-0  w-[80%]  m-auto text-primary_1"
         >
 
+
           <h2 className="font-logirentBold font-bold  text-xl md:text-3xl mt-[15%]">
             The Future of AI Model TraInIng Is Here
+
           </h2>
 
           <div className="h-[70%] flex flex-col md:flex-row items-center  mt-20 md:mt-0 ">
@@ -184,7 +186,9 @@ const Features = () => {
               </ul>
             </div>
 
+
             <motion.div animate={bot1} className="w-full md:w-[50%] hidden md:flex justify-center">
+
 
               <Image
                 src="/bot1.png"
@@ -201,7 +205,9 @@ const Features = () => {
         </div>
       </section>
 
+
       <section className="min-h-[60vh]  relative flex justify-center md:mt-0 ">
+
         <div className="absolute inset-0 h-full  w-[80%]  m-auto text-primary_1">
           <div ref={vRef2} className="h-[70%] flex flex-col md:flex-row items-center  ">
             <motion.div animate={bot2} className="w-full md:w-[50%] flex justify-center">
@@ -220,7 +226,9 @@ const Features = () => {
             <div className="w-full md:w-[50%]  flex flex-col items-center">
               <div className="w-fit">
 
+
                 <h2 className="font-logirentBold  text-xl  md:text-3xl md:text-left leading-loose">
+
 
                   DecentralIsed AutotraIn
                 </h2>
@@ -242,7 +250,9 @@ const Features = () => {
           </div>
         </div>
       </section>
+
       <section className="min-h-[60vh]  relative flex justify-end  mt-52 md:mt-0">
+
         <div className="absolute -top-64">
           <Globe2 />
         </div>
@@ -299,7 +309,9 @@ const Features = () => {
         </div>
       </section>
 
+
       <section className="min-h-[60vh]  relative flex justify-between mt-64 md:mt-0 ">
+
         <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
@@ -345,11 +357,14 @@ const Features = () => {
           </div>
         </div>
       </section>
+
       <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0  ">
+
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
+
           <div className="h-[100%] flex flex-col md:flex-row items-center md:hidden  ">
             <motion.div animate={bot5} className="w-full md:w-[50%] flex justify-center">
               <Image
@@ -363,6 +378,7 @@ const Features = () => {
                 }}
               />
             </motion.div>
+
             <div className="w-full md:w-[50%] ">
               <h2
                 ref={vRef5}
@@ -387,7 +403,9 @@ const Features = () => {
                 </li>
               </ul>
             </div>
+
             <motion.div animate={bot5} className="w-full md:w-[50%] hidden md:flex justify-center">
+
               <Image
                 src="/bot5.png"
                 alt="decenter image"

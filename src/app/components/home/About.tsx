@@ -67,7 +67,9 @@ const About = () => {
       //   scale: scaleProgress,
       //   opacity: opacityProgress,
       // }}
+
       className=" h-[60vh] md:h-[80vh]  relative"
+
     >
 
 
@@ -101,6 +103,7 @@ const About = () => {
           <Star2 />
           <Star3 />
         </motion.div>
+
         <div className=" w-[80%] h-full z-20 ">
 
           <div className="h-full w-full   flex justify-center items-center m-auto relative">
