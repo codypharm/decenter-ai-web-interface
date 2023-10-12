@@ -23,7 +23,6 @@ const Demo = () => {
             <li>Produces the best performing model for download</li>
           </ul>
 
-
           <Link href="https://app.decenterai.com/signup">
             <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 mt-6 cursor-pointer rounded-xl">
               Try Demo

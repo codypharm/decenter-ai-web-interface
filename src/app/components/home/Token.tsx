@@ -41,7 +41,9 @@ const Token = () => {
           </div>
         </div>
 
+
         <div className="w-full md:w-[50vw] h-full flex justify-center">
+
 
           <Rings />
         </div>

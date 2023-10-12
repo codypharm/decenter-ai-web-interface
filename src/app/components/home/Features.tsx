@@ -208,6 +208,7 @@ const Features = () => {
 
       <section className="min-h-[60vh]  relative flex justify-center md:mt-0 ">
 
+
         <div className="absolute inset-0 h-full  w-[80%]  m-auto text-primary_1">
           <div ref={vRef2} className="h-[70%] flex flex-col md:flex-row items-center  ">
             <motion.div animate={bot2} className="w-full md:w-[50%] flex justify-center">

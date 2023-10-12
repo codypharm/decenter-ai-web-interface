@@ -54,7 +54,6 @@ const Hero = () => {
                   Try Demo
                 </button>
               </Link>
-
             </div>
           </div>
 
@@ -91,6 +90,7 @@ const Hero = () => {
 
           <div className=" w-[50%] md:w-[20%] h-full flex items-center justify-end">
 
+
             <Link href="https://app.decenterai.com/signup" className="hidden md:block">
 
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
@@ -114,14 +114,18 @@ const Hero = () => {
           </p>
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
 
+
             <Link href="https://app.decenterai.com/signup">
+
 
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
                 Try Demo
               </button>
             </Link>
 
+
             <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
+
 
               DCEN
             </button>

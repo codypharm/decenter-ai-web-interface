@@ -4,7 +4,9 @@ export const El1 = () => {
   return (
     <svg
 
+
       className="h-[90%] w-[90%]"
+
 
       viewBox="0 0 926 662"
       fill="none"
