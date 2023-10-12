@@ -1,5 +1,6 @@
 import { Rain } from "@/svg/rain";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 const Demo = () => {
@@ -19,9 +20,12 @@ const Demo = () => {
             <li>Tests and scores custom models for accuracy</li>
             <li>Produces the best performing model for download</li>
           </ul>
-          <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 mt-6 cursor-pointer rounded-xl">
-            Try Demo
-          </button>
+
+          <Link href="https://app.decenterai.com/signup">
+            <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 mt-6 cursor-pointer rounded-xl">
+              Try Demo
+            </button>
+          </Link>
           <div className="absolute right-2 -top-3 -bottom-3 w-[25%] h-full hidden md:block ">
             <Image
               src="/pc.png"

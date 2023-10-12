@@ -9,7 +9,7 @@ import { RxHamburgerMenu } from "react-icons/rx"
 const Hero = () => {
   const [menu, setMenu] = useState<boolean>(false)
   return (
-    <section className="min-h-[80vh] flex justify-end relative z-10">
+    <section className="min-h-[70vh] md:min-h-[80vh flex justify-end relative z-10">
       {menu && (
         <div className="absolute top-0 w-full  z-50">
           <div className=" w-[90%] h-[70vh] z-50  bg-primary_12  m-auto mt-2 border border-primary_8  rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-6 px-4 text-primary_1">
@@ -46,9 +46,11 @@ const Hero = () => {
               </ul>
             </div>
             <div className="h-[20%] text-center">
-              <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
-                Try Demo
-              </button>
+              <Link href="https://app.decenterai.com/signup">
+                <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
+                  Try Demo
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -84,7 +86,7 @@ const Hero = () => {
           </div>
 
           <div className=" w-[50%] md:w-[20%] h-full flex items-center justify-end">
-            <Link href="/demo" className="hidden md:block">
+            <Link href="https://app.decenterai.com/signup" className="hidden md:block">
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
                 Try Demo
               </button>
@@ -101,12 +103,12 @@ const Hero = () => {
             Train ML/DL/ ANN/LLM models with ease.
           </p>
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
-            <Link href="/demo">
+            <Link href="https://app.decenterai.com/signup">
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
                 Try Demo
               </button>
             </Link>
-            <button className="border border-primary_8 text-sm text-primary_8 font-normal font-primaryArchivo  md:py-2 px-3 cursor-pointer rounded-3xl">
+            <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
               DCEN
             </button>
           </div>

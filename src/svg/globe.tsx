@@ -3,7 +3,7 @@ import React from "react";
 export const Globe = () => {
   return (
     <svg
-      className="h-[50%] w-[80%]"
+      className="h-[40%] w-[40%] md:h-[20%] md:w-[20%]"
       viewBox="0 0 309 309"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
