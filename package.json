@@ -10,7 +10,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests",
+    "pretty": "prettier -w .",
+    "pretty-ci": "prettier -w .github/"
   },
   "dependencies": {
     "@types/node": "20.6.2",

@@ -1,32 +1,32 @@
-"use client";
-import Star1 from "@/svg/star1";
-import Star3 from "@/svg/star3";
-import Star2 from "@/svg/star2";
-import React, { useRef, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { El1 } from "@/svg/el1";
-import { El2 } from "@/svg/el2";
-import { Globe } from "@/svg/globe";
-import { Star4 } from "@/svg/star4";
-import { Star5 } from "@/svg/star5";
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+'use client'
+import Star1 from '@/svg/star1'
+import Star3 from '@/svg/star3'
+import Star2 from '@/svg/star2'
+import React, { useRef, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { El1 } from '@/svg/el1'
+import { El2 } from '@/svg/el2'
+import { Globe } from '@/svg/globe'
+import { Star4 } from '@/svg/star4'
+import { Star5 } from '@/svg/star5'
+import { motion, useScroll, useTransform, useAnimation } from 'framer-motion'
 
 const About = () => {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null)
   const { ref: vRef, inView } = useInView({
     threshold: 0.4,
-  });
+  })
 
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["0 1", "1.33 1"],
-  });
+    offset: ['0 1', '1.33 1'],
+  })
 
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1])
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.9, 1])
 
-  const star = useAnimation();
-  const globe = useAnimation();
+  const star = useAnimation()
+  const globe = useAnimation()
 
   useEffect(() => {
     if (inView) {
@@ -36,7 +36,7 @@ const About = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
 
       //globe animation
       globe.start({
@@ -44,11 +44,11 @@ const About = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
     } else {
       star.start({
-        y: "-20vh",
-      });
+        y: '-20vh',
+      })
 
       //globe animation
       globe.start({
@@ -56,9 +56,9 @@ const About = () => {
         transition: {
           duration: 3,
         },
-      });
+      })
     }
-  }, [inView]);
+  }, [inView])
 
   return (
     <motion.div
@@ -69,10 +69,7 @@ const About = () => {
       // }}
 
       className=" h-[60vh] md:h-[80vh]  relative"
-
     >
-
-
       <motion.div animate={star} className=" w-[80%] m-auto h-[10%] ">
         <Star1 />
       </motion.div>
@@ -104,15 +101,10 @@ const About = () => {
           <Star3 />
         </motion.div>
 
-
         <div className=" w-[80%] h-full z-20 ">
-
           <div className="h-full w-full   flex justify-center items-center m-auto relative">
-
-
             <El1 />
             <div className="absolute  inset-0 ">
-
               <div className="h-full w-full flex justify-center  items-center">
                 <El2 />
 
@@ -125,13 +117,10 @@ const About = () => {
                   className="absolute inset-0  flex items-center justify-center"
                 >
                   <Globe />
-
-
                 </motion.div>
               </div>
             </div>
           </div>
-
         </div>
         <motion.div
           // animate={star}
@@ -140,9 +129,8 @@ const About = () => {
           <Star5 />
         </motion.div>
       </div>
-
     </motion.div>
-  );
-};
+  )
+}
 
-export default About;
+export default About

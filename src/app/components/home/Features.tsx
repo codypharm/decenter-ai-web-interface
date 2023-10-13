@@ -1,37 +1,37 @@
-"use client";
-import { Globe1 } from "@/svg/globe1";
-import { Globe2 } from "@/svg/globe2";
-import { Globe4 } from "@/svg/globe4";
-import { Globe5 } from "@/svg/globe5";
-import Image from "next/image";
-import React, { useRef, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
+'use client'
+import { Globe1 } from '@/svg/globe1'
+import { Globe2 } from '@/svg/globe2'
+import { Globe4 } from '@/svg/globe4'
+import { Globe5 } from '@/svg/globe5'
+import Image from 'next/image'
+import React, { useRef, useEffect } from 'react'
+import { useInView } from 'react-intersection-observer'
+import { motion, useScroll, useTransform, useAnimation } from 'framer-motion'
 
 const Features = () => {
   const { ref: vRef, inView } = useInView({
     threshold: 0.4,
-  });
+  })
 
   const { ref: vRef2, inView: inView2 } = useInView({
     threshold: 1,
-  });
+  })
   const { ref: vRef3, inView: inView3 } = useInView({
     threshold: 1,
-  });
+  })
   const { ref: vRef4, inView: inView4 } = useInView({
     threshold: 1,
-  });
+  })
   const { ref: vRef5, inView: inView5 } = useInView({
     threshold: 1,
-  });
+  })
 
-  const bot1 = useAnimation();
-  const bot2 = useAnimation();
-  const bot3 = useAnimation();
-  const bot4 = useAnimation();
-  const bot5 = useAnimation();
-  const text1 = useAnimation();
+  const bot1 = useAnimation()
+  const bot2 = useAnimation()
+  const bot3 = useAnimation()
+  const bot4 = useAnimation()
+  const bot5 = useAnimation()
+  const text1 = useAnimation()
 
   useEffect(() => {
     if (inView) {
@@ -42,27 +42,20 @@ const Features = () => {
         transition: {
           duration: 0.8,
         },
-      });
-
-
+      })
 
       //text animation
-
     } else {
       bot1.start({
-        y: "10vh",
+        y: '10vh',
         opacity: 0,
 
         transition: {
           duration: 3,
         },
-      });
-
-
-
-
+      })
     }
-  }, [inView]);
+  }, [inView])
 
   useEffect(() => {
     if (inView2) {
@@ -75,18 +68,18 @@ const Features = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
     } else {
       bot2.start({
-        y: "10vh",
+        y: '10vh',
 
         opacity: 0,
         transition: {
           duration: 2,
         },
-      });
+      })
     }
-  }, [inView2]);
+  }, [inView2])
 
   useEffect(() => {
     if (inView3) {
@@ -99,17 +92,17 @@ const Features = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
     } else {
       bot3.start({
-        y: "10vh",
+        y: '10vh',
         opacity: 0,
         transition: {
           duration: 2,
         },
-      });
+      })
     }
-  }, [inView3]);
+  }, [inView3])
 
   useEffect(() => {
     if (inView4) {
@@ -120,16 +113,16 @@ const Features = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
     } else {
       bot4.start({
         opacity: 0,
         transition: {
           duration: 2,
         },
-      });
+      })
     }
-  }, [inView4]);
+  }, [inView4])
 
   useEffect(() => {
     if (inView5) {
@@ -140,36 +133,29 @@ const Features = () => {
         transition: {
           duration: 2,
         },
-      });
+      })
     } else {
       bot5.start({
         opacity: 0,
         transition: {
           duration: 2,
         },
-      });
+      })
     }
-  }, [inView5]);
+  }, [inView5])
 
   return (
     <>
       <section className="min-h-[80vh]  relative flex justify-center">
         <Globe1 />
-        <div
-          ref={vRef}
-          className="absolute inset-0  w-[80%]  m-auto text-primary_1"
-        >
-
-
+        <div ref={vRef} className="absolute inset-0  w-[80%]  m-auto text-primary_1">
           <h2 className="font-logirentBold font-bold  text-xl md:text-3xl mt-[15%]">
             The Future of AI Model TraInIng Is Here
-
           </h2>
 
           <div className="h-[70%] flex flex-col md:flex-row items-center  mt-20 md:mt-0 ">
             <div className="w-full  md:w-[50%] ">
               <h2 className="font-logirentBold    text-xl md:text-3xl md:text-left leading-loose">
-
                 Decenter Teams
               </h2>
 
@@ -179,17 +165,14 @@ const Features = () => {
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
                 <li>Create private or public teams</li>
                 <li>Admins can create  tasks and assign to team members</li>
-                <li>
-                  Monitor progress with built-in project and team management
-                  tools
-                </li>
+                <li>Monitor progress with built-in project and team management tools</li>
               </ul>
             </div>
 
-
-            <motion.div animate={bot1} className="w-full md:w-[50%] hidden md:flex justify-center">
-
-
+            <motion.div
+              animate={bot1}
+              className="w-full md:w-[50%] hidden md:flex justify-center"
+            >
               <Image
                 src="/bot1.png"
                 alt="decenter image"
@@ -197,7 +180,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -205,10 +188,7 @@ const Features = () => {
         </div>
       </section>
 
-
       <section className="min-h-[60vh]  relative flex justify-center md:mt-0 ">
-
-
         <div className="absolute inset-0 h-full  w-[80%]  m-auto text-primary_1">
           <div ref={vRef2} className="h-[70%] flex flex-col md:flex-row items-center  ">
             <motion.div animate={bot2} className="w-full md:w-[50%] flex justify-center">
@@ -219,18 +199,14 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
 
             <div className="w-full md:w-[50%]  flex flex-col items-center">
               <div className="w-fit">
-
-
                 <h2 className="font-logirentBold  text-xl  md:text-3xl md:text-left leading-loose">
-
-
                   DecentralIsed AutotraIn
                 </h2>
                 <p className="font-archivo text-lg  md:text-xl md:text-left">
@@ -238,8 +214,7 @@ const Features = () => {
                 </p>
                 <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
                   <li>
-                    Select from a wide range of pre-trained models and model
-                    templates
+                    Select from a wide range of pre-trained models and model templates
                   </li>
                   <li>
                     Parallel training systems train models on split datasets to
@@ -253,13 +228,15 @@ const Features = () => {
       </section>
 
       <section className="min-h-[60vh]  relative flex justify-end  mt-52 md:mt-0">
-
         <div className="absolute -top-64">
           <Globe2 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
           <div className="h-[100%] flex flex-col md:flex-row items-center  ">
-            <motion.div animate={bot3} className="w-full md:w-[50%] flex justify-center md:hidden">
+            <motion.div
+              animate={bot3}
+              className="w-full md:w-[50%] flex justify-center md:hidden"
+            >
               <Image
                 src="/bot3.png"
                 alt="decenter image"
@@ -267,7 +244,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -280,21 +257,20 @@ const Features = () => {
               </h2>
 
               <p className="font-archivo  text-lg  md:text-xl md:text-left">
-                DeCenter Repository Access a Robust Library of AI Models,
-
-                Datasets and Tools
+                DeCenter Repository Access a Robust Library of AI Models, Datasets and
+                Tools
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
                 <li>Securely store a diverse range of AI models.</li>
-                <li>Track and manage model updates with ease.</li>{" "}
-                <li>Access, share, customize, and collaborate on models.</li>{" "}
-                <li>
-                  Seamlessly download and integrate models into your
-                  applications.
-                </li>
+                <li>Track and manage model updates with ease.</li>{' '}
+                <li>Access, share, customize, and collaborate on models.</li>{' '}
+                <li>Seamlessly download and integrate models into your applications.</li>
               </ul>
             </div>
-            <motion.div animate={bot3} className="w-full md:w-[50%] hidden md:flex justify-center ">
+            <motion.div
+              animate={bot3}
+              className="w-full md:w-[50%] hidden md:flex justify-center "
+            >
               <Image
                 src="/bot3.png"
                 alt="decenter image"
@@ -302,7 +278,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -310,9 +286,7 @@ const Features = () => {
         </div>
       </section>
 
-
       <section className="min-h-[60vh]  relative flex justify-between mt-64 md:mt-0 ">
-
         <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
@@ -330,7 +304,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -343,16 +317,12 @@ const Features = () => {
               </h2>
 
               <p className="font-archivo  text-lg md:text-xl md:text-left ">
-                DIncentivization Systems Powered by the DCEN
-
-                token
+                DIncentivization Systems Powered by the DCEN token
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Earn incentives for completing tasks.</li>{" "}
-                <li>Receive rewards for providing feedback.</li>{" "}
-                <li>
-                  Get rewards for conducting reviews, ratings and testing.
-                </li>
+                <li>Earn incentives for completing tasks.</li>{' '}
+                <li>Receive rewards for providing feedback.</li>{' '}
+                <li>Get rewards for conducting reviews, ratings and testing.</li>
               </ul>
             </div>
           </div>
@@ -360,12 +330,10 @@ const Features = () => {
       </section>
 
       <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0  ">
-
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
         <div className="absolute inset-0  w-[80%]  m-auto text-primary_1">
-
           <div className="h-[100%] flex flex-col md:flex-row items-center md:hidden  ">
             <motion.div animate={bot5} className="w-full md:w-[50%] flex justify-center">
               <Image
@@ -375,7 +343,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -389,24 +357,24 @@ const Features = () => {
               </h2>
 
               <p className="font-archivo text-md  md:text-3xl md:text-left ">
-                AI Tool to Test Models and Generate Analysis
-
-                Report
+                AI Tool to Test Models and Generate Analysis Report
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
                 <li>
-                  Algorithms score, select and mint the best possible version of
-                  each trained model
+                  Algorithms score, select and mint the best possible version of each
+                  trained model
                 </li>
                 <li>
-                  Utilize AutoTrain to automatically select, optimize, and
-                  fine-tune hyperparameters
+                  Utilize AutoTrain to automatically select, optimize, and fine-tune
+                  hyperparameters
                 </li>
               </ul>
             </div>
 
-            <motion.div animate={bot5} className="w-full md:w-[50%] hidden md:flex justify-center">
-
+            <motion.div
+              animate={bot5}
+              className="w-full md:w-[50%] hidden md:flex justify-center"
+            >
               <Image
                 src="/bot5.png"
                 alt="decenter image"
@@ -414,7 +382,7 @@ const Features = () => {
                 width={400}
                 height={400}
                 style={{
-                  objectFit: "contain",
+                  objectFit: 'contain',
                 }}
               />
             </motion.div>
@@ -422,7 +390,7 @@ const Features = () => {
         </div>
       </section>
     </>
-  );
-};
+  )
+}
 
-export default Features;
+export default Features

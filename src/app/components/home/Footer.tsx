@@ -1,10 +1,10 @@
-import Image from "next/image";
-import React from "react";
-import { PiTwitterLogo, PiDiscordLogoBold } from "react-icons/pi";
-import { LiaTelegramPlane } from "react-icons/lia";
-import { AiOutlineLinkedin } from "react-icons/ai";
-import { HiOutlineMailOpen, HiOutlineLocationMarker } from "react-icons/hi";
-import { GrLocation } from "react-icons/gr";
+import Image from 'next/image'
+import React from 'react'
+import { PiTwitterLogo, PiDiscordLogoBold } from 'react-icons/pi'
+import { LiaTelegramPlane } from 'react-icons/lia'
+import { AiOutlineLinkedin } from 'react-icons/ai'
+import { HiOutlineMailOpen, HiOutlineLocationMarker } from 'react-icons/hi'
+import { GrLocation } from 'react-icons/gr'
 
 const Footer = () => {
   return (
@@ -18,9 +18,9 @@ const Footer = () => {
               width={150}
               height={200}
               style={{
-                maxWidth: "100%",
-                maxHeight: "100%",
-                objectFit: "contain",
+                maxWidth: '100%',
+                maxHeight: '100%',
+                objectFit: 'contain',
               }}
             />
           </div>
@@ -46,10 +46,8 @@ const Footer = () => {
           <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineLocationMarker size={50} className="text-primary_8" />
             <p className="font-archivo pt-1">
-              Address: SURECRYPTO PTY LTD, 58 Kerwin circle Herbersham, 2770,
-              Sydney, Australia
-
-
+              Address: SURECRYPTO PTY LTD, 58 Kerwin circle Herbersham, 2770, Sydney,
+              Australia
             </p>
           </div>
           <div className="flex space-x-8 text-primary_8  py-10 md:hidden">
@@ -60,7 +58,6 @@ const Footer = () => {
           </div>
         </div>
       </div>
-
 
       <div className="w-[80%] h-[20%] border-t border-primary_8 flex flex-col md:flex-row m-auto mt-10">
         <div className="font-archivo font-semibold mt-6 text-primary_8 w-full md:w-[50%]">
@@ -73,6 +70,6 @@ const Footer = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default Footer;
+  )
+}
+export default Footer

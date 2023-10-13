@@ -1,7 +1,7 @@
-import { Rain } from "@/svg/rain";
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import { Rain } from '@/svg/rain'
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
 
 const Demo = () => {
   return (
@@ -10,8 +10,6 @@ const Demo = () => {
 
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="w-[80%] relative bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-10 px-10 text-primary_1">
-
-
           <h2 className="font-logirentBold text-xl md:text-3xl">
             TraIn ML models on our demo
           </h2>
@@ -35,14 +33,14 @@ const Demo = () => {
               alt="decenter image"
               fill={true}
               style={{
-                objectFit: "cover",
+                objectFit: 'cover',
               }}
             />
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Demo;
+export default Demo

@@ -1,7 +1,7 @@
-import { Grid } from "@/svg/grid";
-import Image from "next/image";
-import { AiOutlineLinkedin, AiOutlineBehance } from "react-icons/ai";
-import React from "react";
+import { Grid } from '@/svg/grid'
+import Image from 'next/image'
+import { AiOutlineLinkedin, AiOutlineBehance } from 'react-icons/ai'
+import React from 'react'
 
 const Team = () => {
   return (
@@ -13,9 +13,7 @@ const Team = () => {
         {/* <Grid /> */}
         <Image src="/gridone.png" alt="background image" fill />
         <div className="absolute inset-0 flex flex-col gap-10 text-primary_1">
-          <h2 className="font-logirentBold text-3xl text-center h-[10%]">
-            TEAM
-          </h2>
+          <h2 className="font-logirentBold text-3xl text-center h-[10%]">TEAM</h2>
           <div className="w-full flex h-[45%]  justify-between gap-10 ">
             <div className="w-[40%]  xl:w-[25%]  border border-primary_8 p-4 py-8  rounded-xl bg-primary_13">
               <div className="h-[50%] flex justify-center">
@@ -30,14 +28,11 @@ const Team = () => {
               <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
                 <div className="font-archivo text-2xl font-semibold mt-6 flex justify-between items-center">
                   <p>Victor (CEO)</p>
-                  <AiOutlineLinkedin
-                    size={30}
-                    className="pt-1 text-primary_7"
-                  />
+                  <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
                 </div>
                 <p className="text-primary_7 text-lg mt-3 text-justify">
-                  Founded SureCrypto a blockchain service company with projects
-                  like GamerHub, Kryptotoday, Finality.
+                  Founded SureCrypto a blockchain service company with projects like
+                  GamerHub, Kryptotoday, Finality.
                 </p>
               </div>
             </div>
@@ -54,14 +49,11 @@ const Team = () => {
               <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
                 <div className="font-archivo text-2xl font-semibold mt-6 flex justify-between items-center">
                   <p>HIRO (CTO)</p>
-                  <AiOutlineLinkedin
-                    size={30}
-                    className="pt-1 text-primary_7"
-                  />
+                  <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
                 </div>
                 <p className="text-primary_7 text-lg mt-3 text-justify">
-                  Data scientist and machine learning engineer with over 5 years
-                  of experience at AIChats, PYOR, HyperTest.
+                  Data scientist and machine learning engineer with over 5 years of
+                  experience at AIChats, PYOR, HyperTest.
                 </p>
               </div>
             </div>
@@ -79,14 +71,11 @@ const Team = () => {
               <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
                 <div className="font-archivo text-2xl font-semibold mt-6 flex justify-between items-center">
                   <p>HIRO (CTO)</p>
-                  <AiOutlineLinkedin
-                    size={30}
-                    className="pt-1 text-primary_7"
-                  />
+                  <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
                 </div>
                 <p className="text-primary_7 text-lg mt-3 text-justify">
-                  Founded Mindspace solutions, a Web3 marketing agency with
-                  clients like Private AI, YOM, Riva Metaverse
+                  Founded Mindspace solutions, a Web3 marketing agency with clients like
+                  Private AI, YOM, Riva Metaverse
                 </p>
               </div>
             </div>
@@ -105,14 +94,11 @@ const Team = () => {
               <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
                 <div className="font-archivo text-2xl font-semibold mt-6 flex justify-between items-center">
                   <p>William (DEV)</p>
-                  <AiOutlineLinkedin
-                    size={30}
-                    className="pt-1 text-primary_7"
-                  />
+                  <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
                 </div>
                 <p className="text-primary_7 text-lg mt-3 text-justify">
-                  Co-founder and Dev at FreshCoast Blockchain and OpenSafari.
-                  Core Contributor at RnDAO.
+                  Co-founder and Dev at FreshCoast Blockchain and OpenSafari. Core
+                  Contributor at RnDAO.
                 </p>
               </div>
             </div>
@@ -133,8 +119,8 @@ const Team = () => {
                   <AiOutlineBehance size={30} className="pt-1 text-primary_7" />
                 </div>
                 <p className="text-primary_7 text-lg mt-3 text-justify">
-                  Software product designer; partnering with clients like
-                  Sabedoria, Minority Africa, and Intrapair.
+                  Software product designer; partnering with clients like Sabedoria,
+                  Minority Africa, and Intrapair.
                 </p>
               </div>
             </div>
@@ -142,7 +128,7 @@ const Team = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Team;
+export default Team

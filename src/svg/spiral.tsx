@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Spiral = () => {
   return (
@@ -239,7 +239,7 @@ const Spiral = () => {
         strokeLinecap="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Spiral;
+export default Spiral

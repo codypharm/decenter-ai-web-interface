@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 const Star2 = () => {
   return (
@@ -32,14 +32,11 @@ const Star2 = () => {
             in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur
-            stdDeviation="2.5"
-            result="effect1_foregroundBlur_1573_3070"
-          />
+          <feGaussianBlur stdDeviation="2.5" result="effect1_foregroundBlur_1573_3070" />
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}
 
-export default Star2;
+export default Star2

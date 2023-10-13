@@ -1,13 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export const El1 = () => {
   return (
     <svg
-
-
       className="h-[90%] w-[90%]"
-
-
       viewBox="0 0 926 662"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -20,5 +16,5 @@ export const El1 = () => {
         strokeDasharray="21 21"
       />
     </svg>
-  );
-};
+  )
+}

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const Rain = () => {
   return (
@@ -64,5 +64,5 @@ export const Rain = () => {
         fill="white"
       />
     </svg>
-  );
-};
+  )
+}
