@@ -1,12 +1,16 @@
 {
-  "name": "web",
+  "name": "decenterai.com",
   "version": "0.1.0",
+  "description": "Decenter AI landing page: www.decenterai.com",
+  "author": "laciferin@gmail.com",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest --passWithNoTests"
   },
   "dependencies": {
     "@types/node": "20.6.2",
@@ -29,5 +33,23 @@
     "tailwindcss": "3.3.3",
     "ts-jest": "^29.1.1",
     "typescript": "5.2.2"
-  }
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "ts-jest": "^29.1.1",
+    "ts-node": "^10.9.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=6.0.0",
+    "pnpm": ">=8.6.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Decenter-AI/decenterai.com.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Decenter-AI/decenterai.com/issues"
+  },
+  "homepage": "https://decenterai.com"
 }

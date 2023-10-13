@@ -1,0 +1,39 @@
+name: Build
+
+on:
+  push:
+    branches:
+    tags:
+  pull_request:
+    branches:
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          cache: 'pnpm'
+          node-version: 19.9.0 #last release of node v19
+          check-latest: false
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: |
+          npm run build

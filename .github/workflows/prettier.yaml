@@ -1,0 +1,46 @@
+name: Prettier
+
+on:
+  # pull_request:
+  push:
+    branches: [main]
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+
+      - name: Git config
+        run: |
+          git config user.name Nasfame
+          git config user.email laciferin@gmail.com
+
+      - name: Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+          dry: false
+          github_token: ${{ github.token }}
+          same_commit: false
+          commit_message: 'style: pretty code'
+          commit_description: 'automated via ci'
+          file_pattern: '*'
+          only_changed: false
+          prettier_options: '--write .'
+#          prettier_plugins
+
