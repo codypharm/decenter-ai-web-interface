@@ -5,10 +5,11 @@ import { LiaTelegramPlane } from 'react-icons/lia'
 import { AiOutlineLinkedin } from 'react-icons/ai'
 import { HiOutlineMailOpen, HiOutlineLocationMarker } from 'react-icons/hi'
 import { GrLocation } from 'react-icons/gr'
+import Link from 'next/link'
 
 const Footer = () => {
   return (
-    <section className="min-h-[40vh]  relative  py-8 ">
+    <section id="contact" className="min-h-[40vh]  relative  py-8 ">
       <div className="w-[80%] h-[80%] flex gap-y-10 md:gap-y-0 flex-col md:flex-row m-auto">
         <div className="w-full md:w-[30%] relative">
           <div className=" w-full ">
@@ -32,13 +33,13 @@ const Footer = () => {
           </div>
         </div>
         <div className="w-full md:w-[20%] text-primary_7 font-archivo ">
-          <p className="text-sm md:text-lg text-left md:text-center  pt-1">AboutUs</p>
+          <Link href="#about"> <p className="text-sm md:text-lg text-left md:text-center  pt-1">AboutUs</p></Link>
         </div>
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
           <p className="text-sm md:text-lg text-left md:text-center pt-1">Team</p>
         </div>
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
-          <p className="text-sm md:text-lg    pt-1">Contact US</p>
+          <Link href="#contact"><p className="text-sm md:text-lg    pt-1">Contact US</p></Link>
           <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineMailOpen size={25} />
             <p className="font-archivo pt-1">Admin@decenterai.com</p>

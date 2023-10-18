@@ -62,6 +62,7 @@ const About = () => {
 
   return (
     <motion.div
+      id="about"
       ref={ref}
       // style={{
       //   scale: scaleProgress,
