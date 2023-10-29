@@ -7,7 +7,9 @@ import Token from './components/home/Token'
 import Team from './components/home/Team'
 import Action from './components/home/Action'
 import Footer from './components/home/Footer'
+import {AppMetaData} from "@config/app";
 
+export const metadata = AppMetaData
 export default function Home() {
   return (
     <main className="bg-primary_13">
