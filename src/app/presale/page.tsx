@@ -11,28 +11,28 @@ import { PiCaretDown } from 'react-icons/pi'
 import { AnyCnameRecord } from 'dns'
 const PresalePage = () => {
   const price = 0.022
- const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
- const [selectedToken, setSelectedToken] = useState<string>('USDT')
+  const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
+  const [selectedToken, setSelectedToken] = useState<string>('USDT')
 
- const handleToggleDropdown = () => {
-   setDropdownOpen(!isDropdownOpen)
- }
-
- const handleTokenChange = (token: string) => {
-   setSelectedToken(token)
-   setDropdownOpen(false)
+  const handleToggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen)
   }
-   const getTokenImage = (token: string) => {
-     switch (token) {
-       case 'USDT':
-         return <Image src={usdt} alt="USDT" className="w-6 h-6 mr-2" />
-       case 'BTC':
-         return <FaBtc size={20} className="w-6 h-6 mr-2 text-yellow-300" />
-       
-       default:
-         return null
-     }
-   }
+
+  const handleTokenChange = (token: string) => {
+    setSelectedToken(token)
+    setDropdownOpen(false)
+  }
+  const getTokenImage = (token: string) => {
+    switch (token) {
+      case 'USDT':
+        return <Image src={usdt} alt="USDT" className="w-6 h-6 mr-2" />
+      case 'BTC':
+        return <FaBtc size={20} className="w-6 h-6 mr-2 text-yellow-300" />
+
+      default:
+        return null
+    }
+  }
   return (
     <main className="w-full bg-primary_13">
       <Nav />
@@ -40,7 +40,7 @@ const PresalePage = () => {
       <div className="flex flex-col gap-6  items-center mt-12 md:mt-0 font-archivo shadow-xl  ">
         <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
 
-        <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-[#232323] p-6  w-[90%] mx-auto sm:w-[60%] md:w-[50%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%] mb-8">
+        <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-6  w-[90%] mx-auto max-w-[400px] ">
           <form action="" className="flex flex-col   gap-4 ">
             <div className="flex flex-col ">
               <div className="flex flex-col gap-1 text-sm relative">
@@ -51,11 +51,11 @@ const PresalePage = () => {
                       onClick={handleToggleDropdown}>
                       {getTokenImage(selectedToken)}
                       <span className="text-white">{selectedToken}</span>
-                      <PiCaretDown size={20} className="text-[#8F8F8F]" />
+                      <PiCaretDown size={20} className="text-primary_7" />
                     </div>
 
                     {isDropdownOpen && (
-                      <div className="absolute top-full left-0 bg-[#2B2B2B]  rounded-lg mt-2 p-2">
+                      <div className="absolute top-full left-0 bg-primary_10 rounded-lg mt-2 p-2">
                         <div
                           className="p-2 cursor-pointer flex gap-1 items-center"
                           onClick={() => handleTokenChange('USDT')}>
@@ -74,11 +74,11 @@ const PresalePage = () => {
                 </label>
                 <input
                   type="number"
-                  className="border  rounded-2xl border-[#2B2B2B] bg-transparent focus-within:outline-none p-3  placeholder:px-2"
+                  className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3  placeholder:px-2"
                   id="token"
                   placeholder="0.0"
                 />
-                <LuArrowBigDown size={40} className="w-max mx-auto text-[#5D5D5D]" />
+                <LuArrowBigDown size={40} className="w-max mx-auto text-primary_8" />
               </div>
               <div className="flex flex-col gap-1 text-sm">
                 <label htmlFor="dcen" className="flex items-center gap-2 pl-2 mb-1">
@@ -87,11 +87,11 @@ const PresalePage = () => {
                 </label>
                 <input
                   type="number"
-                  className="border  rounded-2xl border-[#2B2B2B] bg-transparent focus-within:outline-none p-3 placeholder:px-2"
+                  className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3 placeholder:px-2"
                   id="dcen"
                   placeholder="0.0"
                 />
-                <p className="text-[#C1C1C1]">Price: ${price}</p>
+                <p className="text-primary_6">Price: ${price}</p>
               </div>
             </div>
             <button

@@ -127,9 +127,9 @@ const Hero = () => {
               </button>
             </Link>
 
-            <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
+            <Link href="presale"><button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
               DCEN
-            </button>
+            </button></Link>
           </div>
         </div>
       </div>

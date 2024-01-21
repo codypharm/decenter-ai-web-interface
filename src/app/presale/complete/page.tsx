@@ -10,7 +10,7 @@ const page = () => {
       <div className="flex flex-col gap-6  items-center mt-12 md:mt-0 font-archivo shadow-xl  ">
         <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
 
-        <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-[#232323] p-8  w-[90%] mx-auto sm:w-[60%] md:w-[50%] lg:w-[40%] xl:w-[30%] 2xl:w-[20%]">
+        <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-8  w-[90%] mx-auto max-w-[400px]">
           <div className="flex flex-col gap-4 ">
             <div className="flex justify-between gap-4 items-center border-b border-primary_10 text-base pb-2">
               <span className=" text-primary_7">Purchase Status</span>
