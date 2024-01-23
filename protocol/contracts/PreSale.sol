@@ -6,27 +6,43 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 
 
-contract PresaleContract is Ownable {
+contract Presale is Ownable {
    
 
-    IERC20 acceptedToken;
-    IERC20 dcenToken;
-    address payable tressuryAddress;
-    mapping(address => uint256) contributions;
-    uint256 nativeRate = 100000000000000;
-    uint256 tokenRate = 50000000000000000;
-    bool withdrawalEnabled;
-    uint256 totalERC20TokensDeposited = 0;
-    uint256 totalNativeTokensDeposited = 0;
-    uint256 totalTokensOwed = 0;
+    IERC20  public acceptedToken;
+    IERC20 public dcenToken;
+    address payable public treasuryAddress;
+    mapping(address => uint256) public contributions;
+    uint256 public nativeRate ;
+    uint256 public tokenRate ;
+    bool public withdrawalEnabled;
+    uint256 public totalERC20TokensDeposited = 0;
+    uint256 public totalNativeTokensDeposited = 0;
+    uint256 public totalTokensOwed = 0;
+
+    event ContibutionWorth(
+        address indexed account,
+        uint256 contribution,
+        bytes   tokenType
+    );
+
+
+    event tokenClaimed(
+        address indexed account,
+        uint256 contribution
+    );
 
     constructor(
     address _acceptedToken,
-    address payable _tressuryAddress
+    address payable _treasuryAddress,
+    uint256  _nativeRate ,
+    uint256  _tokenRate 
     )Ownable(msg.sender){
         acceptedToken = IERC20(_acceptedToken);
-        tressuryAddress = _tressuryAddress;
+        treasuryAddress = _treasuryAddress;
         withdrawalEnabled = false;
+        nativeRate = _nativeRate;
+        tokenRate = _tokenRate;
     }
 
     //set token address
@@ -62,29 +78,43 @@ contract PresaleContract is Ownable {
     // Receive native tokens
     receive() external payable {
         require(!withdrawalEnabled, "Withdrawal already enabled");
+        (bool success, ) = treasuryAddress.call{value: msg.value}("");
+        require(success, "Payment Failed");
         contributions[msg.sender] = contributions[msg.sender] + calculateNativeRate(msg.value);
         totalNativeTokensDeposited + msg.value;
-        totalTokensOwed + calculateNativeRate(msg.value);
-        tressuryAddress.transfer(msg.value);
+        totalTokensOwed += calculateNativeRate(msg.value);
+        emit ContibutionWorth(msg.sender, contributions[msg.sender], "native");
+    }
+    // Receive native tokens
+    function payNative() external payable {
+        require(!withdrawalEnabled, "Withdrawal already enabled");
+        (bool success, ) = treasuryAddress.call{value: msg.value}("");
+        require(success, "Payment Failed");
+        contributions[msg.sender] = contributions[msg.sender] + calculateNativeRate(msg.value);
+        totalNativeTokensDeposited + msg.value;
+        totalTokensOwed += calculateNativeRate(msg.value);
+        emit ContibutionWorth(msg.sender, contributions[msg.sender], "native");
     }
 
     // Accept ERC20 contributions
     function contributeERC20(uint256 amount) external {
         require(!withdrawalEnabled, "Withdrawal already enabled");
-        require(acceptedToken.transferFrom(msg.sender, tressuryAddress, amount), "ERC20 transfer failed");
+        require(acceptedToken.transferFrom(msg.sender, treasuryAddress, amount), "ERC20 transfer failed");
         contributions[msg.sender] = contributions[msg.sender] + calculateTokenRate(amount);
         totalERC20TokensDeposited + amount;
-        totalTokensOwed + calculateTokenRate(amount);
+        totalTokensOwed += calculateTokenRate(amount);
+        emit ContibutionWorth(msg.sender, amount, "erc20");
     }
 
 
     // Claim tokens
     function claimTokens() external {
         require(withdrawalEnabled, "Withdrawal not yet enabled");
+        totalTokensOwed -= contributions[msg.sender];
+        uint256 amtToPay = contributions[msg.sender];
         contributions[msg.sender] = 0; // Reset contribution
-        totalTokensOwed + contributions[msg.sender];
-        require(dcenToken.transfer(msg.sender, contributions[msg.sender]), "Token transfer failed");
-       
+        require(dcenToken.transfer(msg.sender, amtToPay), "Token transfer failed");
+        emit tokenClaimed(msg.sender, contributions[msg.sender]);
     }
 
 
