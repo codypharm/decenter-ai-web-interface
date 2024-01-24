@@ -13,6 +13,12 @@ const PresalePage = () => {
   const price = 0.022
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [selectedToken, setSelectedToken] = useState<string>('USDT')
+  const [decenRate, setDecenRate] = useState<number>(0.22)
+  const [usdtRate, setUsdtRate] = useState<number>(0.50)
+  const [maticRate, setMaticRate] = useState<number>(0.10)
+  const [tokenField, setTokenField] = useState<string>("")
+  const [decenField, setDecenField] = useState<string>("")
+
 
   const handleToggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen)
@@ -26,13 +32,66 @@ const PresalePage = () => {
     switch (token) {
       case 'USDT':
         return <Image src={usdt} alt="USDT" className="w-6 h-6 mr-2" />
-      case 'BTC':
-        return <FaBtc size={20} className="w-6 h-6 mr-2 text-yellow-300" />
+      case 'MATIC':
+        return <FaBtc size={20} className="w-6 h-6 mr-2 text-purple-300" />
 
       default:
         return null
     }
   }
+
+  const calcToken = (val: number) => {
+    const decenInUSD = val * decenRate
+    const amtInUSDT = decenInUSD / usdtRate
+    const amtInMATIC = decenInUSD / maticRate
+
+
+    if (selectedToken == "USDT") {
+      setTokenField(String(amtInUSDT.toFixed(4)))
+    } else if (selectedToken == "MATIC") {
+      setTokenField(String(amtInMATIC.toFixed(4)))
+    }
+  }
+
+  const changeDecen = (e:
+    | React.ChangeEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLSelectElement>) => {
+
+
+    setDecenField(e.target.value)
+    calcToken(Number(e.target.value))
+  }
+
+  const calcDecen = (val: number) => {
+    const usdtInUSD = val * usdtRate
+    const maticInUSD = val * maticRate
+
+    let qtyDecen = 0
+    if (selectedToken == "USDT") {
+      qtyDecen = usdtInUSD / decenRate
+    } else if (selectedToken == "MATIC") {
+      qtyDecen = maticInUSD / decenRate
+    }
+
+    setDecenField(String(qtyDecen.toFixed(4)))
+  }
+
+
+  const changeToken = (e:
+    | React.ChangeEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLSelectElement>
+  ) => {
+
+    setTokenField(e.target.value)
+    calcDecen(Number(e.target.value))
+
+  }
+
+  const submitForm = () => {
+    //
+
+  }
+
   return (
     <main className="w-full bg-primary_13">
       <Nav />
@@ -41,7 +100,7 @@ const PresalePage = () => {
         <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
 
         <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-6  w-[90%] mx-auto max-w-[400px] ">
-          <form action="" className="flex flex-col   gap-4 ">
+          <form action="" onSubmit={submitForm} className="flex flex-col   gap-4 ">
             <div className="flex flex-col ">
               <div className="flex flex-col gap-1 text-sm relative">
                 <label htmlFor="token" className="text-sm">
@@ -64,9 +123,9 @@ const PresalePage = () => {
                         </div>
                         <div
                           className="p-2 cursor-pointer flex gap-1 items-center"
-                          onClick={() => handleTokenChange('BTC')}>
+                          onClick={() => handleTokenChange('MATIC')}>
                           <FaBtc size={20} className="w-6 h-6 mr-2 text-yellow-300" />
-                          <span className="text-white">BTC</span>
+                          <span className="text-white">MATIC</span>
                         </div>
                       </div>
                     )}
@@ -77,6 +136,8 @@ const PresalePage = () => {
                   className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3  placeholder:px-2"
                   id="token"
                   placeholder="0.0"
+                  onChange={(e) => changeToken(e)}
+                  value={tokenField}
                 />
                 <LuArrowBigDown size={40} className="w-max mx-auto text-primary_8" />
               </div>
@@ -90,13 +151,15 @@ const PresalePage = () => {
                   className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3 placeholder:px-2"
                   id="dcen"
                   placeholder="0.0"
+                  onChange={(e) => changeDecen(e)}
+                  value={decenField}
                 />
                 <p className="text-primary_6">Price: ${price}</p>
               </div>
             </div>
             <button
               type="submit"
-              className="text-base font-medium text-primary_3 opacity-40 bg-primary_11 p-2 rounded-full">
+              className="text-base font-medium text-primary_3 opacity-40 bg-primary_8 p-2 rounded-full">
               Proceed
             </button>
           </form>

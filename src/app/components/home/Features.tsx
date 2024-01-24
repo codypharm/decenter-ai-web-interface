@@ -146,26 +146,26 @@ const Features = () => {
 
   return (
     <>
-      <section className="min-h-[80vh]  relative flex justify-center">
+      <section className="min-h-[80vh]    relative flex justify-center ">
         <Globe1 />
         <div ref={vRef} className="absolute inset-0  w-[80%]  m-auto text-primary_1">
           <h2 className="font-logirentBold font-bold  text-xl md:text-3xl mt-[15%]">
-            The Future of AI Model TraInIng Is Here
+            Explore And Discover The Future of AI
           </h2>
 
           <div className="h-[70%] flex flex-col md:flex-row items-center  mt-20 md:mt-0 ">
             <div className="w-full  md:w-[50%] ">
               <h2 className="font-logirentBold    text-xl md:text-3xl md:text-left leading-loose">
-                Decenter Teams
+                DeCenter Explorer
               </h2>
 
               <p className="font-archivo  text-lg md:text-xl md:text-left">
-                Collaboratively Train, Run, and Maintain AI Models
+                Discover AI Projects Across Diverse Industries.
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Create private or public teams</li>
-                <li>Admins can create  tasks and assign to team members</li>
-                <li>Monitor progress with built-in project and team management tools</li>
+                <li>Explore the AI landscape effortlesslys</li>
+                <li>Find innovative tools and applications</li>
+                <li>Stay informed about the latest AI projects.</li>
               </ul>
             </div>
 
@@ -207,18 +207,20 @@ const Features = () => {
             <div className="w-full md:w-[50%]  flex flex-col items-center">
               <div className="w-fit">
                 <h2 className="font-logirentBold  text-xl  md:text-3xl md:text-left leading-loose">
-                  DecentralIsed AutotraIn
+                  DeCenter Application
                 </h2>
                 <p className="font-archivo text-lg  md:text-xl md:text-left">
-                  AI Tool for Quicker and More Efficient Model Training
+                  Train, Run, Fine-Tune  and manage AI Models.
                 </p>
                 <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
                   <li>
-                    Select from a wide range of pre-trained models and model templates
+                    All-in-one AI development hub
                   </li>
                   <li>
-                    Parallel training systems train models on split datasets to
-                    drastically increase training speed
+                    Model Security, Monetization and Analytics
+                  </li>
+                  <li>
+                    Seamless model customization and management.
                   </li>
                 </ul>
               </div>
@@ -253,18 +255,16 @@ const Features = () => {
                 ref={vRef3}
                 className="font-logirentBold  text-xl md:text-left nd:text-3xl leading-loose"
               >
-                Decenter reposItory
+                DeCenter Services
               </h2>
 
               <p className="font-archivo  text-lg  md:text-xl md:text-left">
-                DeCenter Repository Access a Robust Library of AI Models, Datasets and
-                Tools
+                Guidance for Startups, SMEs, and Enterprises in AI.
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Securely store a diverse range of AI models.</li>
-                <li>Track and manage model updates with ease.</li>{' '}
-                <li>Access, share, customize, and collaborate on models.</li>{' '}
-                <li>Seamlessly download and integrate models into your applications.</li>
+                <li>Expert assistance in AI  journey</li>
+                <li>Access turnkey or custom AI solutions</li>
+                <li>Comprehensive support and updates from AI specialists.</li>
               </ul>
             </div>
             <motion.div
@@ -286,7 +286,7 @@ const Features = () => {
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-between mt-64 md:mt-0 ">
+      <section className="min-h-[60vh]  relative flex justify-between mt-64 md:mt-0  r">
         <div className="absolute top-3/4 left-40 md:left-96">
           <Globe4 />
         </div>
@@ -317,19 +317,19 @@ const Features = () => {
               </h2>
 
               <p className="font-archivo  text-lg md:text-xl md:text-left ">
-                DIncentivization Systems Powered by the DCEN token
+                Rewards and Encouragement for AI Developers.
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Earn incentives for completing tasks.</li>{' '}
-                <li>Receive rewards for providing feedback.</li>{' '}
-                <li>Get rewards for conducting reviews, ratings and testing.</li>
+                <li>Incentivized contributions  and participation</li>{' '}
+                <li>Encourage innovation and collaboration</li>{' '}
+                <li>Recognition and rewards for excellence.</li>
               </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0  ">
+      {/* <section className="min-h-[60vh]  relative flex justify-end mt-52 md:mt-0  ">
         <div className="absolute top-96 right-72">
           <Globe5 />
         </div>
@@ -388,7 +388,7 @@ const Features = () => {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   )
 }

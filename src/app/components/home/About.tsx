@@ -79,9 +79,9 @@ const About = () => {
           <div className="w-full md:w-[40%]  px-10 py-10 min-h-[100px] flex flex-col justify-center bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl text-primary_1">
             <h3 className="font-logirentBold text-xl md:text-3xl">Web 3</h3>
             <ul className="font-archivo text-sm font-normal mt-6 list-disc pl-6">
-              <li>Distributed compute networks </li>
-              <li>Decentralized storage networks </li>
-              <li>Incentivisation, tokenization and Data DAO</li>
+              <li>Distributed storage and compute networks</li>
+              <li>Decentralized model training mechanisms </li>
+              <li>Incentivisation, tokenization and data DAO</li>
             </ul>
           </div>
 
@@ -90,7 +90,7 @@ const About = () => {
             <ul className="font-archivo text-sm font-normal mt-6 list-disc pl-6">
               <li>Training process optimization</li>
               <li> Auto testing and predictive analysis</li>
-              <li>Dataset, model training and platform security.</li>
+              <li>Training workspace and platform security</li>
             </ul>
           </div>
         </div>

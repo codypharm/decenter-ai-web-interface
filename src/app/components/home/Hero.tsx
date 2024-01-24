@@ -110,11 +110,10 @@ const Hero = () => {
 
         <div className="h-[85%] w-[80%] m-auto flex flex-col justify-center gap-6 ">
           <h1 className="font-logirentBold text-2xl md:text-5xl text-primary_1 leading-normal">
-            DecentralIzed and DemocratIzed AI <br />
-            Model TraInIng Infrastructure
+            Decentralized AI Infrastructure <br /> for web2 and Web3 Applications.
           </h1>
-          <p className="font-archivo text-sm text-primary_6 ">
-            Train ML/DL/ ANN/LLM models with ease.
+          <p className="font-archivo text-sm text-primary_6 leading-loose">
+            Integrate AI Into Apps and Dapps With Ease.
           </p>
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
 

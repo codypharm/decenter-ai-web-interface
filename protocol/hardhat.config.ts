@@ -1,18 +1,17 @@
-import { HardhatUserConfig } from "hardhat/config";
-import "@nomicfoundation/hardhat-toolbox-viem";
-import "hardhat-abi-exporter";
-import "hardhat-contract-sizer";
+import { HardhatUserConfig } from 'hardhat/config'
+import '@nomicfoundation/hardhat-toolbox-viem'
+import 'hardhat-abi-exporter'
+import 'hardhat-contract-sizer'
 
 // dotenv.config();
 
 // const PRIVATE_KEY  = String(process.env.PRIVATE_KEY)
 
-
 const config: HardhatUserConfig = {
- solidity: {
+  solidity: {
     compilers: [
       {
-        version: "0.8.20",
+        version: '0.8.20',
         settings: {
           optimizer: {
             enabled: true,
@@ -23,23 +22,23 @@ const config: HardhatUserConfig = {
     ],
   },
 
-   abiExporter: [
+  abiExporter: [
     {
-      path: "../src/abi",
+      path: '../src/abi',
       pretty: false,
       runOnCompile: true,
-      only: ["Presale", "Dcen", "Token"],
+      only: ['Presale', 'Dcen', 'Token'],
     },
   ],
-   contractSizer: {
+  contractSizer: {
     alphaSort: true,
     disambiguatePaths: false,
     runOnCompile: true,
     strict: true,
-    only: ["Presale", "Dcen", "Token"],
+    only: ['Presale', 'Dcen', 'Token'],
   },
-   
-    defaultNetwork: "hardhat",
+
+  defaultNetwork: 'hardhat',
   networks: {
     hardhat: {
       chainId: 1337, // Customize the chain ID here
@@ -49,7 +48,6 @@ const config: HardhatUserConfig = {
     //   accounts: [ PRIVATE_KEY ]
     // },
   },
+}
 
-};
-
-export default config;
+export default config

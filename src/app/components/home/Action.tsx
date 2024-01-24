@@ -5,7 +5,7 @@ import React from 'react'
 
 const Action = () => {
   return (
-    <section className="min-h-[60vh] -mt-44 md:-mt-0  relative flex justify-end">
+    <section className="min-h-[60vh]   relative flex justify-end">
       <div className="absolute bottom-0 right-0">
         <RocketStar />
       </div>

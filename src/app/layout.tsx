@@ -1,7 +1,10 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import {AppMetaData} from "@config/app";
+import { AppMetaData } from "@config/app";
+
+import { WagmiConfig, createConfig } from "wagmi"
+import { ConnectKitProvider, config } from '@/Providers/ConnectKitProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 export const metadata = AppMetaData
@@ -12,7 +15,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <title>Decenter AI</title>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <WagmiConfig config={config}>
+          <ConnectKitProvider>
+            {children}
+          </ConnectKitProvider>
+        </WagmiConfig>
+      </body>
     </html>
   )
 }

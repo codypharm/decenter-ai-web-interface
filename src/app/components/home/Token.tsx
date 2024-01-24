@@ -5,8 +5,8 @@ import React from 'react'
 
 const Token = () => {
   return (
-    <section className="min-h-[80vh] mt-52 md:-mt-96  relative ">
-      <div className="h-[10%] w-[80%] m-auto flex justify-end">
+    <section className="min-h-[80vh] mt-20 relative  ">
+      <div className="h-[10%] w-[80%] m-auto flex justify-end ">
         <TokenMinor />
       </div>
       <div className="w-[80%]  h-[10%] m-auto flex flex-col md:flex-row justify-between items-center">
