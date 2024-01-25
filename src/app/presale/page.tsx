@@ -1,24 +1,74 @@
 'use client'
-import React, { useState } from 'react'
+import React, { FormEvent, useEffect, useState } from 'react'
 import Nav from '../components/presale/Nav'
 import Image from 'next/image'
 import logo from 'public/logo-big.png'
 import { LuArrowBigDown } from 'react-icons/lu'
 import usdt from 'public/usdt.png'
+import matic from 'public/matic.png'
 import icon from 'public/small.png'
-import { FaBtc } from 'react-icons/fa'
 import { PiCaretDown } from 'react-icons/pi'
 import { AnyCnameRecord } from 'dns'
+import { useContractRead, useContractWrite } from 'wagmi'
+import priceFeedAbi from "@abi/contracts/PriceFeed.json"
+import stableAbi from "@abi/contracts/Token.sol/Token.json"
+import presaleAbi from "@abi/contracts/Presale.sol/PresaleContract.json"
+import { parseEther } from 'viem/utils'
+
 const PresalePage = () => {
   const price = 0.022
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [selectedToken, setSelectedToken] = useState<string>('USDT')
   const [decenRate, setDecenRate] = useState<number>(0.22)
-  const [usdtRate, setUsdtRate] = useState<number>(0.50)
-  const [maticRate, setMaticRate] = useState<number>(0.10)
+  const [usdtRate, setUsdtRate] = useState<number>(0)
+  const [maticRate, setMaticRate] = useState<number>(0)
   const [tokenField, setTokenField] = useState<string>("")
   const [decenField, setDecenField] = useState<string>("")
 
+  const { data: maticFeed } = useContractRead({
+    abi: priceFeedAbi,
+    address: `0x${process.env.NEXT_PUBLIC_MATIC_FEED_ADDRESS?.substring(2)}`,
+    functionName: 'latestRoundData',
+  })
+  const { data: usdtFeed } = useContractRead({
+    abi: priceFeedAbi,
+    address: `0x${process.env.NEXT_PUBLIC_USDT_FEED_ADDRESS?.substring(2)}`,
+    functionName: 'latestRoundData',
+  })
+
+
+  const { write } = useContractWrite({
+    address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
+    abi: presaleAbi,
+    functionName: 'payNative',
+    onSuccess: () => {
+      setTokenField("")
+      setDecenField("")
+    }
+  })
+
+  const { write: contributeErc } = useContractWrite({
+    address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
+    abi: presaleAbi,
+    functionName: 'contributeERC20',
+    onSuccess() {
+      setTokenField("")
+      setDecenField("")
+    }
+  })
+
+  const { write: approve } = useContractWrite({
+    address: `0x${process.env.NEXT_PUBLIC_STABLE_TOKEN_Address?.substring(2)}`,
+    abi: stableAbi,
+    functionName: 'approve',
+    onSuccess() {
+      contributeErc({
+        args: [parseEther(tokenField, 'wei')],
+
+      })
+    }
+
+  })
 
   const handleToggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen)
@@ -27,13 +77,14 @@ const PresalePage = () => {
   const handleTokenChange = (token: string) => {
     setSelectedToken(token)
     setDropdownOpen(false)
+    calcDecen()
   }
   const getTokenImage = (token: string) => {
     switch (token) {
       case 'USDT':
         return <Image src={usdt} alt="USDT" className="w-6 h-6 mr-2" />
       case 'MATIC':
-        return <FaBtc size={20} className="w-6 h-6 mr-2 text-purple-300" />
+        return <Image src={matic} alt="USDT" className="w-6 h-6 mr-2" />
 
       default:
         return null
@@ -42,14 +93,14 @@ const PresalePage = () => {
 
   const calcToken = (val: number) => {
     const decenInUSD = val * decenRate
-    const amtInUSDT = decenInUSD / usdtRate
-    const amtInMATIC = decenInUSD / maticRate
+    const amtInUSDT = decenInUSD * usdtRate
+    const amtInMATIC = decenInUSD * maticRate
 
 
     if (selectedToken == "USDT") {
-      setTokenField(String(amtInUSDT.toFixed(4)))
+      amtInUSDT > 0 ? setTokenField(String(amtInUSDT)) : setTokenField("0")
     } else if (selectedToken == "MATIC") {
-      setTokenField(String(amtInMATIC.toFixed(4)))
+      amtInMATIC > 0 ? setTokenField(String(amtInMATIC)) : setTokenField("0")
     }
   }
 
@@ -59,12 +110,13 @@ const PresalePage = () => {
 
 
     setDecenField(e.target.value)
+    if (usdtRate == 0 && maticRate == 0) return
     calcToken(Number(e.target.value))
   }
 
-  const calcDecen = (val: number) => {
-    const usdtInUSD = val * usdtRate
-    const maticInUSD = val * maticRate
+  const calcDecen = (val: number = Number(tokenField)) => {
+    const usdtInUSD = val / usdtRate
+    const maticInUSD = val / maticRate
 
     let qtyDecen = 0
     if (selectedToken == "USDT") {
@@ -73,7 +125,9 @@ const PresalePage = () => {
       qtyDecen = maticInUSD / decenRate
     }
 
-    setDecenField(String(qtyDecen.toFixed(4)))
+    console.log(qtyDecen)
+
+    qtyDecen > 0 ? setDecenField(String(qtyDecen)) : setDecenField(String(0))
   }
 
 
@@ -83,14 +137,60 @@ const PresalePage = () => {
   ) => {
 
     setTokenField(e.target.value)
+    if (usdtRate == 0 && maticRate == 0) return
     calcDecen(Number(e.target.value))
 
   }
 
-  const submitForm = () => {
-    //
+
+
+  const handleMaticFeed = () => {
+    //@ts-ignore
+    const maticUsd = maticFeed[1] / BigInt(Math.pow(10, 8))
+    setMaticRate(Number(maticUsd))
 
   }
+  const handleUsdtFeed = () => {
+    //@ts-ignore
+    const usdtUsd = usdtFeed[1] / BigInt(Math.pow(10, 8))
+    setUsdtRate(Number(usdtUsd))
+
+  }
+
+  const depositNative = async () => {
+    write({
+      // args: [69],
+      value: parseEther(tokenField, 'wei'),
+    })
+  }
+
+  const depositErc = async () => {
+    approve({
+      args: [`${process.env.NEXT_PUBLIC_PRESALE_Address}`, parseEther(tokenField, 'wei')],
+
+    })
+  }
+
+
+  const submitForm = (e: FormEvent) => {
+    e.preventDefault()
+    if (selectedToken == "USDT") {
+      depositErc()
+    } else if (selectedToken == "MATIC") {
+      depositNative()
+    }
+
+  }
+
+  useEffect(() => {
+    if (maticFeed) {
+      handleMaticFeed()
+    }
+
+    if (usdtFeed) {
+      handleUsdtFeed()
+    }
+  })
 
   return (
     <main className="w-full bg-primary_13">
@@ -100,7 +200,7 @@ const PresalePage = () => {
         <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
 
         <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-6  w-[90%] mx-auto max-w-[400px] ">
-          <form action="" onSubmit={submitForm} className="flex flex-col   gap-4 ">
+          <form action="" onSubmit={e => submitForm(e)} className="flex flex-col   gap-4 ">
             <div className="flex flex-col ">
               <div className="flex flex-col gap-1 text-sm relative">
                 <label htmlFor="token" className="text-sm">
@@ -124,7 +224,7 @@ const PresalePage = () => {
                         <div
                           className="p-2 cursor-pointer flex gap-1 items-center"
                           onClick={() => handleTokenChange('MATIC')}>
-                          <FaBtc size={20} className="w-6 h-6 mr-2 text-yellow-300" />
+                          <Image src={matic} alt="USDT" className="w-6 h-6 mr-2" />
                           <span className="text-white">MATIC</span>
                         </div>
                       </div>

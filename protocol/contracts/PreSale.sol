@@ -13,6 +13,8 @@ contract PresaleContract is Ownable {
     IERC20 public dcenToken;
     address payable treasuryAddress;
     mapping(address => uint256) public benefits;
+    mapping(address => uint256) public ercDeposited;
+    mapping(address => uint256) public nativeDeposited;
     uint256 public rate ;
     bool public withdrawalEnabled;
     uint256 public totalERC20TokensDeposited = 0;
@@ -91,6 +93,7 @@ contract PresaleContract is Ownable {
         require(!withdrawalEnabled, "Withdrawal already enabled");
         (bool success, ) = treasuryAddress.call{value: msg.value}("");
         require(success, "Payment Failed");
+         nativeDeposited[msg.sender] += msg.value;
         uint currRate = uint(getMaticRate()); //Matic/USD
         uint amountDeposited = msg.value * 10 ** 8; //adding extra 8, 0s
         uint tokenWorthUSD = amountDeposited / currRate; // token worth in usd
@@ -104,6 +107,7 @@ contract PresaleContract is Ownable {
        require(!withdrawalEnabled, "Withdrawal already enabled");
         (bool success, ) = treasuryAddress.call{value: msg.value}("");
         require(success, "Payment Failed");
+         nativeDeposited[msg.sender] += msg.value;
         uint currRate = uint(getMaticRate()); //Matic/USD
         uint amountDeposited = msg.value * 10 ** 8; //adding extra 8, 0s
         uint tokenWorthUSD = amountDeposited / currRate; // token worth in usd
@@ -117,6 +121,7 @@ contract PresaleContract is Ownable {
     function contributeERC20(uint256 amount) external {
         require(!withdrawalEnabled, "Withdrawal already enabled");
         require(acceptedToken.transferFrom(msg.sender, treasuryAddress, amount), "ERC20 transfer failed");
+        ercDeposited[msg.sender] += amount;
         uint currRate = uint(getUsdtRate()); //USDT/USD
         uint amountDeposited = amount * 10 ** 8; //adding extra 8, 0s
         uint tokenWorthUSD = amountDeposited / currRate; // token worth in usd

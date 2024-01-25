@@ -2,7 +2,7 @@
   "name": "hardhat-project",
   "scripts": {
     "deploy": "hardhat run --network localhost scripts/deploy.ts",
-    "update": "hardhat run --network localhost scripts/enableWithdrawal.ts"
+    "enable": "hardhat run --network localhost scripts/enableWithdrawal.ts"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-network-helpers": "^1.0.10",

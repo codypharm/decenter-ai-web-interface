@@ -1,6 +1,6 @@
 'use client'
 import { getDefaultConfig } from 'connectkit'
-import { WagmiConfig, createConfig } from 'wagmi'
+import { createConfig } from 'wagmi'
 export { ConnectKitProvider, ConnectKitButton } from 'connectkit'
 import { localhost, polygonMumbai } from 'wagmi/chains'
 
@@ -9,7 +9,7 @@ const chains = [localhost, polygonMumbai]
 export const config = createConfig(
   getDefaultConfig({
     // Required API Keys
-    infuraId: process.env.NEXT_PUBLIC_INFURA_KEY, // or infuraId
+    alchemyId: process.env.NEXT_PUBLIC_ALCHEMY_KEY, // or alchemy
     walletConnectProjectId: `${process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID}`,
     chains,
     // Required

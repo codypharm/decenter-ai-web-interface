@@ -25,7 +25,8 @@
       "@public/*": ["./public/*"],
       "@utils/*": ["./utils/*"],
       "@enums/*": ["./enums/*"],
-      "@config/*": ["./config/*"]
+      "@config/*": ["./config/*"],
+      "@abi/*": ["./src/abi/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

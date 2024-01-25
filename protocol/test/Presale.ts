@@ -12,7 +12,7 @@ describe('Presale', function () {
     const [owner, user, treasury] = await hre.viem.getWalletClients()
     const stableCoin = await hre.viem.deployContract('Token')
     const maticDecimal = 8
-    const maticInitailPrice = 72010000n
+    const maticInitailPrice = 4283849655582n
 
     const usdtDecimal = 8
     const usdtInitailPrice = 253641999999n
