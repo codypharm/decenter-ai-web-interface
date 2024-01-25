@@ -8,6 +8,8 @@ import Team from './components/home/Team'
 import Action from './components/home/Action'
 import Footer from './components/home/Footer'
 import { AppMetaData } from "@config/app";
+import WorkFlow from './components/home/WorkFlow'
+import Mail from './components/home/Mail'
 
 export const metadata = AppMetaData
 export default function Home() {
@@ -19,7 +21,9 @@ export default function Home() {
       <Features />
       <Token />
       <Team />
-      <Action />
+      <WorkFlow />
+      <Mail />
+      {/* <Action /> */}
       <Footer />
     </main>
   )

@@ -15,14 +15,14 @@ const Hero = () => {
           <div className=" w-[90%] h-[70vh] z-50  bg-primary_12  m-auto mt-2 border border-primary_8  rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-6 px-4 text-primary_1">
             <div className="h-[10%] flex">
               <div className="w-[50%] h-full  relative">
-                <Image
+                <Link href="/"> <Image
                   src="/logo.png"
                   alt="logo image"
                   fill={true}
                   style={{
                     objectFit: 'contain',
                   }}
-                />
+                /></Link>
               </div>
               <div className="w-[50%] h-full  flex justify-end items-center">
                 <LiaTimesSolid size={30} onClick={() => setMenu(!menu)} />
@@ -39,9 +39,9 @@ const Hero = () => {
                     About Us
                   </li>
                 </Link>
-                <li className="h-[25%] w-full flex items-center hover:text-primary_1">
+                <Link href="#team" ><li className="h-[25%] w-full flex items-center hover:text-primary_1">
                   Team
-                </li>
+                </li></Link>
                 <Link href="#contact"><li className="h-[25%] w-full flex items-center hover:text-primary_1">
                   Contact US
                 </li></Link>
@@ -82,9 +82,9 @@ const Hero = () => {
             <Link href="#about"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
               About Us
             </div></Link>
-            <div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
+            <Link href="#team"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
               Team
-            </div>
+            </div></Link>
             <Link href="#contact"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
               Contact Us
             </div></Link>
@@ -97,7 +97,7 @@ const Hero = () => {
 
 
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
-                Try Demo
+                Explore
               </button>
             </Link>
             <RxHamburgerMenu

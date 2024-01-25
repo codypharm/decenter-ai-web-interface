@@ -5,7 +5,7 @@ import React from 'react'
 
 const Team = () => {
   return (
-    <section className="min-h-[70vh] h-auto -mt-44  relative  mb-14 ">
+    <section id="team" className="min-h-[70vh] h-auto -mt-44  relative  mb-14 ">
       {/* <div className="absolute inset-0">
         <Image src="/gridone.png" alt="background image" fill />
       </div> */}
@@ -24,8 +24,8 @@ const Team = () => {
             <Image
               src="/victor.png"
               alt="CEO DECENTER"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               className="max-w-[100%] max-h-[100%]"
             />
           </div>
@@ -45,8 +45,8 @@ const Team = () => {
             <Image
               src="/hiro.png"
               alt="CTO DECENTER"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               className="max-w-[100%] max-h-[100%]"
             />
           </div>
@@ -67,8 +67,8 @@ const Team = () => {
             <Image
               src="/glory.png"
               alt="CMO DECENTER"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               className="max-w-[100%] max-h-[100%]"
             />
           </div>
@@ -88,8 +88,8 @@ const Team = () => {
             <Image
               src="/nonso.png"
               alt="Developer DECENTER"
-              width={200}
-              height={200}
+              width={150}
+              height={150}
               className="max-w-[100%] max-h-[100%]"
             />
           </div>
