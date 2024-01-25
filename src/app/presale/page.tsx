@@ -15,6 +15,9 @@ import stableAbi from "@abi/contracts/Token.sol/Token.json"
 import presaleAbi from "@abi/contracts/Presale.sol/PresaleContract.json"
 import { parseEther } from 'viem/utils'
 
+import RingLoader from "react-spinners/RingLoader"
+import { ClipLoader } from 'react-spinners'
+
 const PresalePage = () => {
   const price = 0.022
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
@@ -24,6 +27,7 @@ const PresalePage = () => {
   const [maticRate, setMaticRate] = useState<number>(0)
   const [tokenField, setTokenField] = useState<string>("")
   const [decenField, setDecenField] = useState<string>("")
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const { data: maticFeed } = useContractRead({
     abi: priceFeedAbi,
@@ -37,13 +41,17 @@ const PresalePage = () => {
   })
 
 
-  const { write } = useContractWrite({
+  const { write: paynative } = useContractWrite({
     address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
     abi: presaleAbi,
     functionName: 'payNative',
     onSuccess: () => {
       setTokenField("")
       setDecenField("")
+      setIsLoading(false)
+    },
+    onError() {
+      setIsLoading(false)
     }
   })
 
@@ -54,6 +62,10 @@ const PresalePage = () => {
     onSuccess() {
       setTokenField("")
       setDecenField("")
+      setIsLoading(false)
+    },
+    onError() {
+      setIsLoading(false)
     }
   })
 
@@ -66,6 +78,9 @@ const PresalePage = () => {
         args: [parseEther(tokenField, 'wei')],
 
       })
+    },
+    onError() {
+      setIsLoading(false)
     }
 
   })
@@ -77,7 +92,7 @@ const PresalePage = () => {
   const handleTokenChange = (token: string) => {
     setSelectedToken(token)
     setDropdownOpen(false)
-    calcDecen()
+
   }
   const getTokenImage = (token: string) => {
     switch (token) {
@@ -125,7 +140,6 @@ const PresalePage = () => {
       qtyDecen = maticInUSD / decenRate
     }
 
-    console.log(qtyDecen)
 
     qtyDecen > 0 ? setDecenField(String(qtyDecen)) : setDecenField(String(0))
   }
@@ -158,7 +172,7 @@ const PresalePage = () => {
   }
 
   const depositNative = async () => {
-    write({
+    paynative({
       // args: [69],
       value: parseEther(tokenField, 'wei'),
     })
@@ -174,6 +188,7 @@ const PresalePage = () => {
 
   const submitForm = (e: FormEvent) => {
     e.preventDefault()
+    setIsLoading(true)
     if (selectedToken == "USDT") {
       depositErc()
     } else if (selectedToken == "MATIC") {
@@ -191,6 +206,10 @@ const PresalePage = () => {
       handleUsdtFeed()
     }
   })
+
+  useEffect(() => {
+    calcDecen()
+  }, [selectedToken])
 
   return (
     <main className="w-full bg-primary_13">
@@ -257,13 +276,18 @@ const PresalePage = () => {
                 <p className="text-primary_6">Price: ${price}</p>
               </div>
             </div>
-            <button
+            <div className='flex justify-center'>
+              <ClipLoader aria-label="Loading Spinner" size={30}
+                loading={isLoading}
+                data-testid="loader" color='#ffffff' />
+            </div>
+            {!isLoading && <button
               type="submit"
-              className="text-base font-medium text-primary_3 opacity-40 bg-primary_8 p-2 rounded-full">
+              className="text-base font-medium text-primary_ opacity-40 bg-primary_8 p-2 rounded-full hover:bg-primary_7 ">
               Proceed
-            </button>
+            </button>}
           </form>
-          <div className="flex flex-col gap-2 text-sm mt-2">
+          <div className="flex flex-col gap-2 text-sm mt-4">
             <div className="flex  justify-between gap-4 items-center">
               <p className=" text-primary_7">Minimum Allocation</p>
               <span className="font-medium text-primary_5">$50</span>

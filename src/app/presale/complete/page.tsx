@@ -6,25 +6,28 @@ import logo from 'public/logo-big.png'
 import presaleAbi from "@abi/contracts/Presale.sol/PresaleContract.json"
 import { useContractRead, useContractWrite, useAccount } from 'wagmi'
 import { formatEther } from "viem"
+import { ClipLoader } from 'react-spinners'
 
 
-const page = () => {
+const Page = () => {
   const { address } = useAccount();
   const [benefit, setBenefit] = useState<string>('')
   const [amountInMatic, setAmountInMatic] = useState<string>('')
   const [amountInUsdt, setAmountInUsdt] = useState<string>('')
+  const [isLoading, setIsLoading] = useState<boolean>(false)
+
 
   const { write: getTokens } = useContractWrite({
     address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
     abi: presaleAbi,
-    functionName: 'claimTokens'
-    //onSuccess() {
-    //   setTokenField("")
-    //   setDecenField("")
-    // }
+    functionName: 'claimTokens',
+    onSuccess() {
+      setIsLoading(false)
+    },
+    onError() {
+      setIsLoading(false)
+    }
   })
-
-  console.log(address)
 
 
   const { data: benefits } = useContractRead({
@@ -49,6 +52,7 @@ const page = () => {
   })
 
   const claimToken = async () => {
+    setIsLoading(true)
     getTokens({
       args: []
     })
@@ -107,16 +111,21 @@ const page = () => {
               <span className="text-primary_5">Complete</span>
             </div>
           </div>
-          <button
+          <div className='flex justify-center py-3' >
+            <ClipLoader aria-label="Loading Spinner" size={30}
+              loading={isLoading}
+              data-testid="loader" color='#ffffff' />
+          </div>
+          {!isLoading && <button
             type="button"
             onClick={claimToken}
-            className="text-base font-medium text-primary_3 opacity-40 bg-primary_8 p-2 rounded-full w-full mt-6">
+            className="text-base font-medium text-primary_3 opacity-40 bg-primary_8 p-2 rounded-full w-full mt-6 hover:bg-primary_7 ">
             Proceed
-          </button>
+          </button>}
         </div>
       </div>
     </main>
   )
 }
 
-export default page
+export default Page

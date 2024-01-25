@@ -52,7 +52,7 @@ const Hero = () => {
               <Link href="https://app.decenterai.com">
 
                 <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
-                  Try Demo
+                  Explore
                 </button>
               </Link>
             </div>
@@ -118,11 +118,8 @@ const Hero = () => {
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
 
             <Link href="https://app.decenterai.com">
-
-
-
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
-                Try Demo
+                Explore
               </button>
             </Link>
 
