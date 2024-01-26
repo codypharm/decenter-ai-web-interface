@@ -1,7 +1,8 @@
-import { HardhatUserConfig } from 'hardhat/config'
+//import { HardhatUserConfig } from 'hardhat/config'
 import '@nomicfoundation/hardhat-toolbox-viem'
 import 'hardhat-abi-exporter'
 import 'hardhat-contract-sizer'
+import { HardhatUserConfig } from 'hardhat/types'
 
 // dotenv.config();
 
