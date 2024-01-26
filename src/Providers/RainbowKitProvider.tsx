@@ -42,6 +42,7 @@ function CustomRainbowKitProvider({ children }: { children: ReactNode }) {
         appInfo={appInfo}
         modalSize='compact'
         theme={darkTheme()}
+
         coolMode
       >
         {children}
