@@ -19,6 +19,7 @@ import RingLoader from "react-spinners/RingLoader"
 import { ClipLoader } from 'react-spinners'
 
 const PresalePage = () => {
+  // default
   const price = 0.022
   const [isDropdownOpen, setDropdownOpen] = useState<boolean>(false)
   const [selectedToken, setSelectedToken] = useState<string>('USDT')
