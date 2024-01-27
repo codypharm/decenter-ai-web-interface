@@ -210,18 +210,12 @@ const Features = () => {
                   DeCenter Application
                 </h2>
                 <p className="font-archivo text-lg  md:text-xl md:text-left">
-                  Train, Run, Fine-Tune  and manage AI Models.
+                  Train, Run, Fine-Tune and manage AI Models.
                 </p>
                 <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                  <li>
-                    All-in-one AI development hub
-                  </li>
-                  <li>
-                    Model Security, Monetization and Analytics
-                  </li>
-                  <li>
-                    Seamless model customization and management.
-                  </li>
+                  <li>All-in-one AI development hub</li>
+                  <li>Model Security, Monetization and Analytics</li>
+                  <li>Seamless model customization and management.</li>
                 </ul>
               </div>
             </div>
@@ -262,7 +256,7 @@ const Features = () => {
                 Guidance for Startups, SMEs, and Enterprises in AI.
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Expert assistance in AI  journey</li>
+                <li>Expert assistance in AI journey</li>
                 <li>Access turnkey or custom AI solutions</li>
                 <li>Comprehensive support and updates from AI specialists.</li>
               </ul>
@@ -320,7 +314,7 @@ const Features = () => {
                 Rewards and Encouragement for AI Developers.
               </p>
               <ul className="font-archivo leading-loose text-sm font-normal mt-6 list-disc pl-6">
-                <li>Incentivized contributions  and participation</li>{' '}
+                <li>Incentivized contributions and participation</li>{' '}
                 <li>Encourage innovation and collaboration</li>{' '}
                 <li>Recognition and rewards for excellence.</li>
               </ul>

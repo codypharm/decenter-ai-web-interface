@@ -9,20 +9,26 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 const Hero = () => {
   const [menu, setMenu] = useState<boolean>(false)
   return (
-    <section id="/" className="min-h-[70vh] md:min-h-[80vh flex justify-end relative z-10">
+    <section
+      id="/"
+      className="min-h-[70vh] md:min-h-[80vh flex justify-end relative z-10"
+    >
       {menu && (
         <div className="absolute top-0 w-full  z-50">
           <div className=" w-[90%] h-[70vh] z-50  bg-primary_12  m-auto mt-2 border border-primary_8  rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-6 px-4 text-primary_1">
             <div className="h-[10%] flex">
               <div className="w-[50%] h-full  relative">
-                <Link href="/"> <Image
-                  src="/logo.png"
-                  alt="logo image"
-                  fill={true}
-                  style={{
-                    objectFit: 'contain',
-                  }}
-                /></Link>
+                <Link href="/">
+                  {' '}
+                  <Image
+                    src="/logo.png"
+                    alt="logo image"
+                    fill={true}
+                    style={{
+                      objectFit: 'contain',
+                    }}
+                  />
+                </Link>
               </div>
               <div className="w-[50%] h-full  flex justify-end items-center">
                 <LiaTimesSolid size={30} onClick={() => setMenu(!menu)} />
@@ -31,26 +37,31 @@ const Hero = () => {
 
             <div className="h-[70%]">
               <ul className="h-full w-full text-primary_7 text font-archivo">
-                <Link href="#/"> <li className="h-[25%] w-full flex items-center hover:text-primary_1">
-                  Home
-                </li></Link>
+                <Link href="#/">
+                  {' '}
+                  <li className="h-[25%] w-full flex items-center hover:text-primary_1">
+                    Home
+                  </li>
+                </Link>
                 <Link href="#about">
                   <li className="h-[25%] w-full flex items-center hover:text-primary_1">
                     About Us
                   </li>
                 </Link>
-                <Link href="#team" ><li className="h-[25%] w-full flex items-center hover:text-primary_1">
-                  Team
-                </li></Link>
-                <Link href="#contact"><li className="h-[25%] w-full flex items-center hover:text-primary_1">
-                  Contact US
-                </li></Link>
+                <Link href="#team">
+                  <li className="h-[25%] w-full flex items-center hover:text-primary_1">
+                    Team
+                  </li>
+                </Link>
+                <Link href="#contact">
+                  <li className="h-[25%] w-full flex items-center hover:text-primary_1">
+                    Contact US
+                  </li>
+                </Link>
               </ul>
             </div>
             <div className="h-[20%] text-center">
-
               <Link href="https://app.decenterai.com">
-
                 <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
                   Explore
                 </button>
@@ -79,23 +90,25 @@ const Hero = () => {
                 Home
               </div>
             </Link>
-            <Link href="#about"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
-              About Us
-            </div></Link>
-            <Link href="#team"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
-              Team
-            </div></Link>
-            <Link href="#contact"><div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
-              Contact Us
-            </div></Link>
+            <Link href="#about">
+              <div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
+                About Us
+              </div>
+            </Link>
+            <Link href="#team">
+              <div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
+                Team
+              </div>
+            </Link>
+            <Link href="#contact">
+              <div className="text-primary_8 font-semibold text-md cursor-pointer hover:text-primary_1 ">
+                Contact Us
+              </div>
+            </Link>
           </div>
 
           <div className=" w-[50%] md:w-[20%] h-full flex items-center justify-end">
-
-
             <Link href="https://app.decenterai.com" className="hidden md:block">
-
-
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
                 Explore
               </button>
@@ -116,16 +129,17 @@ const Hero = () => {
             Integrate AI Into Apps and Dapps With Ease.
           </p>
           <div className="flex space-x-9 md:space-x-16  md:mt-10">
-
             <Link href="https://app.decenterai.com">
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
                 Explore
               </button>
             </Link>
 
-            <Link href="presale"><button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
-              DCEN
-            </button></Link>
+            <Link href="presale">
+              <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
+                DCEN
+              </button>
+            </Link>
           </div>
         </div>
       </div>

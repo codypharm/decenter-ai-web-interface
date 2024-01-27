@@ -13,49 +13,77 @@ const Footer = () => {
       <div className="w-[80%] h-[80%] flex gap-y-10 md:gap-y-0 flex-col md:flex-row m-auto">
         <div className="w-full md:w-[30%] relative">
           <div className=" w-full ">
-            <Link href="/"> <Image
-              src="/logo.png"
-              alt="logo image"
-              width={150}
-              height={200}
-              style={{
-                maxWidth: '100%',
-                maxHeight: '100%',
-                objectFit: 'contain',
-              }}
-            /></Link>
+            <Link href="/">
+              {' '}
+              <Image
+                src="/logo.png"
+                alt="logo image"
+                width={150}
+                height={200}
+                style={{
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+            </Link>
           </div>
           <div className=" hidden md:flex space-x-8 text-primary_8 absolute bottom-0">
             {/* <Link href=""><PiDiscordLogoBold size={25} /></Link> */}
-            <Link href='https://www.linkedin.com/company/decenter-ai/' target='_blank'><AiOutlineLinkedin size={25} /></Link>
-            <Link href="https://t.me/decenteraicomchat" target='_blank'><LiaTelegramPlane size={25} /></Link>
-            <Link href="https://twitter.com/decenteraicom?s=21&t=th7q1ztmiuaE2PoODm3k0A" target='_blank'><PiTwitterLogo size={25} /></Link>
+            <Link href="https://www.linkedin.com/company/decenter-ai/" target="_blank">
+              <AiOutlineLinkedin size={25} />
+            </Link>
+            <Link href="https://t.me/decenteraicomchat" target="_blank">
+              <LiaTelegramPlane size={25} />
+            </Link>
+            <Link
+              href="https://twitter.com/decenteraicom?s=21&t=th7q1ztmiuaE2PoODm3k0A"
+              target="_blank"
+            >
+              <PiTwitterLogo size={25} />
+            </Link>
           </div>
         </div>
         <div className="w-full md:w-[20%] text-primary_7 font-archivo ">
-          <Link href="#about"> <p className="text-sm md:text-lg text-left md:text-center  pt-1">AboutUs</p></Link>
+          <Link href="#about">
+            {' '}
+            <p className="text-sm md:text-lg text-left md:text-center  pt-1">AboutUs</p>
+          </Link>
         </div>
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
-          <Link href="#team"> <p className="text-sm md:text-lg text-left md:text-center pt-1">Team</p></Link>
+          <Link href="#team">
+            {' '}
+            <p className="text-sm md:text-lg text-left md:text-center pt-1">Team</p>
+          </Link>
         </div>
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
-          <Link href="#contact"><p className="text-sm md:text-lg    pt-1">Contact US</p></Link>
+          <Link href="#contact">
+            <p className="text-sm md:text-lg    pt-1">Contact US</p>
+          </Link>
           <div className="flex space-x-8  text-primary_8 mt-10">
             <HiOutlineMailOpen size={20} />
-            <Link href="mailto:admin@decenterai.com"><p className="font-archivo pt-1">Admin@decenterai.com</p></Link>
+            <Link href="mailto:admin@decenterai.com">
+              <p className="font-archivo pt-1">Admin@decenterai.com</p>
+            </Link>
           </div>
           <div className="flex space-x-8 items-center  text-primary_8 mt-10">
             <HiOutlineLocationMarker size={20} className="text-primary_8" />
-            <p className="font-archivo pt-1">
-              Sydney,
-              Australia
-            </p>
+            <p className="font-archivo pt-1">Sydney, Australia</p>
           </div>
           <div className="flex space-x-8 text-primary_8  py-10 md:hidden">
             {/* <Link href=""><PiDiscordLogoBold size={25} /></Link> */}
-            <Link href='https://www.linkedin.com/company/decenter-ai/' target='_blank'><AiOutlineLinkedin size={25} /></Link>
-            <Link href="https://t.me/decenteraicomchat" target='_blank'><LiaTelegramPlane size={25} /></Link>
-            <Link href="https://twitter.com/decenteraicom?s=21&t=th7q1ztmiuaE2PoODm3k0A" target='_blank'><PiTwitterLogo size={25} /></Link>
+            <Link href="https://www.linkedin.com/company/decenter-ai/" target="_blank">
+              <AiOutlineLinkedin size={25} />
+            </Link>
+            <Link href="https://t.me/decenteraicomchat" target="_blank">
+              <LiaTelegramPlane size={25} />
+            </Link>
+            <Link
+              href="https://twitter.com/decenteraicom?s=21&t=th7q1ztmiuaE2PoODm3k0A"
+              target="_blank"
+            >
+              <PiTwitterLogo size={25} />
+            </Link>
           </div>
         </div>
       </div>

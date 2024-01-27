@@ -7,7 +7,7 @@ import Token from './components/home/Token'
 import Team from './components/home/Team'
 import Action from './components/home/Action'
 import Footer from './components/home/Footer'
-import { AppMetaData } from "@config/app";
+import { AppMetaData } from '@config/app'
 import WorkFlow from './components/home/WorkFlow'
 import Mail from './components/home/Mail'
 
