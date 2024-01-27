@@ -166,7 +166,6 @@ const PresalePage = () => {
   const depositErc = async () => {
     approve({
       args: [`${process.env.NEXT_PUBLIC_PRESALE_ADDRESS}`, parseEther(tokenField, 'wei')],
-
     })
   }
 
@@ -276,12 +275,14 @@ const PresalePage = () => {
               />
             </div>
 
-            {!isLoading && <button
-              type="submit"
-              className="text-base font-medium text-white opacity-40 bg-primary_8 p-2 rounded-full hover:bg-primary_7 ">
-              Proceed
-            </button>}
-
+            {!isLoading && (
+              <button
+                type="submit"
+                className="text-base font-medium text-white opacity-40 bg-primary_8 p-2 rounded-full hover:bg-primary_7 "
+              >
+                Proceed
+              </button>
+            )}
           </form>
           <div className="flex flex-col gap-2 text-sm mt-4">
             <div className="flex  justify-between gap-4 items-center">
