@@ -166,6 +166,7 @@ const PresalePage = () => {
   const depositErc = async () => {
     approve({
       args: [`${process.env.NEXT_PUBLIC_PRESALE_ADDRESS}`, parseEther(tokenField, 'wei')],
+
     })
   }
 
@@ -241,7 +242,7 @@ const PresalePage = () => {
                 </label>
                 <input
                   type="number"
-                  className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3  placeholder:px-2"
+                  className="border text-white  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3  placeholder:px-2"
                   id="token"
                   placeholder="0.0"
                   onChange={(e) => changeToken(e)}
@@ -256,7 +257,7 @@ const PresalePage = () => {
                 </label>
                 <input
                   type="number"
-                  className="border  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3 placeholder:px-2"
+                  className="border text-white  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3 placeholder:px-2"
                   id="dcen"
                   placeholder="0.0"
                   onChange={(e) => changeDecen(e)}
@@ -274,14 +275,13 @@ const PresalePage = () => {
                 color="#ffffff"
               />
             </div>
-            {!isLoading && (
-              <button
-                type="submit"
-                className="text-base font-medium text-primary_ opacity-40 bg-primary_8 p-2 rounded-full hover:bg-primary_7 "
-              >
-                Proceed
-              </button>
-            )}
+
+            {!isLoading && <button
+              type="submit"
+              className="text-base font-medium text-white opacity-40 bg-primary_8 p-2 rounded-full hover:bg-primary_7 ">
+              Proceed
+            </button>}
+
           </form>
           <div className="flex flex-col gap-2 text-sm mt-4">
             <div className="flex  justify-between gap-4 items-center">

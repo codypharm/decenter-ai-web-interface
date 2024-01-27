@@ -32,10 +32,12 @@ const Team = () => {
           <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
             <div className="font-archivo text-sm  font-semibold mt-6 flex justify-between items-center">
               <p>Victor (CEO)</p>
+
               <Link href="https://www.linkedin.com/in/victor-kaycee/" target="_blank">
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Founded SureCrypto a blockchain service company with projects like GamerHub,
@@ -56,10 +58,12 @@ const Team = () => {
           <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
             <div className="font-archivo text-sm font-semibold mt-6 flex justify-between items-center">
               <p>HIRO (CTO)</p>
+
               <Link href="https://www.linkedin.com/in/laciferin/" target="_blank">
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Data scientist and machine learning engineer with over 5 years of experience
@@ -81,10 +85,12 @@ const Team = () => {
           <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
             <div className="font-archivo text-sm font-semibold mt-6 flex justify-between items-center">
               <p>Glory (CMO)</p>
+
               <Link href="https://www.linkedin.com/in/victor-kaycee/" target="_blank">
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Founded Mindspace solutions, a Web3 marketing agency with clients like
@@ -105,9 +111,11 @@ const Team = () => {
           <div className="h-[50%] text-primary_1 px-6 tracking-tighter">
             <div className="font-archivo text-sm font-semibold mt-6 flex justify-between items-center">
               <p>William (DEV)</p>
+
               <Link href="https://www.linkedin.com/in/codypharm/" target="_blank">
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Co-founder and Dev at FreshCoast Blockchain and OpenSafari. Core Contributor
