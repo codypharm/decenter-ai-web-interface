@@ -51,6 +51,7 @@ jobs:
       #            .github/workflows/${ github.workflow}.yaml
 
       - name: Prettify code
+        continue-on-error: true
         #        continue-on-error: true
         uses: creyD/prettier_action@v4.3
         env:
@@ -64,8 +65,15 @@ jobs:
           file_pattern: '*'
           only_changed: false
           prettier_options: '--write . --ignore-path .prettierignore.ci'
-#          ignore path not necessary
-#          commit_options: '-c user.email laciferin@gmail.com'
+
+      - name: Push to protected branch
+        if:  failure()
+        uses: CasperWA/push-protected@v2
+        with:
+            token: ${{ secrets.TOKEN_GITHUB }}
+            branch: main
+  #          ignore path not necessary
+  #          commit_options: '-c user.email laciferin@gmail.com'
 
 #      - name: Prettify code except yaml files [executed cuz the actions tries to update ${{github.workflow}}.yaml
 #        if: $(failure())
