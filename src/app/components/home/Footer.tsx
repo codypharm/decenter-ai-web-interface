@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
           <Link href="#contact"><p className="text-sm md:text-lg    pt-1">Contact US</p></Link>
           <div className="flex space-x-8  text-primary_8 mt-10">
-            <HiOutlineMailOpen size={25} />
+            <HiOutlineMailOpen size={20} />
             <Link href="mailto:admin@decenterai.com"><p className="font-archivo pt-1">Admin@decenterai.com</p></Link>
           </div>
           <div className="flex space-x-8 items-center  text-primary_8 mt-10">

@@ -43,7 +43,7 @@ const PresalePage = () => {
 
 
   const { write: paynative } = useContractWrite({
-    address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
+    address: `0x${process.env.NEXT_PUBLIC_PRESALE_ADDRESS?.substring(2)}`,
     abi: presaleAbi,
     functionName: 'payNative',
     onSuccess: () => {
@@ -57,7 +57,7 @@ const PresalePage = () => {
   })
 
   const { write: contributeErc } = useContractWrite({
-    address: `0x${process.env.NEXT_PUBLIC_PRESALE_Address?.substring(2)}`,
+    address: `0x${process.env.NEXT_PUBLIC_PRESALE_ADDRESS?.substring(2)}`,
     abi: presaleAbi,
     functionName: 'contributeERC20',
     onSuccess() {
@@ -71,7 +71,7 @@ const PresalePage = () => {
   })
 
   const { write: approve } = useContractWrite({
-    address: `0x${process.env.NEXT_PUBLIC_STABLE_TOKEN_Address?.substring(2)}`,
+    address: `0x${process.env.NEXT_PUBLIC_STABLE_TOKEN_ADDRESS?.substring(2)}`,
     abi: stableAbi,
     functionName: 'approve',
     onSuccess() {
@@ -181,7 +181,7 @@ const PresalePage = () => {
 
   const depositErc = async () => {
     approve({
-      args: [`${process.env.NEXT_PUBLIC_PRESALE_Address}`, parseEther(tokenField, 'wei')],
+      args: [`${process.env.NEXT_PUBLIC_PRESALE_ADDRESS}`, parseEther(tokenField, 'wei')],
 
     })
   }
@@ -213,7 +213,7 @@ const PresalePage = () => {
   }, [selectedToken])
 
   return (
-    <main className="w-full bg-primary_13">
+    <main className="w-full min-h-screen flex flex-col justify-center bg-primary_13">
       <Nav />
 
       <div className="flex flex-col gap-6  items-center mt-12 md:mt-0 font-archivo shadow-xl  ">
