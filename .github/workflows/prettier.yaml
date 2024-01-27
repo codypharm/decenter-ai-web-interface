@@ -51,6 +51,7 @@ jobs:
       #            .github/workflows/${ github.workflow}.yaml
 
       - name: Prettify code
+        id: prettier
         continue-on-error: true
         #        continue-on-error: true
         uses: creyD/prettier_action@v4.3
@@ -67,7 +68,7 @@ jobs:
           prettier_options: '--write . --ignore-path .prettierignore.ci'
 
       - name: Push to protected branch
-        if:  failure()
+        if:  ${{ failure() }}  
         uses: CasperWA/push-protected@v2
         with:
             token: ${{ secrets.TOKEN_GITHUB }}
