@@ -37,6 +37,7 @@ const Team = () => {
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Founded SureCrypto a blockchain service company with projects like GamerHub,
@@ -62,6 +63,7 @@ const Team = () => {
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Data scientist and machine learning engineer with over 5 years of experience
@@ -84,10 +86,11 @@ const Team = () => {
             <div className="font-archivo text-sm font-semibold mt-6 flex justify-between items-center">
               <p>Glory (CMO)</p>
 
-              <Link href="https://www.linkedin.com/in/victor-kaycee/" target="_blank">
+              <Link href="https://www.linkedin.com/in/glorylucas/" target="_blank">
                 {' '}
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Founded Mindspace solutions, a Web3 marketing agency with clients like
@@ -112,6 +115,7 @@ const Team = () => {
               <Link href="https://www.linkedin.com/in/codypharm/" target="_blank">
                 <AiOutlineLinkedin size={30} className="pt-1 text-primary_7" />
               </Link>
+
             </div>
             <p className="text-primary_7 text-xs mt-3 text-center">
               Co-founder and Dev at FreshCoast Blockchain and OpenSafari. Core Contributor

@@ -73,16 +73,16 @@ const Page = () => {
 
   return (
     <main className="bg-primary_13 min-h-screen ">
-      <div className="h-[15%] w-full max-h-[150px]">
+
+      <div className='h-[15%] w-full max-h-[150px]'>
+
         <Nav />
+
       </div>
-      <div className="h-[75%] flex flex-col justify-center">
+      <div className='h-[75%] flex flex-col justify-center'>
         <div className="flex flex-col gap-6  items-center mt-12 md:mt-0 font-archivo shadow-xl  ">
-          <Image
-            src={logo}
-            alt="Decenter logo"
-            className="w-[40%] sm:w-[20%] md:w-[15%]"
-          />
+          <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
+
 
           <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-8  w-[90%] mx-auto max-w-[400px]">
             <div className="flex flex-col gap-4 ">
@@ -102,6 +102,7 @@ const Page = () => {
                 <span className="text-primary_5">
                   {formatEther(BigInt(amountInMatic))} Matic
                 </span>
+
               </div>
               <div className="flex justify-between gap-4 items-center border-b border-primary_10 text-base pb-2">
                 <span className=" text-primary_7">Price Per Token</span>
@@ -110,33 +111,30 @@ const Page = () => {
               <div className="flex justify-between gap-4 items-center border-b border-primary_10 text-base pb-2">
                 <span className=" text-primary_7">Active Allocation</span>
 
+
                 <span className="text-primary_5">
                   {Number(formatEther(BigInt(benefit))).toFixed(4)} DCEN
                 </span>
+
               </div>
               <div className="flex justify-between gap-4 items-center border-b border-primary_10 text-base pb-2">
                 <span className=" text-primary_7">Purchase Date</span>
                 <span className="text-primary_5">Complete</span>
               </div>
             </div>
-            <div className="flex justify-center py-3">
-              <ClipLoader
-                aria-label="Loading Spinner"
-                size={30}
+            <div className='flex justify-center py-3' >
+              <ClipLoader aria-label="Loading Spinner" size={30}
                 loading={isLoading}
-                data-testid="loader"
-                color="#ffffff"
-              />
+                data-testid="loader" color='#ffffff' />
             </div>
-            {!isLoading && (
-              <button
-                type="button"
-                onClick={claimToken}
-                className="text-base  font-medium text-white opacity-40 bg-primary_8 p-2 rounded-full w-full mt-6 hover:bg-primary_7 "
-              >
-                Proceed
-              </button>
-            )}
+           {!isLoading && <button
+              type="button"
+              onClick={claimToken}
+              className="text-base  font-medium text-white  bg-primary_8 p-2 rounded-full w-full mt-6 hover:bg-primary_7 ">
+              Proceed
+            </button>}
+
+
           </div>
         </div>
       </div>

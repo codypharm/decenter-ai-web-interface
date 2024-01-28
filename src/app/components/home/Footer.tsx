@@ -60,12 +60,13 @@ const Footer = () => {
           <Link href="#contact">
             <p className="text-sm md:text-lg    pt-1">Contact US</p>
           </Link>
-          <div className="flex space-x-8  text-primary_8 mt-10">
+          <div className="flex space-x-8 items-center text-primary_8 mt-10">
             <HiOutlineMailOpen size={20} />
 
             <Link href="mailto:admin@decenterai.com">
               <p className="font-archivo pt-1">Admin@decenterai.com</p>
             </Link>
+
           </div>
           <div className="flex space-x-8 items-center  text-primary_8 mt-10">
             <HiOutlineLocationMarker size={20} className="text-primary_8" />

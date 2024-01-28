@@ -11,9 +11,11 @@ const Nav = () => {
 
   return (
     <nav className="flex  justify-between items-center w-[90%] mx-auto py-6  ">
+
       <Link href="/">
         {' '}
         <Image src={logo} alt="Logo" />
+
       </Link>
       <ConnectButton.Custom>
         {({
@@ -34,6 +36,7 @@ const Nav = () => {
             ready &&
             account &&
             chain &&
+
             (!authenticationStatus || authenticationStatus === 'authenticated')
 
           return (
@@ -42,6 +45,7 @@ const Nav = () => {
                 'aria-hidden': true,
 
                 style: {
+
                   opacity: 0,
                   pointerEvents: 'none',
                   userSelect: 'none',
@@ -51,32 +55,32 @@ const Nav = () => {
               {(() => {
                 if (!connected) {
                   return (
-                    <button
-                      className="bg-primary_10 px-3 py-2 rounded-xl text-white"
-                      onClick={openConnectModal}
-                      type="button"
-                    >
+
+                    <button className='bg-primary_10 px-3 py-2 rounded-xl text-white' onClick={openConnectModal} type="button">
+
+
                       Connect Wallet
                     </button>
                   )
                 }
                 if (chain.unsupported) {
                   return (
-                    <button
-                      className="bg-red-600 px-3 py-2 rounded-xl text-white"
-                      onClick={openChainModal}
-                      type="button"
-                    >
+
+                    <button className='bg-red-600 px-3 py-2 rounded-xl text-white' onClick={openChainModal} type="button">
+
                       Wrong network
                     </button>
                   )
+
                 }
                 return (
                   <div style={{ display: 'flex', gap: 12 }}>
                     <button
                       onClick={openChainModal}
                       style={{ display: 'flex', alignItems: 'center' }}
-                      className="bg-primary_10 px-3 py-2 rounded-xl text-white"
+
+                      className='bg-primary_10 px-3 py-2 rounded-xl text-white'
+
                       type="button"
                     >
                       {chain.hasIcon && (
@@ -102,10 +106,11 @@ const Nav = () => {
                       {chain.name}
                     </button>
                     <button
-                      className="bg-primary_10 px-3 py-2 rounded-xl text-white"
-                      onClick={openAccountModal}
-                      type="button"
-                    >
+
+                      className='bg-primary_10 px-3 py-2 rounded-xl text-white'
+                      onClick={openAccountModal} type="button">
+
+
                       {account.displayName}
                       {account.displayBalance ? ` (${account.displayBalance})` : ''}
                     </button>
@@ -117,6 +122,7 @@ const Nav = () => {
         }}
       </ConnectButton.Custom>
     </nav>
+
   )
 }
 
