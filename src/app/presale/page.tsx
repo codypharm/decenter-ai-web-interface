@@ -30,14 +30,21 @@ const PresalePage = () => {
   const [decenField, setDecenField] = useState<string>('')
   const [isLoading, setIsLoading] = useState<boolean>(false)
 
-  const { data: maticFeed, isFetching: fetchingMatic, isLoading: loadingMatic } = useContractRead({
+  const {
+    data: maticFeed,
+    isFetching: fetchingMatic,
+    isLoading: loadingMatic,
+  } = useContractRead({
     abi: priceFeedAbi,
     address: `0x${process.env.NEXT_PUBLIC_MATIC_FEED_ADDRESS?.substring(2)}`,
     functionName: 'latestRoundData',
   })
 
-
-  const { data: usdtFeed, isFetching: fetchingUsdt, isLoading: loadingUsdt } = useContractRead({
+  const {
+    data: usdtFeed,
+    isFetching: fetchingUsdt,
+    isLoading: loadingUsdt,
+  } = useContractRead({
     abi: priceFeedAbi,
     address: `0x${process.env.NEXT_PUBLIC_USDT_FEED_ADDRESS?.substring(2)}`,
     functionName: 'latestRoundData',
@@ -134,11 +141,9 @@ const PresalePage = () => {
     let qtyDecen = 0
     if (selectedToken == 'USDT') {
       qtyDecen = usdtInUSD / decenRate
-
     } else if (selectedToken == 'MATIC') {
       qtyDecen = maticInUSD / decenRate
     }
-
 
     qtyDecen > 0 ? setDecenField(String(qtyDecen)) : setDecenField(String(0))
   }
@@ -172,7 +177,6 @@ const PresalePage = () => {
   const depositErc = async () => {
     approve({
       args: [`${process.env.NEXT_PUBLIC_PRESALE_ADDRESS}`, parseEther(tokenField, 'wei')],
-
     })
   }
 
@@ -188,10 +192,8 @@ const PresalePage = () => {
   }
 
   useEffect(() => {
-
     handleMaticFeed()
     handleUsdtFeed()
-
   }, [maticFeed, usdtFeed])
 
   useEffect(() => {
@@ -200,13 +202,16 @@ const PresalePage = () => {
 
   return (
     <main className="w-full min-h-screen flex flex-col  bg-primary_13">
-      <div className='h-[15%] max-h-[100px] '>
+      <div className="h-[15%] max-h-[100px] ">
         <Nav />
-
       </div>
-      <div className='h-[85%]'>
+      <div className="h-[85%]">
         <div className="flex flex-col gap-6  items-center mt-12 md:mt-0 font-archivo shadow-xl  ">
-          <Image src={logo} alt="Decenter logo" className="w-[40%] sm:w-[20%] md:w-[15%]" />
+          <Image
+            src={logo}
+            alt="Decenter logo"
+            className="w-[40%] sm:w-[20%] md:w-[15%]"
+          />
 
           <div className=" rounded-lg shadow bg-[rgba(5,5,5,0.80)] border border-primary_11 p-6  w-[90%] mx-auto max-w-[400px] ">
             <form
@@ -226,7 +231,6 @@ const PresalePage = () => {
                         <span className="text-white">{selectedToken}</span>
                         <PiCaretDown size={20} className="text-primary_7" />
                       </div>
-
 
                       {isDropdownOpen && (
                         <div className="absolute top-full left-0 bg-primary_10 rounded-lg mt-2 p-2">
@@ -250,10 +254,12 @@ const PresalePage = () => {
                   </label>
                   <input
                     type="number"
-                    disabled={loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt}
+                    disabled={
+                      loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt
+                    }
                     className="border text-white  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3  placeholder:px-2"
                     id="token"
-                    placeholder={`${loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt ? "Please wait " : "0.0"}`}
+                    placeholder={`${loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt ? 'Please wait ' : '0.0'}`}
                     onChange={(e) => changeToken(e)}
                     value={tokenField}
                   />
@@ -266,10 +272,12 @@ const PresalePage = () => {
                   </label>
                   <input
                     type="number"
-                    disabled={loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt}
+                    disabled={
+                      loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt
+                    }
                     className="border text-white  rounded-2xl border-primary_10 bg-transparent focus-within:outline-none p-3 placeholder:px-2"
                     id="dcen"
-                    placeholder={`${loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt ? "Please wait " : "0.0"}`}
+                    placeholder={`${loadingMatic || loadingUsdt || fetchingMatic || fetchingUsdt ? 'Please wait ' : '0.0'}`}
                     onChange={(e) => changeDecen(e)}
                     value={decenField}
                   />
@@ -286,12 +294,14 @@ const PresalePage = () => {
                 />
               </div>
 
-              {!isLoading && <button
-                type="submit"
-                className="text-base font-medium text-primary_1  bg-primary_8 p-2 rounded-full hover:bg-primary_7 ">
-                Proceed
-              </button>}
-
+              {!isLoading && (
+                <button
+                  type="submit"
+                  className="text-base font-medium text-primary_1  bg-primary_8 p-2 rounded-full hover:bg-primary_7 "
+                >
+                  Proceed
+                </button>
+              )}
             </form>
             <div className="flex flex-col gap-2 text-sm mt-4">
               <div className="flex  justify-between gap-4 items-center">
@@ -302,7 +312,6 @@ const PresalePage = () => {
                 <p className=" text-primary_7">Maximum Allocation</p>
                 <span className="font-medium text-primary_5">$25,000</span>
               </div>
-
             </div>
           </div>
         </div>
