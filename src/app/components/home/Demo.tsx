@@ -9,7 +9,7 @@ const Demo = () => {
       <Rain />
 
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="w-[80%] relative bg-primary_12 border border-primary_8 bg-opacity-90 rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-10 px-10 text-primary_1">
+        <div className="w-[80%] relative border backdrop-blur-md border-primary_8 bg-opacity-90 rounded-xl shadow-[0px_-2px_16px_0px_#4a5568] py-10 px-10 text-primary_1">
           <h2 className="font-logirentBold text-xl md:text-3xl">
             Integrate AI models With ease
           </h2>
@@ -21,13 +21,13 @@ const Demo = () => {
             <li>Integrate data services to keep your AI models up-to-date</li>
           </ul>
 
-          <Link href="https://app.decenterai.com">
+          <Link target='_blank' href="https://node.decenterai.com/">
             <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 mt-6 cursor-pointer rounded-xl">
-              Explore
+              Launch Dapp
             </button>
           </Link>
 
-          <div className="absolute right-2 -top-3 -bottom-3 w-[25%] h-full hidden md:block ">
+          <div className="absolute right-20 top-3 scale-125 w-[25%] h-full hidden md:block ">
             <Image
               src="/pc.png"
               alt="decenter image"

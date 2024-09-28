@@ -60,10 +60,10 @@ const Hero = () => {
                 </Link>
               </ul>
             </div>
-            <div className="h-[20%] text-center">
-              <Link href="https://app.decenterai.com">
+            <div className="h-[20%] text-center cursor-pointer">
+              <Link target='_blank' href="https://node.decenterai.com/">
                 <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
-                  Explore
+                  Launch Dapp
                 </button>
               </Link>
             </div>
@@ -72,7 +72,7 @@ const Hero = () => {
       )}
       <Spiral />
       <div className="absolute inset-0 bg-primary_13 bg-opacity-50 z-10">
-        <div className="w-[80%] h-[10%] m-auto mt-[2%] rounded-full bg-primary_13 bg-opacity-80  border-primary_8 text-white flex justify-between">
+        <div className="w-[80%] h-[10%] m-auto mt-[2%] rounded-full bg-primary_13 px-10 border-[1px] border-primary_12 bg-opacity-80  text-white flex justify-between">
           <div className="w-[50%] md:w-[10%] relative">
             <Image
               src="/logo.png"
@@ -108,9 +108,9 @@ const Hero = () => {
           </div>
 
           <div className=" w-[50%] md:w-[20%] h-full flex items-center justify-end">
-            <Link href="https://app.decenterai.com" className="hidden md:block">
+            <Link target='_blank' href="https://node.decenterai.com/" className="hidden md:block cursor-pointer">
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
-                Explore
+                Launch Dapp
               </button>
             </Link>
             <RxHamburgerMenu
@@ -128,16 +128,16 @@ const Hero = () => {
           <p className="font-archivo text-sm text-primary_6 leading-loose">
             Integrate AI Into Apps and Dapps With Ease.
           </p>
-          <div className="flex space-x-9 md:space-x-16  md:mt-10">
-            <Link href="https://app.decenterai.com">
-              <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
-                Explore
+          <div className="flex space-x-9 md:space-x-10  md:mt-10">
+            <Link target='_blank' href="https://explorer.decenterai.com/">
+              <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo cursor-pointer rounded-3xl p-3 px-6">
+                AI Explorer
               </button>
             </Link>
 
-            <Link href="presale">
-              <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo hover:border-white py-1 md-py-2 px-3 cursor-pointer rounded-3xl">
-                Buy DCEN
+            <Link target='_blank' href="https://node.decenterai.com/">
+              <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo hover:border-white cursor-pointer rounded-3xl p-3 px-6">
+                Launch Dapp
               </button>
             </Link>
           </div>

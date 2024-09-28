@@ -25,11 +25,11 @@ const Mail = () => {
       </div>
 
       <div className="absolute inset-0">
-        <div className="w-[80%] m-auto flex flex-col justify-center items-center h-[60vh]  gap-6 ">
-          <h2 className="text-2xl font-logirentBold text-center">
-            Join the AI Explorer waitlist
+        <div className="w-[80%] m-auto flex flex-col justify-center items-center h-[60vh] mt-28 gap-6 ">
+          <h2 className="text-5xl text-white font-logirentBold text-center">
+            Explore Limitless Possibilities
           </h2>
-          <p className="text-primary_8 font-semibold text-center">
+          <p className="text-primary_6 text-lg mt-2 font-archivo font-semibold text-center">
             Discover the unlimited potential of AI with our cutting-edge explorer
           </p>
           <div className="border border-primary_9 h-14 p-1 rounded-xl w-[90%] max-w-[450px] flex">
