@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export const Rain = () => {
   return (
     <svg
-      width="713"
-      height="821"
+      className="h-[50%] w-[50%]"
       viewBox="0 0 713 821"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -65,5 +64,5 @@ export const Rain = () => {
         fill="white"
       />
     </svg>
-  );
-};
+  )
+}

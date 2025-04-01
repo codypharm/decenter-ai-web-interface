@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react'
 
 export const Rings = () => {
   return (
     <svg
-      width="754"
-      height="627"
+      className="h-[100%] w-[100%]"
       viewBox="0 0 754 627"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -81,11 +80,7 @@ export const Rings = () => {
             type="matrix"
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.1 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_1603_697"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1603_697" />
         </filter>
         <filter
           id="filter1_i_1603_697"
@@ -116,11 +111,7 @@ export const Rings = () => {
             type="matrix"
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.07 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_1603_697"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1603_697" />
         </filter>
         <filter
           id="filter2_i_1603_697"
@@ -151,13 +142,9 @@ export const Rings = () => {
             type="matrix"
             values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.05 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_1603_697"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1603_697" />
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}

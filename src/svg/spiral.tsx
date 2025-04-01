@@ -1,8 +1,9 @@
-import React from "react";
+import React from 'react'
 
 const Spiral = () => {
   return (
     <svg
+      className="hidden md:block"
       width="1085"
       height="850"
       viewBox="0 0 1085 850"
@@ -238,7 +239,7 @@ const Spiral = () => {
         strokeLinecap="round"
       />
     </svg>
-  );
-};
+  )
+}
 
-export default Spiral;
+export default Spiral

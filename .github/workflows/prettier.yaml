@@ -1,0 +1,92 @@
+name: Prettier
+
+on:
+  # pull_request:
+  push:
+    branches:
+        - main
+
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: write
+
+jobs:
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          ref: ${{ github.head_ref }}
+          persist-credentials: true
+
+      #      - name: Git config
+      #        run: |
+      #          git config --global user.name Hiro
+      #          git config --global user.email laciferin@gmail.com
+      #      - name: Prettify code
+      #        shell: bash
+      #        run: |
+      #          find . -type f -not -name "prettier.yaml"
+      #        doesn't work as the prettier complains argument list is too long
+
+      - name: Create .prettierignore
+        shell: bash
+        run: |
+          cp .prettierignore .prettierignore.ci
+          echo ".github/workflows/${GITHUB_WORKFLOW}.yaml" >> .prettierignore.ci
+
+      #        uses: "DamianReeves/write-file-action@master"
+      #        with:
+      #          path: .prettierignore
+      #          write-mode: append
+      #          contents: |
+      #            .github/workflows/${ github.workflow}.yaml
+
+      - name: Prettify code
+        id: prettier
+        continue-on-error: true
+        #        continue-on-error: true
+        uses: creyD/prettier_action@v4.3
+        env:
+          GITHUB_ACTOR: ${{github.actor}}
+        with:
+          dry: false
+          github_token: ${{ github.token }}
+          same_commit: false
+          commit_message: 'style: pretty code'
+          commit_description: 'automated via ci'
+          file_pattern: '*'
+          only_changed: false
+          prettier_options: '--write . --ignore-path .prettierignore.ci'
+
+      - name: Push to protected branch
+        if: steps.prettier.outcome == 'failure'
+        uses: CasperWA/push-protected@v2
+        with:
+            token: ${{ secrets.TOKEN_GITHUB }}
+            branch: main
+  #          ignore path not necessary
+  #          commit_options: '-c user.email laciferin@gmail.com'
+
+#      - name: Prettify code except yaml files [executed cuz the actions tries to update ${{github.workflow}}.yaml
+#        if: $(failure())
+#        uses: creyD/prettier_action@v4.3
+#        env:
+#          GITHUB_ACTOR: ${{github.actor}}
+#        with:
+#          dry: false
+#          github_token: ${{ github.token }}
+#          same_commit: false
+#          commit_message: 'style: pretty code'
+#          commit_description: 'automated via ci'
+#          file_pattern: "**/*.{js,jsx,ts,tsx,css,scss,html,vue,json,md}`"
+#          only_changed: false
+#          prettier_options: '--write .'

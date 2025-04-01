@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const TokenMinor = () => {
   return (
@@ -32,12 +32,9 @@ export const TokenMinor = () => {
             in2="BackgroundImageFix"
             result="shape"
           />
-          <feGaussianBlur
-            stdDeviation="12"
-            result="effect1_foregroundBlur_1603_701"
-          />
+          <feGaussianBlur stdDeviation="12" result="effect1_foregroundBlur_1603_701" />
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}

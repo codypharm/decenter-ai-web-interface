@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const TokenStar = () => {
   return (
@@ -52,12 +52,9 @@ export const TokenStar = () => {
             in2="effect1_dropShadow_1603_702"
             result="shape"
           />
-          <feGaussianBlur
-            stdDeviation="43"
-            result="effect2_foregroundBlur_1603_702"
-          />
+          <feGaussianBlur stdDeviation="43" result="effect2_foregroundBlur_1603_702" />
         </filter>
       </defs>
     </svg>
-  );
-};
+  )
+}

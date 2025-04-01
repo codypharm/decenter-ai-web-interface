@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 export const Globe4 = () => {
   return (
@@ -12,7 +12,7 @@ export const Globe4 = () => {
       <g opacity="0.1">
         <mask
           id="mask0_1580_858"
-          style={{ maskType: "alpha" }}
+          style={{ maskType: 'alpha' }}
           maskUnits="userSpaceOnUse"
           x="0"
           y="0"
@@ -23,12 +23,7 @@ export const Globe4 = () => {
         </mask>
         <g mask="url(#mask0_1580_858)">
           <g filter="url(#filter0_i_1580_858)">
-            <circle
-              cx="74"
-              cy="74"
-              r="74"
-              fill="url(#paint1_linear_1580_858)"
-            />
+            <circle cx="74" cy="74" r="74" fill="url(#paint1_linear_1580_858)" />
           </g>
           <g filter="url(#filter1_f_1580_858)">
             <path
@@ -76,11 +71,7 @@ export const Globe4 = () => {
             type="matrix"
             values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.46 0"
           />
-          <feBlend
-            mode="normal"
-            in2="shape"
-            result="effect1_innerShadow_1580_858"
-          />
+          <feBlend mode="normal" in2="shape" result="effect1_innerShadow_1580_858" />
         </filter>
         <filter
           id="filter1_f_1580_858"
@@ -127,5 +118,5 @@ export const Globe4 = () => {
         </linearGradient>
       </defs>
     </svg>
-  );
-};
+  )
+}
