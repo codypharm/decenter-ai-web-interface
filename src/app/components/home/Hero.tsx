@@ -61,7 +61,7 @@ const Hero = () => {
               </ul>
             </div>
             <div className="h-[20%] text-center cursor-pointer">
-              <Link target='_blank' href="https://node.decenterai.com/">
+              <Link target="_blank" href="https://node.decenterai.com/">
                 <button className="bg-primary_11 w-full text-sm text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-full">
                   Launch Dapp
                 </button>
@@ -108,7 +108,11 @@ const Hero = () => {
           </div>
 
           <div className=" w-[50%] md:w-[20%] h-full flex items-center justify-end">
-            <Link target='_blank' href="https://node.decenterai.com/" className="hidden md:block cursor-pointer">
+            <Link
+              target="_blank"
+              href="https://node.decenterai.com/"
+              className="hidden md:block cursor-pointer"
+            >
               <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 cursor-pointer rounded-xl">
                 Launch Dapp
               </button>
@@ -129,13 +133,13 @@ const Hero = () => {
             Integrate AI Into Apps and Dapps With Ease.
           </p>
           <div className="flex space-x-9 md:space-x-10  md:mt-10">
-            <Link target='_blank' href="https://explorer.decenterai.com/">
+            <Link target="_blank" href="https://explorer.decenterai.com/">
               <button className="bg-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo cursor-pointer rounded-3xl p-3 px-6">
                 AI Explorer
               </button>
             </Link>
 
-            <Link target='_blank' href="https://node.decenterai.com/">
+            <Link target="_blank" href="https://node.decenterai.com/">
               <button className="border border-primary_11 text-sm text-primary_1 font-normal font-primaryArchivo hover:border-white cursor-pointer rounded-3xl p-3 px-6">
                 Launch Dapp
               </button>

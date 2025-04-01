@@ -21,7 +21,7 @@ const Demo = () => {
             <li>Integrate data services to keep your AI models up-to-date</li>
           </ul>
 
-          <Link target='_blank' href="https://node.decenterai.com/">
+          <Link target="_blank" href="https://node.decenterai.com/">
             <button className="bg-primary_11 text-primary_1 font-semibold font-primaryArchivo py-2 px-3 mt-6 cursor-pointer rounded-xl">
               Launch Dapp
             </button>

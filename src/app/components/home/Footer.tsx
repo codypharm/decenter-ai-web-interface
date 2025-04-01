@@ -57,7 +57,6 @@ const Footer = () => {
           </Link>
         </div>
 
-
         <div className="w-full md:w-[25%] text-primary_7 font-archivo ">
           <Link href="#contact">
             <p className="text-sm md:text-lg    pt-1">Contact US</p>
